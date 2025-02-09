@@ -11,6 +11,10 @@ interface Lap {
   PlayerNick: Int16Array;
   PlayerSurname: Int16Array;
   LapTimeMs: number;
+  TrackGripStatus: number,
+  RainIntensity: number,
+  SessionIndex: number,
+  SessionType: number,
 }
 
 interface Frame {
@@ -184,7 +188,7 @@ export function App() {
               yaxis: { visible: false },
               margin: {
                 l: 5, r: 5, t: 5, b: 5,
-              }
+              },
             }}
             config={{ staticPlot: true }}
           />
@@ -193,19 +197,20 @@ export function App() {
               {
                 x: lap.Frames.map(c => -c.CarCoordinates[0]),
                 y: lap.Frames.map(c => c.CarCoordinates[2]),
-                // type: 'scatter',
                 mode: 'lines',
                 marker: { color: 'red' },
               },
             ]}
             layout={{
-              width: 1400,
+              width: 800,
               height: 800,
               xaxis: { visible: false },
               yaxis: { visible: false },
               margin: {
-                l: 5, r: 5, t: 5, b: 5,
-              }
+                l: 5, r: 5, t: 5, b: 5, pad: 0
+              },
+              paper_bgcolor: 'rgba(0,0,0,0)',
+              plot_bgcolor: 'rgba(0,0,0,0)',
             }}
             config={{ staticPlot: true }}
           />
