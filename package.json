@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "date-fns": "^4.1.0",
     "plotly.js": "^3.0.0",
     "preact": "^10.25.4",
     "react-plotly.js": "^2.6.0"
