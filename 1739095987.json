@@ -1,0 +1,4849 @@
+{
+  "SmVersion": [
+    49,
+    46,
+    57,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "AcVersion": [
+    49,
+    46,
+    55,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "NumberOfSessions": 0,
+  "CarModel": [
+    97,
+    109,
+    114,
+    95,
+    118,
+    56,
+    95,
+    118,
+    97,
+    110,
+    116,
+    97,
+    103,
+    101,
+    95,
+    103,
+    116,
+    51,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "Track": [
+    98,
+    114,
+    97,
+    110,
+    100,
+    115,
+    95,
+    104,
+    97,
+    116,
+    99,
+    104,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "PlayerName": [
+    77,
+    105,
+    99,
+    104,
+    97,
+    108,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "PlayerNick": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "PlayerSurname": [
+    86,
+    97,
+    108,
+    97,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "AirTemp": 0,
+  "RoadTemp": 0,
+  "SessionType": 3,
+  "RainTyres": 0,
+  "IsValidLap": 1,
+  "TrackGripStatus": 2,
+  "RainIntensity": 0,
+  "SessionIndex": 0,
+  "LapTimeMs": 2147483647,
+  "Frames": [
+    {
+      "GraphicPacket": 274,
+      "PhysicsPacket": 1238,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504555,
+        7.5003676,
+        44.17633
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 285,
+      "PhysicsPacket": 1278,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50456,
+        7.5003743,
+        44.17634
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 298,
+      "PhysicsPacket": 1318,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50457,
+        7.500381,
+        44.176346
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 312,
+      "PhysicsPacket": 1358,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50458,
+        7.500386,
+        44.176353
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 326,
+      "PhysicsPacket": 1398,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504585,
+        7.500392,
+        44.17636
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 340,
+      "PhysicsPacket": 1438,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50459,
+        7.5003967,
+        44.17637
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 352,
+      "PhysicsPacket": 1478,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.5046,
+        7.5004,
+        44.176373
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 361,
+      "PhysicsPacket": 1518,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50461,
+        7.500405,
+        44.17638
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 374,
+      "PhysicsPacket": 1558,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504616,
+        7.500408,
+        44.176388
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 388,
+      "PhysicsPacket": 1598,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50462,
+        7.5004115,
+        44.176395
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 393,
+      "PhysicsPacket": 1638,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50463,
+        7.5004125,
+        44.1764
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 393,
+      "PhysicsPacket": 1678,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50463,
+        7.5004125,
+        44.1764
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 393,
+      "PhysicsPacket": 1718,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50463,
+        7.5004125,
+        44.1764
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 393,
+      "PhysicsPacket": 1758,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50463,
+        7.5004125,
+        44.1764
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 398,
+      "PhysicsPacket": 1798,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50466,
+        7.5004234,
+        44.17643
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 412,
+      "PhysicsPacket": 1838,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50467,
+        7.500426,
+        44.17644
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 423,
+      "PhysicsPacket": 1878,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50468,
+        7.5004272,
+        44.176445
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 441,
+      "PhysicsPacket": 1918,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504684,
+        7.500429,
+        44.176453
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 460,
+      "PhysicsPacket": 1958,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50469,
+        7.5004306,
+        44.17646
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 478,
+      "PhysicsPacket": 1998,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.5047,
+        7.5004315,
+        44.176468
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 496,
+      "PhysicsPacket": 2038,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50471,
+        7.500433,
+        44.176476
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 514,
+      "PhysicsPacket": 2078,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50471,
+        7.500434,
+        44.176483
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 532,
+      "PhysicsPacket": 2118,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504715,
+        7.500435,
+        44.17649
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 550,
+      "PhysicsPacket": 2158,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50472,
+        7.500436,
+        44.1765
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 568,
+      "PhysicsPacket": 2198,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50473,
+        7.5004363,
+        44.176502
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 586,
+      "PhysicsPacket": 2238,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50474,
+        7.5004373,
+        44.17651
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 604,
+      "PhysicsPacket": 2278,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504745,
+        7.5004377,
+        44.176517
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 620,
+      "PhysicsPacket": 2318,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 0,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50475,
+        7.500438,
+        44.176525
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 627,
+      "PhysicsPacket": 2358,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00036399634,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50476,
+        7.5004387,
+        44.176533
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 639,
+      "PhysicsPacket": 2398,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.0003620124,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50477,
+        7.500439,
+        44.17654
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 651,
+      "PhysicsPacket": 2438,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00036386904,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504776,
+        7.5004396,
+        44.176548
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 664,
+      "PhysicsPacket": 2478,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00036606035,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50478,
+        7.50044,
+        44.176556
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 677,
+      "PhysicsPacket": 2518,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00036345446,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50479,
+        7.5004406,
+        44.176563
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 689,
+      "PhysicsPacket": 2558,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.0003635837,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.5048,
+        7.5004406,
+        44.176567
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 700,
+      "PhysicsPacket": 2598,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.0003619725,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50481,
+        7.500441,
+        44.176575
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 713,
+      "PhysicsPacket": 2638,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 0,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.0003648662,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50481,
+        7.500441,
+        44.176582
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 726,
+      "PhysicsPacket": 2678,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 201,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00036669467,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504814,
+        7.5004416,
+        44.17659
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 739,
+      "PhysicsPacket": 2718,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 469,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.0003619211,
+      "ICurrentTime": 0,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50482,
+        7.5004416,
+        44.176598
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 753,
+      "PhysicsPacket": 2758,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 737,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00036873322,
+      "ICurrentTime": 7128,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50483,
+        7.500442,
+        44.176605
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 766,
+      "PhysicsPacket": 2798,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 1106,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00037129273,
+      "ICurrentTime": 7226,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50484,
+        7.500442,
+        44.176613
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 779,
+      "PhysicsPacket": 2838,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 1559,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.0003708658,
+      "ICurrentTime": 7323,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504845,
+        7.500442,
+        44.176617
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 792,
+      "PhysicsPacket": 2878,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 1775,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00036808985,
+      "ICurrentTime": 7423,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50485,
+        7.500442,
+        44.176624
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 806,
+      "PhysicsPacket": 2918,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 1848,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.0003720005,
+      "ICurrentTime": 7528,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50486,
+        7.5004425,
+        44.176632
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 819,
+      "PhysicsPacket": 2958,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 1872,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00037035215,
+      "ICurrentTime": 7626,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50487,
+        7.5004425,
+        44.17664
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 832,
+      "PhysicsPacket": 2998,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 1881,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.00036964763,
+      "ICurrentTime": 7723,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504875,
+        7.5004425,
+        44.176647
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 846,
+      "PhysicsPacket": 3038,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 1884,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.0003731657,
+      "ICurrentTime": 7828,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50488,
+        7.5004425,
+        44.176655
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 859,
+      "PhysicsPacket": 3078,
+      "Gas": 0.03,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 1897,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.001022098,
+      "ICurrentTime": 7926,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.50489,
+        7.5004425,
+        44.176662
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 872,
+      "PhysicsPacket": 3118,
+      "Gas": 0.45,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2448,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.028433202,
+      "ICurrentTime": 8026,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.504974,
+        7.5004416,
+        44.176662
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 885,
+      "PhysicsPacket": 3158,
+      "Gas": 0.8399997,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2554,
+      "SteerAngle": 0,
+      "SpeedKmh": 0.94664574,
+      "ICurrentTime": 8126,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.51488,
+        7.5004306,
+        44.172592
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 898,
+      "PhysicsPacket": 3198,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2601,
+      "SteerAngle": 0,
+      "SpeedKmh": 2.473502,
+      "ICurrentTime": 8223,
+      "NormalizedCarPosition": 0.8020506,
+      "CarCoordinates": [
+        -119.55387,
+        7.50045,
+        44.156544
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 911,
+      "PhysicsPacket": 3238,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2609,
+      "SteerAngle": 0,
+      "SpeedKmh": 4.1840057,
+      "ICurrentTime": 8326,
+      "NormalizedCarPosition": 0.8020909,
+      "CarCoordinates": [
+        -119.63537,
+        7.500577,
+        44.12299
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 924,
+      "PhysicsPacket": 3278,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2614,
+      "SteerAngle": 0,
+      "SpeedKmh": 5.966918,
+      "ICurrentTime": 8426,
+      "NormalizedCarPosition": 0.8021311,
+      "CarCoordinates": [
+        -119.76514,
+        7.5005884,
+        44.069584
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 937,
+      "PhysicsPacket": 3318,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2618,
+      "SteerAngle": 0,
+      "SpeedKmh": 7.751681,
+      "ICurrentTime": 8526,
+      "NormalizedCarPosition": 0.8021714,
+      "CarCoordinates": [
+        -119.93819,
+        7.5003033,
+        43.998604
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 950,
+      "PhysicsPacket": 3358,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2621,
+      "SteerAngle": 0,
+      "SpeedKmh": 9.581248,
+      "ICurrentTime": 8626,
+      "NormalizedCarPosition": 0.80221164,
+      "CarCoordinates": [
+        -120.157936,
+        7.500109,
+        43.908596
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 963,
+      "PhysicsPacket": 3398,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2624,
+      "SteerAngle": 0,
+      "SpeedKmh": 11.437536,
+      "ICurrentTime": 8726,
+      "NormalizedCarPosition": 0.80229217,
+      "CarCoordinates": [
+        -120.43238,
+        7.49971,
+        43.796307
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 976,
+      "PhysicsPacket": 3438,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2627,
+      "SteerAngle": 0,
+      "SpeedKmh": 13.31213,
+      "ICurrentTime": 8826,
+      "NormalizedCarPosition": 0.80237275,
+      "CarCoordinates": [
+        -120.748566,
+        7.4992423,
+        43.6666
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 989,
+      "PhysicsPacket": 3478,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2629,
+      "SteerAngle": 0,
+      "SpeedKmh": 15.206358,
+      "ICurrentTime": 8928,
+      "NormalizedCarPosition": 0.8024935,
+      "CarCoordinates": [
+        -121.10345,
+        7.498897,
+        43.521053
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1002,
+      "PhysicsPacket": 3518,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2631,
+      "SteerAngle": 0,
+      "SpeedKmh": 17.118477,
+      "ICurrentTime": 9028,
+      "NormalizedCarPosition": 0.80261433,
+      "CarCoordinates": [
+        -121.52676,
+        7.498167,
+        43.347733
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1015,
+      "PhysicsPacket": 3558,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2634,
+      "SteerAngle": 0,
+      "SpeedKmh": 19.046724,
+      "ICurrentTime": 9128,
+      "NormalizedCarPosition": 0.80273515,
+      "CarCoordinates": [
+        -121.98972,
+        7.497348,
+        43.158207
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1028,
+      "PhysicsPacket": 3598,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2636,
+      "SteerAngle": 0,
+      "SpeedKmh": 20.990772,
+      "ICurrentTime": 9228,
+      "NormalizedCarPosition": 0.8028559,
+      "CarCoordinates": [
+        -122.50241,
+        7.4961677,
+        42.948257
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1041,
+      "PhysicsPacket": 3638,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2638,
+      "SteerAngle": 0,
+      "SpeedKmh": 22.944738,
+      "ICurrentTime": 9328,
+      "NormalizedCarPosition": 0.8030165,
+      "CarCoordinates": [
+        -123.06525,
+        7.494907,
+        42.71798
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1054,
+      "PhysicsPacket": 3678,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2640,
+      "SteerAngle": 0,
+      "SpeedKmh": 24.907963,
+      "ICurrentTime": 9428,
+      "NormalizedCarPosition": 0.8032172,
+      "CarCoordinates": [
+        -123.678505,
+        7.493377,
+        42.467113
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1067,
+      "PhysicsPacket": 3718,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2642,
+      "SteerAngle": 0,
+      "SpeedKmh": 26.887514,
+      "ICurrentTime": 9528,
+      "NormalizedCarPosition": 0.80337775,
+      "CarCoordinates": [
+        -124.32518,
+        7.4921722,
+        42.20262
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1080,
+      "PhysicsPacket": 3758,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2645,
+      "SteerAngle": 0,
+      "SpeedKmh": 28.873749,
+      "ICurrentTime": 9626,
+      "NormalizedCarPosition": 0.80357844,
+      "CarCoordinates": [
+        -125.03898,
+        7.489051,
+        41.911243
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1093,
+      "PhysicsPacket": 3798,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2647,
+      "SteerAngle": 0,
+      "SpeedKmh": 30.873747,
+      "ICurrentTime": 9726,
+      "NormalizedCarPosition": 0.8037792,
+      "CarCoordinates": [
+        -125.80393,
+        7.4860945,
+        41.59868
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1106,
+      "PhysicsPacket": 3838,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2651,
+      "SteerAngle": 0,
+      "SpeedKmh": 32.87924,
+      "ICurrentTime": 9826,
+      "NormalizedCarPosition": 0.80402,
+      "CarCoordinates": [
+        -126.59937,
+        7.4827757,
+        41.27381
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1119,
+      "PhysicsPacket": 3878,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2655,
+      "SteerAngle": 0,
+      "SpeedKmh": 34.89523,
+      "ICurrentTime": 9923,
+      "NormalizedCarPosition": 0.80426145,
+      "CarCoordinates": [
+        -127.46649,
+        7.4776773,
+        40.92039
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1132,
+      "PhysicsPacket": 3918,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2662,
+      "SteerAngle": 0,
+      "SpeedKmh": 36.91249,
+      "ICurrentTime": 10021,
+      "NormalizedCarPosition": 0.8045034,
+      "CarCoordinates": [
+        -128.38539,
+        7.473177,
+        40.54566
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1145,
+      "PhysicsPacket": 3958,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2674,
+      "SteerAngle": 0,
+      "SpeedKmh": 38.93398,
+      "ICurrentTime": 10123,
+      "NormalizedCarPosition": 0.8047856,
+      "CarCoordinates": [
+        -129.33144,
+        7.4669175,
+        40.160114
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1159,
+      "PhysicsPacket": 3998,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 3087,
+      "SteerAngle": -0.017053667,
+      "SpeedKmh": 40.49256,
+      "ICurrentTime": 10228,
+      "NormalizedCarPosition": 0.80506784,
+      "CarCoordinates": [
+        -130.42859,
+        7.4588966,
+        39.713333
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1172,
+      "PhysicsPacket": 4038,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2646,
+      "SteerAngle": 0,
+      "SpeedKmh": 42.58844,
+      "ICurrentTime": 10326,
+      "NormalizedCarPosition": 0.80535,
+      "CarCoordinates": [
+        -131.47493,
+        7.450452,
+        39.29512
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1185,
+      "PhysicsPacket": 4078,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2792,
+      "SteerAngle": 0,
+      "SpeedKmh": 44.507137,
+      "ICurrentTime": 10423,
+      "NormalizedCarPosition": 0.80567294,
+      "CarCoordinates": [
+        -132.56702,
+        7.442263,
+        38.863834
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1198,
+      "PhysicsPacket": 4118,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 2903,
+      "SteerAngle": 0,
+      "SpeedKmh": 46.516853,
+      "ICurrentTime": 10523,
+      "NormalizedCarPosition": 0.805996,
+      "CarCoordinates": [
+        -133.7378,
+        7.429737,
+        38.399063
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1212,
+      "PhysicsPacket": 4158,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 3020,
+      "SteerAngle": 0,
+      "SpeedKmh": 48.533745,
+      "ICurrentTime": 10628,
+      "NormalizedCarPosition": 0.8063594,
+      "CarCoordinates": [
+        -135.02243,
+        7.415973,
+        37.889267
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1225,
+      "PhysicsPacket": 4198,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 3178,
+      "SteerAngle": 0,
+      "SpeedKmh": 50.544186,
+      "ICurrentTime": 10726,
+      "NormalizedCarPosition": 0.8066824,
+      "CarCoordinates": [
+        -136.26701,
+        7.40135,
+        37.395763
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1238,
+      "PhysicsPacket": 4238,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 3278,
+      "SteerAngle": 0,
+      "SpeedKmh": 52.63165,
+      "ICurrentTime": 10823,
+      "NormalizedCarPosition": 0.80704445,
+      "CarCoordinates": [
+        -137.56189,
+        7.385791,
+        36.882343
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1252,
+      "PhysicsPacket": 4278,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 3415,
+      "SteerAngle": 0,
+      "SpeedKmh": 54.694035,
+      "ICurrentTime": 10928,
+      "NormalizedCarPosition": 0.8074466,
+      "CarCoordinates": [
+        -139.01314,
+        7.368208,
+        36.30745
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1265,
+      "PhysicsPacket": 4318,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 3564,
+      "SteerAngle": 0,
+      "SpeedKmh": 56.778748,
+      "ICurrentTime": 11023,
+      "NormalizedCarPosition": 0.8078086,
+      "CarCoordinates": [
+        -140.37741,
+        7.354574,
+        35.766994
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1279,
+      "PhysicsPacket": 4358,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 3661,
+      "SteerAngle": 0,
+      "SpeedKmh": 58.931705,
+      "ICurrentTime": 11128,
+      "NormalizedCarPosition": 0.8082517,
+      "CarCoordinates": [
+        -141.94257,
+        7.334118,
+        35.147953
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1292,
+      "PhysicsPacket": 4398,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 3863,
+      "SteerAngle": 0,
+      "SpeedKmh": 61.03376,
+      "ICurrentTime": 11226,
+      "NormalizedCarPosition": 0.8086953,
+      "CarCoordinates": [
+        -143.4507,
+        7.316551,
+        34.551945
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1305,
+      "PhysicsPacket": 4438,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 3931,
+      "SteerAngle": 0,
+      "SpeedKmh": 63.304485,
+      "ICurrentTime": 11323,
+      "NormalizedCarPosition": 0.8090986,
+      "CarCoordinates": [
+        -145.01247,
+        7.2937503,
+        33.93549
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1319,
+      "PhysicsPacket": 4478,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 4102,
+      "SteerAngle": 0,
+      "SpeedKmh": 65.509384,
+      "ICurrentTime": 11428,
+      "NormalizedCarPosition": 0.8095823,
+      "CarCoordinates": [
+        -146.71327,
+        7.266575,
+        33.26445
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1332,
+      "PhysicsPacket": 4518,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 4258,
+      "SteerAngle": 0,
+      "SpeedKmh": 67.776276,
+      "ICurrentTime": 11523,
+      "NormalizedCarPosition": 0.81006587,
+      "CarCoordinates": [
+        -148.43184,
+        7.2359133,
+        32.587032
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1345,
+      "PhysicsPacket": 4558,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 4402,
+      "SteerAngle": 0,
+      "SpeedKmh": 70.0772,
+      "ICurrentTime": 11621,
+      "NormalizedCarPosition": 0.81050915,
+      "CarCoordinates": [
+        -150.11882,
+        7.2056646,
+        31.921623
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1359,
+      "PhysicsPacket": 4598,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 4509,
+      "SteerAngle": 0,
+      "SpeedKmh": 72.45407,
+      "ICurrentTime": 11726,
+      "NormalizedCarPosition": 0.8110736,
+      "CarCoordinates": [
+        -152.09323,
+        7.166333,
+        31.14351
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1372,
+      "PhysicsPacket": 4638,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 4705,
+      "SteerAngle": 0,
+      "SpeedKmh": 74.794014,
+      "ICurrentTime": 11826,
+      "NormalizedCarPosition": 0.81159776,
+      "CarCoordinates": [
+        -153.94498,
+        7.129521,
+        30.414227
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1385,
+      "PhysicsPacket": 4678,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 4852,
+      "SteerAngle": 0,
+      "SpeedKmh": 77.22307,
+      "ICurrentTime": 11923,
+      "NormalizedCarPosition": 0.81212115,
+      "CarCoordinates": [
+        -155.85573,
+        7.0894256,
+        29.662146
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1399,
+      "PhysicsPacket": 4718,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 4992,
+      "SteerAngle": 0,
+      "SpeedKmh": 79.691505,
+      "ICurrentTime": 12028,
+      "NormalizedCarPosition": 0.81268406,
+      "CarCoordinates": [
+        -157.98042,
+        7.0425057,
+        28.82633
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1412,
+      "PhysicsPacket": 4758,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 5160,
+      "SteerAngle": 0,
+      "SpeedKmh": 82.18352,
+      "ICurrentTime": 12126,
+      "NormalizedCarPosition": 0.8132471,
+      "CarCoordinates": [
+        -160.01685,
+        6.995419,
+        28.025568
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1425,
+      "PhysicsPacket": 4798,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 5321,
+      "SteerAngle": 0,
+      "SpeedKmh": 84.70504,
+      "ICurrentTime": 12223,
+      "NormalizedCarPosition": 0.8138511,
+      "CarCoordinates": [
+        -162.11473,
+        6.9435587,
+        27.200977
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1438,
+      "PhysicsPacket": 4838,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 5475,
+      "SteerAngle": 0,
+      "SpeedKmh": 87.27681,
+      "ICurrentTime": 12323,
+      "NormalizedCarPosition": 0.81445515,
+      "CarCoordinates": [
+        -164.33131,
+        6.8864574,
+        26.329725
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1451,
+      "PhysicsPacket": 4878,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 5645,
+      "SteerAngle": 0,
+      "SpeedKmh": 89.87133,
+      "ICurrentTime": 12423,
+      "NormalizedCarPosition": 0.8150994,
+      "CarCoordinates": [
+        -166.6145,
+        6.827497,
+        25.432192
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1464,
+      "PhysicsPacket": 4918,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 5816,
+      "SteerAngle": 0,
+      "SpeedKmh": 92.47941,
+      "ICurrentTime": 12521,
+      "NormalizedCarPosition": 0.8157034,
+      "CarCoordinates": [
+        -168.90512,
+        6.7680593,
+        24.53067
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1477,
+      "PhysicsPacket": 4958,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 5972,
+      "SteerAngle": 0,
+      "SpeedKmh": 95.1191,
+      "ICurrentTime": 12623,
+      "NormalizedCarPosition": 0.8163881,
+      "CarCoordinates": [
+        -171.32124,
+        6.702252,
+        23.579414
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1490,
+      "PhysicsPacket": 4998,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 6123,
+      "SteerAngle": 0,
+      "SpeedKmh": 97.78521,
+      "ICurrentTime": 12723,
+      "NormalizedCarPosition": 0.8170727,
+      "CarCoordinates": [
+        -173.86806,
+        6.628683,
+        22.576426
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1503,
+      "PhysicsPacket": 5038,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 6318,
+      "SteerAngle": 0,
+      "SpeedKmh": 100.4432,
+      "ICurrentTime": 12823,
+      "NormalizedCarPosition": 0.81779754,
+      "CarCoordinates": [
+        -176.42256,
+        6.5521965,
+        21.5703
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1516,
+      "PhysicsPacket": 5078,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 6475,
+      "SteerAngle": 0,
+      "SpeedKmh": 103.130775,
+      "ICurrentTime": 12923,
+      "NormalizedCarPosition": 0.8185224,
+      "CarCoordinates": [
+        -179.0462,
+        6.473008,
+        20.536373
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1529,
+      "PhysicsPacket": 5118,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 6614,
+      "SteerAngle": 0,
+      "SpeedKmh": 105.83666,
+      "ICurrentTime": 13023,
+      "NormalizedCarPosition": 0.8192875,
+      "CarCoordinates": [
+        -181.73882,
+        6.393292,
+        19.474276
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1542,
+      "PhysicsPacket": 5158,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 6796,
+      "SteerAngle": 0,
+      "SpeedKmh": 108.48335,
+      "ICurrentTime": 13123,
+      "NormalizedCarPosition": 0.8200525,
+      "CarCoordinates": [
+        -184.50056,
+        6.3120375,
+        18.383886
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1555,
+      "PhysicsPacket": 5198,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 2,
+      "RPM": 6956,
+      "SteerAngle": 0,
+      "SpeedKmh": 111.114716,
+      "ICurrentTime": 13223,
+      "NormalizedCarPosition": 0.82081753,
+      "CarCoordinates": [
+        -187.32999,
+        6.2248096,
+        17.265444
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1568,
+      "PhysicsPacket": 5238,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5977,
+      "SteerAngle": 0,
+      "SpeedKmh": 112.2588,
+      "ICurrentTime": 13323,
+      "NormalizedCarPosition": 0.8216231,
+      "CarCoordinates": [
+        -190.21901,
+        6.1290703,
+        16.121828
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1581,
+      "PhysicsPacket": 5278,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5258,
+      "SteerAngle": 0,
+      "SpeedKmh": 115.081856,
+      "ICurrentTime": 13423,
+      "NormalizedCarPosition": 0.82242864,
+      "CarCoordinates": [
+        -193.14381,
+        6.0335193,
+        14.962578
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1594,
+      "PhysicsPacket": 5318,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5680,
+      "SteerAngle": 0,
+      "SpeedKmh": 116.97743,
+      "ICurrentTime": 13523,
+      "NormalizedCarPosition": 0.82327443,
+      "CarCoordinates": [
+        -196.13155,
+        5.934096,
+        13.777689
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1607,
+      "PhysicsPacket": 5358,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5841,
+      "SteerAngle": 0,
+      "SpeedKmh": 119.1286,
+      "ICurrentTime": 13626,
+      "NormalizedCarPosition": 0.8241202,
+      "CarCoordinates": [
+        -199.2498,
+        5.822864,
+        12.540284
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1620,
+      "PhysicsPacket": 5398,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5915,
+      "SteerAngle": -0.052474786,
+      "SpeedKmh": 121.334366,
+      "ICurrentTime": 13726,
+      "NormalizedCarPosition": 0.824966,
+      "CarCoordinates": [
+        -202.35143,
+        5.716979,
+        11.313097
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1633,
+      "PhysicsPacket": 5438,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6020,
+      "SteerAngle": 0,
+      "SpeedKmh": 123.477425,
+      "ICurrentTime": 13826,
+      "NormalizedCarPosition": 0.82589215,
+      "CarCoordinates": [
+        -205.59343,
+        5.609421,
+        10.048283
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1646,
+      "PhysicsPacket": 5478,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6117,
+      "SteerAngle": 0,
+      "SpeedKmh": 125.64269,
+      "ICurrentTime": 13928,
+      "NormalizedCarPosition": 0.826738,
+      "CarCoordinates": [
+        -208.73555,
+        5.497825,
+        8.833227
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1659,
+      "PhysicsPacket": 5518,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6203,
+      "SteerAngle": 0,
+      "SpeedKmh": 127.82616,
+      "ICurrentTime": 14028,
+      "NormalizedCarPosition": 0.82766443,
+      "CarCoordinates": [
+        -212.10031,
+        5.3807707,
+        7.542618
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1671,
+      "PhysicsPacket": 5558,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6299,
+      "SteerAngle": 0,
+      "SpeedKmh": 130.00215,
+      "ICurrentTime": 14121,
+      "NormalizedCarPosition": 0.82855046,
+      "CarCoordinates": [
+        -215.18843,
+        5.270328,
+        6.363094
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1684,
+      "PhysicsPacket": 5598,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6454,
+      "SteerAngle": 0,
+      "SpeedKmh": 132.13185,
+      "ICurrentTime": 14226,
+      "NormalizedCarPosition": 0.8295166,
+      "CarCoordinates": [
+        -218.75287,
+        5.1355824,
+        5.002939
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1696,
+      "PhysicsPacket": 5638,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6534,
+      "SteerAngle": 0,
+      "SpeedKmh": 134.32472,
+      "ICurrentTime": 14321,
+      "NormalizedCarPosition": 0.83040243,
+      "CarCoordinates": [
+        -222.03087,
+        5.0034165,
+        3.7517312
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1709,
+      "PhysicsPacket": 5678,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6612,
+      "SteerAngle": 0,
+      "SpeedKmh": 136.52798,
+      "ICurrentTime": 14426,
+      "NormalizedCarPosition": 0.8314495,
+      "CarCoordinates": [
+        -225.71199,
+        4.8451266,
+        2.3455734
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1721,
+      "PhysicsPacket": 5718,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6794,
+      "SteerAngle": 0,
+      "SpeedKmh": 138.56165,
+      "ICurrentTime": 14523,
+      "NormalizedCarPosition": 0.83237576,
+      "CarCoordinates": [
+        -229.18375,
+        4.6834106,
+        1.0165656
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1733,
+      "PhysicsPacket": 5758,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6796,
+      "SteerAngle": 0,
+      "SpeedKmh": 140.81796,
+      "ICurrentTime": 14623,
+      "NormalizedCarPosition": 0.83338237,
+      "CarCoordinates": [
+        -232.70601,
+        4.527215,
+        -0.34096354
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1745,
+      "PhysicsPacket": 5798,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6963,
+      "SteerAngle": 0,
+      "SpeedKmh": 142.82672,
+      "ICurrentTime": 14721,
+      "NormalizedCarPosition": 0.834389,
+      "CarCoordinates": [
+        -236.37054,
+        4.366137,
+        -1.7599678
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1758,
+      "PhysicsPacket": 5838,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 6884,
+      "SteerAngle": 0,
+      "SpeedKmh": 144.71501,
+      "ICurrentTime": 14828,
+      "NormalizedCarPosition": 0.8354758,
+      "CarCoordinates": [
+        -240.36699,
+        4.1762133,
+        -3.3120036
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1770,
+      "PhysicsPacket": 5878,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5747,
+      "SteerAngle": 0,
+      "SpeedKmh": 145.71867,
+      "ICurrentTime": 14926,
+      "NormalizedCarPosition": 0.8364819,
+      "CarCoordinates": [
+        -244.01984,
+        4.0049887,
+        -4.7345247
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1782,
+      "PhysicsPacket": 5918,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5939,
+      "SteerAngle": 0,
+      "SpeedKmh": 147.48537,
+      "ICurrentTime": 15026,
+      "NormalizedCarPosition": 0.83752847,
+      "CarCoordinates": [
+        -247.81093,
+        3.8311636,
+        -6.2133665
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1794,
+      "PhysicsPacket": 5958,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5926,
+      "SteerAngle": 0.01763594,
+      "SpeedKmh": 149.28813,
+      "ICurrentTime": 15126,
+      "NormalizedCarPosition": 0.83861697,
+      "CarCoordinates": [
+        -251.6449,
+        3.6396112,
+        -7.70973
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1805,
+      "PhysicsPacket": 5998,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5930,
+      "SteerAngle": 0,
+      "SpeedKmh": 151.09103,
+      "ICurrentTime": 15223,
+      "NormalizedCarPosition": 0.8396246,
+      "CarCoordinates": [
+        -255.32614,
+        3.4418142,
+        -9.152931
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1817,
+      "PhysicsPacket": 6038,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6026,
+      "SteerAngle": 0,
+      "SpeedKmh": 152.83792,
+      "ICurrentTime": 15326,
+      "NormalizedCarPosition": 0.8407534,
+      "CarCoordinates": [
+        -259.43832,
+        3.2147334,
+        -10.778054
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1828,
+      "PhysicsPacket": 6078,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6077,
+      "SteerAngle": 0,
+      "SpeedKmh": 154.5644,
+      "ICurrentTime": 15421,
+      "NormalizedCarPosition": 0.8418012,
+      "CarCoordinates": [
+        -263.19666,
+        3.0000815,
+        -12.274584
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1840,
+      "PhysicsPacket": 6118,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6194,
+      "SteerAngle": 0,
+      "SpeedKmh": 156.27863,
+      "ICurrentTime": 15521,
+      "NormalizedCarPosition": 0.842928,
+      "CarCoordinates": [
+        -267.19412,
+        2.7908378,
+        -13.87988
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1853,
+      "PhysicsPacket": 6158,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6231,
+      "SteerAngle": 0,
+      "SpeedKmh": 158.06694,
+      "ICurrentTime": 15626,
+      "NormalizedCarPosition": 0.8440591,
+      "CarCoordinates": [
+        -271.3356,
+        2.5840905,
+        -15.550173
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1866,
+      "PhysicsPacket": 6198,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6287,
+      "SteerAngle": -0.051927708,
+      "SpeedKmh": 159.75702,
+      "ICurrentTime": 15723,
+      "NormalizedCarPosition": 0.84522605,
+      "CarCoordinates": [
+        -275.41968,
+        2.372111,
+        -17.199327
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1881,
+      "PhysicsPacket": 6238,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6352,
+      "SteerAngle": 0,
+      "SpeedKmh": 161.4629,
+      "ICurrentTime": 15828,
+      "NormalizedCarPosition": 0.84643185,
+      "CarCoordinates": [
+        -279.76297,
+        2.170285,
+        -18.933828
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1895,
+      "PhysicsPacket": 6278,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6428,
+      "SteerAngle": 0,
+      "SpeedKmh": 163.10414,
+      "ICurrentTime": 15928,
+      "NormalizedCarPosition": 0.8475585,
+      "CarCoordinates": [
+        -283.95227,
+        2.0139153,
+        -20.586338
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1909,
+      "PhysicsPacket": 6318,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6486,
+      "SteerAngle": 0,
+      "SpeedKmh": 164.80133,
+      "ICurrentTime": 16028,
+      "NormalizedCarPosition": 0.848765,
+      "CarCoordinates": [
+        -288.19153,
+        1.8885334,
+        -22.24225
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1922,
+      "PhysicsPacket": 6358,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6574,
+      "SteerAngle": 0,
+      "SpeedKmh": 166.39821,
+      "ICurrentTime": 16123,
+      "NormalizedCarPosition": 0.8498929,
+      "CarCoordinates": [
+        -292.25958,
+        1.7560215,
+        -23.824518
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1936,
+      "PhysicsPacket": 6398,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6597,
+      "SteerAngle": 0,
+      "SpeedKmh": 168.03032,
+      "ICurrentTime": 16223,
+      "NormalizedCarPosition": 0.85106176,
+      "CarCoordinates": [
+        -296.58304,
+        1.6062623,
+        -25.504585
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1950,
+      "PhysicsPacket": 6438,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6670,
+      "SteerAngle": 0,
+      "SpeedKmh": 169.64568,
+      "ICurrentTime": 16323,
+      "NormalizedCarPosition": 0.85230994,
+      "CarCoordinates": [
+        -301.05978,
+        1.4867883,
+        -27.243834
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1964,
+      "PhysicsPacket": 6478,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6714,
+      "SteerAngle": 0,
+      "SpeedKmh": 171.23,
+      "ICurrentTime": 16423,
+      "NormalizedCarPosition": 0.85347766,
+      "CarCoordinates": [
+        -305.35608,
+        1.387815,
+        -28.919167
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1978,
+      "PhysicsPacket": 6518,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6809,
+      "SteerAngle": 0,
+      "SpeedKmh": 172.73944,
+      "ICurrentTime": 16523,
+      "NormalizedCarPosition": 0.8547259,
+      "CarCoordinates": [
+        -309.79993,
+        1.2955979,
+        -30.661255
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 1992,
+      "PhysicsPacket": 6558,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6846,
+      "SteerAngle": 0,
+      "SpeedKmh": 174.27412,
+      "ICurrentTime": 16626,
+      "NormalizedCarPosition": 0.85601467,
+      "CarCoordinates": [
+        -314.3935,
+        1.2124038,
+        -32.469246
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2006,
+      "PhysicsPacket": 6598,
+      "Gas": 1,
+      "Brake": 0.62699085,
+      "Gear": 4,
+      "RPM": 6800,
+      "SteerAngle": 0,
+      "SpeedKmh": 174.9555,
+      "ICurrentTime": 16726,
+      "NormalizedCarPosition": 0.85726327,
+      "CarCoordinates": [
+        -318.91074,
+        1.1520618,
+        -34.254223
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2020,
+      "PhysicsPacket": 6638,
+      "Gas": 0.8889943,
+      "Brake": 1,
+      "Gear": 1,
+      "RPM": 6622,
+      "SteerAngle": 0,
+      "SpeedKmh": 169.71835,
+      "ICurrentTime": 16826,
+      "NormalizedCarPosition": 0.8585117,
+      "CarCoordinates": [
+        -323.38324,
+        1.1080734,
+        -36.025864
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2034,
+      "PhysicsPacket": 6678,
+      "Gas": 0.5342105,
+      "Brake": 0.8682004,
+      "Gear": 3,
+      "RPM": 7320,
+      "SteerAngle": 0,
+      "SpeedKmh": 163.18016,
+      "ICurrentTime": 16926,
+      "NormalizedCarPosition": 0.85967946,
+      "CarCoordinates": [
+        -327.6896,
+        1.089882,
+        -37.73436
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2048,
+      "PhysicsPacket": 6718,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 3,
+      "RPM": 6971,
+      "SteerAngle": 0,
+      "SpeedKmh": 157.05711,
+      "ICurrentTime": 17026,
+      "NormalizedCarPosition": 0.86084753,
+      "CarCoordinates": [
+        -331.83566,
+        1.0856788,
+        -39.382366
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2062,
+      "PhysicsPacket": 6758,
+      "Gas": 0,
+      "Brake": 0.8939124,
+      "Gear": 3,
+      "RPM": 6702,
+      "SteerAngle": 0,
+      "SpeedKmh": 150.50494,
+      "ICurrentTime": 17126,
+      "NormalizedCarPosition": 0.86193466,
+      "CarCoordinates": [
+        -335.81314,
+        1.0995605,
+        -40.965492
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2076,
+      "PhysicsPacket": 6798,
+      "Gas": 0,
+      "Brake": 0.884844,
+      "Gear": 3,
+      "RPM": 6427,
+      "SteerAngle": 0,
+      "SpeedKmh": 144.5569,
+      "ICurrentTime": 17226,
+      "NormalizedCarPosition": 0.8629816,
+      "CarCoordinates": [
+        -339.53558,
+        1.1243156,
+        -42.449577
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2090,
+      "PhysicsPacket": 6838,
+      "Gas": 0,
+      "Brake": 0.83647436,
+      "Gear": 3,
+      "RPM": 6134,
+      "SteerAngle": 0,
+      "SpeedKmh": 138.53212,
+      "ICurrentTime": 17323,
+      "NormalizedCarPosition": 0.8640286,
+      "CarCoordinates": [
+        -343.20065,
+        1.1554164,
+        -43.912853
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2105,
+      "PhysicsPacket": 6878,
+      "Gas": 0,
+      "Brake": 0.766009,
+      "Gear": 3,
+      "RPM": 5928,
+      "SteerAngle": 0,
+      "SpeedKmh": 133.223,
+      "ICurrentTime": 17428,
+      "NormalizedCarPosition": 0.8650353,
+      "CarCoordinates": [
+        -346.88766,
+        1.189933,
+        -45.387413
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2118,
+      "PhysicsPacket": 6918,
+      "Gas": 0,
+      "Brake": 0.8879328,
+      "Gear": 3,
+      "RPM": 5625,
+      "SteerAngle": 0,
+      "SpeedKmh": 127.39795,
+      "ICurrentTime": 17521,
+      "NormalizedCarPosition": 0.8659212,
+      "CarCoordinates": [
+        -350.00726,
+        1.21622,
+        -46.637653
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2133,
+      "PhysicsPacket": 6958,
+      "Gas": 0,
+      "Brake": 0.6088777,
+      "Gear": 3,
+      "RPM": 5390,
+      "SteerAngle": 0.04855824,
+      "SpeedKmh": 121.74404,
+      "ICurrentTime": 17626,
+      "NormalizedCarPosition": 0.86684746,
+      "CarCoordinates": [
+        -353.38535,
+        1.2547642,
+        -47.9952
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2147,
+      "PhysicsPacket": 6998,
+      "Gas": 0,
+      "Brake": 1,
+      "Gear": 3,
+      "RPM": 4945,
+      "SteerAngle": 0.15812151,
+      "SpeedKmh": 116.5669,
+      "ICurrentTime": 17723,
+      "NormalizedCarPosition": 0.86769325,
+      "CarCoordinates": [
+        -356.3848,
+        1.2895064,
+        -49.21975
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2161,
+      "PhysicsPacket": 7038,
+      "Gas": 0,
+      "Brake": 0.6925356,
+      "Gear": 3,
+      "RPM": 5145,
+      "SteerAngle": 0,
+      "SpeedKmh": 111.59721,
+      "ICurrentTime": 17823,
+      "NormalizedCarPosition": 0.86849874,
+      "CarCoordinates": [
+        -359.2306,
+        1.3332554,
+        -50.451244
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2176,
+      "PhysicsPacket": 7078,
+      "Gas": 0.35999998,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5233,
+      "SteerAngle": 0.02826092,
+      "SpeedKmh": 109.423996,
+      "ICurrentTime": 17926,
+      "NormalizedCarPosition": 0.8693446,
+      "CarCoordinates": [
+        -362.2273,
+        1.3865333,
+        -51.817562
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2191,
+      "PhysicsPacket": 7118,
+      "Gas": 0.74999976,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5281,
+      "SteerAngle": 0.15065011,
+      "SpeedKmh": 109.73641,
+      "ICurrentTime": 18028,
+      "NormalizedCarPosition": 0.87014997,
+      "CarCoordinates": [
+        -365.03723,
+        1.4185884,
+        -53.167343
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2205,
+      "PhysicsPacket": 7158,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5484,
+      "SteerAngle": 0.2721017,
+      "SpeedKmh": 110.80803,
+      "ICurrentTime": 18123,
+      "NormalizedCarPosition": 0.870915,
+      "CarCoordinates": [
+        -367.61502,
+        1.4470813,
+        -54.50929
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2220,
+      "PhysicsPacket": 7198,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5550,
+      "SteerAngle": 0.40065494,
+      "SpeedKmh": 112.511,
+      "ICurrentTime": 18228,
+      "NormalizedCarPosition": 0.8717204,
+      "CarCoordinates": [
+        -370.375,
+        1.4757507,
+        -56.082363
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2234,
+      "PhysicsPacket": 7238,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5792,
+      "SteerAngle": 0.34926006,
+      "SpeedKmh": 113.95437,
+      "ICurrentTime": 18326,
+      "NormalizedCarPosition": 0.87252575,
+      "CarCoordinates": [
+        -372.97122,
+        1.500147,
+        -57.7099
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2249,
+      "PhysicsPacket": 7278,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5659,
+      "SteerAngle": 0,
+      "SpeedKmh": 115.38726,
+      "ICurrentTime": 18428,
+      "NormalizedCarPosition": 0.87337154,
+      "CarCoordinates": [
+        -375.65955,
+        1.521865,
+        -59.56244
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2263,
+      "PhysicsPacket": 7318,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5824,
+      "SteerAngle": 0.008654482,
+      "SpeedKmh": 116.82685,
+      "ICurrentTime": 18523,
+      "NormalizedCarPosition": 0.87417704,
+      "CarCoordinates": [
+        -378.1058,
+        1.5432492,
+        -61.399906
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2278,
+      "PhysicsPacket": 7358,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5849,
+      "SteerAngle": 0.11981218,
+      "SpeedKmh": 118.79478,
+      "ICurrentTime": 18626,
+      "NormalizedCarPosition": 0.8750228,
+      "CarCoordinates": [
+        -380.70142,
+        1.5655304,
+        -63.51789
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2293,
+      "PhysicsPacket": 7398,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5893,
+      "SteerAngle": 0,
+      "SpeedKmh": 120.807915,
+      "ICurrentTime": 18728,
+      "NormalizedCarPosition": 0.8759086,
+      "CarCoordinates": [
+        -383.25818,
+        1.5806323,
+        -65.770355
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2307,
+      "PhysicsPacket": 7438,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5996,
+      "SteerAngle": 0.048620712,
+      "SpeedKmh": 122.879684,
+      "ICurrentTime": 18823,
+      "NormalizedCarPosition": 0.8767542,
+      "CarCoordinates": [
+        -385.6099,
+        1.5916839,
+        -67.956726
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2322,
+      "PhysicsPacket": 7478,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6134,
+      "SteerAngle": 0.15208292,
+      "SpeedKmh": 124.89807,
+      "ICurrentTime": 18926,
+      "NormalizedCarPosition": 0.8776401,
+      "CarCoordinates": [
+        -388.13947,
+        1.5982151,
+        -70.41105
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2337,
+      "PhysicsPacket": 7518,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6027,
+      "SteerAngle": 0.25402614,
+      "SpeedKmh": 124.71567,
+      "ICurrentTime": 19028,
+      "NormalizedCarPosition": 0.8785664,
+      "CarCoordinates": [
+        -390.57294,
+        1.5948768,
+        -72.89711
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2352,
+      "PhysicsPacket": 7558,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5683,
+      "SteerAngle": 0.031749457,
+      "SpeedKmh": 124.133224,
+      "ICurrentTime": 19128,
+      "NormalizedCarPosition": 0.87949264,
+      "CarCoordinates": [
+        -393.03433,
+        1.5807304,
+        -75.56243
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2366,
+      "PhysicsPacket": 7598,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5670,
+      "SteerAngle": 0.1355913,
+      "SpeedKmh": 123.37604,
+      "ICurrentTime": 19223,
+      "NormalizedCarPosition": 0.88033825,
+      "CarCoordinates": [
+        -395.18878,
+        1.5591472,
+        -78.015625
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2381,
+      "PhysicsPacket": 7638,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5711,
+      "SteerAngle": 0.24032304,
+      "SpeedKmh": 122.52561,
+      "ICurrentTime": 19323,
+      "NormalizedCarPosition": 0.8812239,
+      "CarCoordinates": [
+        -397.3592,
+        1.5259961,
+        -80.65438
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2396,
+      "PhysicsPacket": 7678,
+      "Gas": 0,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5630,
+      "SteerAngle": 0.3542285,
+      "SpeedKmh": 121.699265,
+      "ICurrentTime": 19426,
+      "NormalizedCarPosition": 0.8820697,
+      "CarCoordinates": [
+        -399.41876,
+        1.4774796,
+        -83.351364
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2411,
+      "PhysicsPacket": 7718,
+      "Gas": 0.14999999,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5648,
+      "SteerAngle": 0.46115932,
+      "SpeedKmh": 120.70293,
+      "ICurrentTime": 19528,
+      "NormalizedCarPosition": 0.8829558,
+      "CarCoordinates": [
+        -401.41037,
+        1.4022908,
+        -86.17041
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2426,
+      "PhysicsPacket": 7758,
+      "Gas": 0.53999996,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 5829,
+      "SteerAngle": 0.56917775,
+      "SpeedKmh": 120.106865,
+      "ICurrentTime": 19626,
+      "NormalizedCarPosition": 0.8838015,
+      "CarCoordinates": [
+        -403.22385,
+        1.3087593,
+        -88.976974
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2441,
+      "PhysicsPacket": 7798,
+      "Gas": 0.95999956,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6045,
+      "SteerAngle": 0.6690619,
+      "SpeedKmh": 120.43424,
+      "ICurrentTime": 19726,
+      "NormalizedCarPosition": 0.8846473,
+      "CarCoordinates": [
+        -404.87958,
+        1.1960421,
+        -91.776985
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2456,
+      "PhysicsPacket": 7838,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6128,
+      "SteerAngle": 0.56181055,
+      "SpeedKmh": 121.434845,
+      "ICurrentTime": 19823,
+      "NormalizedCarPosition": 0.88549304,
+      "CarCoordinates": [
+        -406.47958,
+        1.0566076,
+        -94.724495
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2471,
+      "PhysicsPacket": 7878,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6183,
+      "SteerAngle": 0.65417,
+      "SpeedKmh": 122.67046,
+      "ICurrentTime": 19926,
+      "NormalizedCarPosition": 0.886379,
+      "CarCoordinates": [
+        -407.98932,
+        0.8927571,
+        -97.75446
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2486,
+      "PhysicsPacket": 7918,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6390,
+      "SteerAngle": 0.7665822,
+      "SpeedKmh": 123.67279,
+      "ICurrentTime": 20026,
+      "NormalizedCarPosition": 0.887265,
+      "CarCoordinates": [
+        -409.4083,
+        0.7024376,
+        -100.86177
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2501,
+      "PhysicsPacket": 7958,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6425,
+      "SteerAngle": 0.87005913,
+      "SpeedKmh": 124.32836,
+      "ICurrentTime": 20126,
+      "NormalizedCarPosition": 0.8881511,
+      "CarCoordinates": [
+        -410.72607,
+        0.48699176,
+        -104.034546
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2516,
+      "PhysicsPacket": 7998,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6233,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 125.45199,
+      "ICurrentTime": 20228,
+      "NormalizedCarPosition": 0.889037,
+      "CarCoordinates": [
+        -411.96478,
+        0.24717522,
+        -107.357925
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2531,
+      "PhysicsPacket": 8038,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6242,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 125.95506,
+      "ICurrentTime": 20328,
+      "NormalizedCarPosition": 0.8899632,
+      "CarCoordinates": [
+        -413.08878,
+        -0.012627647,
+        -110.74736
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2545,
+      "PhysicsPacket": 8078,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 3,
+      "RPM": 6372,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 127.16201,
+      "ICurrentTime": 20423,
+      "NormalizedCarPosition": 0.8908088,
+      "CarCoordinates": [
+        -413.9892,
+        -0.25537822,
+        -113.857956
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2560,
+      "PhysicsPacket": 8118,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 6317,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 127.982834,
+      "ICurrentTime": 20526,
+      "NormalizedCarPosition": 0.8917349,
+      "CarCoordinates": [
+        -414.87524,
+        -0.53899455,
+        -117.3722
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2575,
+      "PhysicsPacket": 8158,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5244,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 128.56839,
+      "ICurrentTime": 20626,
+      "NormalizedCarPosition": 0.8926608,
+      "CarCoordinates": [
+        -415.62695,
+        -0.8353733,
+        -120.925575
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2590,
+      "PhysicsPacket": 8198,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5241,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 129.75633,
+      "ICurrentTime": 20728,
+      "NormalizedCarPosition": 0.8935869,
+      "CarCoordinates": [
+        -416.24615,
+        -1.1446811,
+        -124.44604
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2605,
+      "PhysicsPacket": 8238,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5197,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 130.93721,
+      "ICurrentTime": 20828,
+      "NormalizedCarPosition": 0.894513,
+      "CarCoordinates": [
+        -416.74823,
+        -1.4688973,
+        -128.0155
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2619,
+      "PhysicsPacket": 8278,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5284,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 132.04048,
+      "ICurrentTime": 20923,
+      "NormalizedCarPosition": 0.895399,
+      "CarCoordinates": [
+        -417.11337,
+        -1.7833893,
+        -131.45062
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2634,
+      "PhysicsPacket": 8318,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5307,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 132.97221,
+      "ICurrentTime": 21023,
+      "NormalizedCarPosition": 0.89640623,
+      "CarCoordinates": [
+        -417.38074,
+        -2.1282713,
+        -135.19644
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2649,
+      "PhysicsPacket": 8358,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5335,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 133.95341,
+      "ICurrentTime": 21123,
+      "NormalizedCarPosition": 0.8973327,
+      "CarCoordinates": [
+        -417.4896,
+        -2.4506698,
+        -138.88628
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2664,
+      "PhysicsPacket": 8398,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5405,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 134.6816,
+      "ICurrentTime": 21226,
+      "NormalizedCarPosition": 0.8982992,
+      "CarCoordinates": [
+        -417.44205,
+        -2.7564304,
+        -142.60345
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2679,
+      "PhysicsPacket": 8438,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5411,
+      "SteerAngle": 0.9,
+      "SpeedKmh": 135.58171,
+      "ICurrentTime": 21328,
+      "NormalizedCarPosition": 0.8993061,
+      "CarCoordinates": [
+        -417.22498,
+        -3.036132,
+        -146.33875
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2694,
+      "PhysicsPacket": 8478,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5469,
+      "SteerAngle": 0.56925017,
+      "SpeedKmh": 136.28543,
+      "ICurrentTime": 21428,
+      "NormalizedCarPosition": 0.9003128,
+      "CarCoordinates": [
+        -416.8321,
+        -3.2997465,
+        -150.17911
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2708,
+      "PhysicsPacket": 8518,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5479,
+      "SteerAngle": 0.1778981,
+      "SpeedKmh": 137.63193,
+      "ICurrentTime": 21523,
+      "NormalizedCarPosition": 0.90123886,
+      "CarCoordinates": [
+        -416.30704,
+        -3.520971,
+        -153.74486
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2723,
+      "PhysicsPacket": 8558,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5555,
+      "SteerAngle": 0.2650517,
+      "SpeedKmh": 138.99438,
+      "ICurrentTime": 21623,
+      "NormalizedCarPosition": 0.90224546,
+      "CarCoordinates": [
+        -415.59012,
+        -3.73916,
+        -157.50938
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2738,
+      "PhysicsPacket": 8598,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5592,
+      "SteerAngle": 0.08173558,
+      "SpeedKmh": 140.37198,
+      "ICurrentTime": 21723,
+      "NormalizedCarPosition": 0.9032923,
+      "CarCoordinates": [
+        -414.6659,
+        -3.9367754,
+        -161.3692
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2753,
+      "PhysicsPacket": 8638,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5617,
+      "SteerAngle": 0,
+      "SpeedKmh": 142.01125,
+      "ICurrentTime": 21826,
+      "NormalizedCarPosition": 0.9043395,
+      "CarCoordinates": [
+        -413.60126,
+        -4.108367,
+        -165.13618
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2768,
+      "PhysicsPacket": 8678,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5672,
+      "SteerAngle": 0,
+      "SpeedKmh": 143.70874,
+      "ICurrentTime": 21926,
+      "NormalizedCarPosition": 0.9053866,
+      "CarCoordinates": [
+        -412.40735,
+        -4.2580833,
+        -168.91438
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2783,
+      "PhysicsPacket": 8718,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5749,
+      "SteerAngle": 0,
+      "SpeedKmh": 145.43228,
+      "ICurrentTime": 22026,
+      "NormalizedCarPosition": 0.9064337,
+      "CarCoordinates": [
+        -411.12433,
+        -4.388095,
+        -172.71436
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2798,
+      "PhysicsPacket": 8758,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5808,
+      "SteerAngle": 0,
+      "SpeedKmh": 147.17601,
+      "ICurrentTime": 22126,
+      "NormalizedCarPosition": 0.9075209,
+      "CarCoordinates": [
+        -409.82593,
+        -4.5018616,
+        -176.45265
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2813,
+      "PhysicsPacket": 8798,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5878,
+      "SteerAngle": 0.0058972975,
+      "SpeedKmh": 148.87823,
+      "ICurrentTime": 22223,
+      "NormalizedCarPosition": 0.908608,
+      "CarCoordinates": [
+        -408.46527,
+        -4.6017094,
+        -180.3272
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2828,
+      "PhysicsPacket": 8838,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 5935,
+      "SteerAngle": 0.08171004,
+      "SpeedKmh": 150.58006,
+      "ICurrentTime": 22323,
+      "NormalizedCarPosition": 0.9096955,
+      "CarCoordinates": [
+        -407.0808,
+        -4.6804967,
+        -184.24435
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2843,
+      "PhysicsPacket": 8878,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6001,
+      "SteerAngle": 0.16170761,
+      "SpeedKmh": 152.18051,
+      "ICurrentTime": 22421,
+      "NormalizedCarPosition": 0.9108232,
+      "CarCoordinates": [
+        -405.64496,
+        -4.742552,
+        -188.19168
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2859,
+      "PhysicsPacket": 8918,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6102,
+      "SteerAngle": 0,
+      "SpeedKmh": 153.63248,
+      "ICurrentTime": 22528,
+      "NormalizedCarPosition": 0.9120316,
+      "CarCoordinates": [
+        -404.03265,
+        -4.7929335,
+        -192.34682
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2874,
+      "PhysicsPacket": 8958,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6115,
+      "SteerAngle": 0,
+      "SpeedKmh": 155.23943,
+      "ICurrentTime": 22628,
+      "NormalizedCarPosition": 0.9131591,
+      "CarCoordinates": [
+        -402.3883,
+        -4.8326697,
+        -196.30699
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2889,
+      "PhysicsPacket": 8998,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6180,
+      "SteerAngle": 0.021417579,
+      "SpeedKmh": 156.79756,
+      "ICurrentTime": 22728,
+      "NormalizedCarPosition": 0.91432685,
+      "CarCoordinates": [
+        -400.6436,
+        -4.8614197,
+        -200.27223
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2904,
+      "PhysicsPacket": 9038,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6228,
+      "SteerAngle": 0.09016285,
+      "SpeedKmh": 158.38257,
+      "ICurrentTime": 22826,
+      "NormalizedCarPosition": 0.91545445,
+      "CarCoordinates": [
+        -398.85995,
+        -4.8757696,
+        -204.14708
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2919,
+      "PhysicsPacket": 9078,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6325,
+      "SteerAngle": 0.15765174,
+      "SpeedKmh": 159.78227,
+      "ICurrentTime": 22926,
+      "NormalizedCarPosition": 0.91662216,
+      "CarCoordinates": [
+        -396.94385,
+        -4.8769236,
+        -208.12665
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2934,
+      "PhysicsPacket": 9118,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6352,
+      "SteerAngle": 0,
+      "SpeedKmh": 161.28716,
+      "ICurrentTime": 23023,
+      "NormalizedCarPosition": 0.9177496,
+      "CarCoordinates": [
+        -394.96213,
+        -4.8473887,
+        -211.99239
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2950,
+      "PhysicsPacket": 9158,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6416,
+      "SteerAngle": 0,
+      "SpeedKmh": 162.76685,
+      "ICurrentTime": 23128,
+      "NormalizedCarPosition": 0.9189979,
+      "CarCoordinates": [
+        -392.72455,
+        -4.777686,
+        -216.15108
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2965,
+      "PhysicsPacket": 9198,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6465,
+      "SteerAngle": 0.0048707617,
+      "SpeedKmh": 164.24669,
+      "ICurrentTime": 23226,
+      "NormalizedCarPosition": 0.92012554,
+      "CarCoordinates": [
+        -390.57175,
+        -4.6818304,
+        -220.01761
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2980,
+      "PhysicsPacket": 9238,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6513,
+      "SteerAngle": 0.07235428,
+      "SpeedKmh": 165.71227,
+      "ICurrentTime": 23323,
+      "NormalizedCarPosition": 0.92129344,
+      "CarCoordinates": [
+        -388.36618,
+        -4.5519123,
+        -223.89803
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 2996,
+      "PhysicsPacket": 9278,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6572,
+      "SteerAngle": 0.13389517,
+      "SpeedKmh": 167.07365,
+      "ICurrentTime": 23426,
+      "NormalizedCarPosition": 0.9225418,
+      "CarCoordinates": [
+        -385.9814,
+        -4.3844237,
+        -227.98495
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3011,
+      "PhysicsPacket": 9318,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6635,
+      "SteerAngle": 0.1944692,
+      "SpeedKmh": 168.29805,
+      "ICurrentTime": 23523,
+      "NormalizedCarPosition": 0.92371,
+      "CarCoordinates": [
+        -383.61484,
+        -4.203381,
+        -231.85379
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3026,
+      "PhysicsPacket": 9358,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6710,
+      "SteerAngle": 0,
+      "SpeedKmh": 169.50241,
+      "ICurrentTime": 23626,
+      "NormalizedCarPosition": 0.9249584,
+      "CarCoordinates": [
+        -381.0011,
+        -4.0058174,
+        -235.88173
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3041,
+      "PhysicsPacket": 9398,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6727,
+      "SteerAngle": 0.049584024,
+      "SpeedKmh": 170.81993,
+      "ICurrentTime": 23723,
+      "NormalizedCarPosition": 0.92616636,
+      "CarCoordinates": [
+        -378.33633,
+        -3.8075192,
+        -239.77792
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3056,
+      "PhysicsPacket": 9438,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6805,
+      "SteerAngle": 0.107356295,
+      "SpeedKmh": 172.02654,
+      "ICurrentTime": 23821,
+      "NormalizedCarPosition": 0.92737436,
+      "CarCoordinates": [
+        -375.63867,
+        -3.6197133,
+        -243.54855
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3072,
+      "PhysicsPacket": 9478,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6846,
+      "SteerAngle": 0.16858423,
+      "SpeedKmh": 173.25067,
+      "ICurrentTime": 23926,
+      "NormalizedCarPosition": 0.92862266,
+      "CarCoordinates": [
+        -372.7014,
+        -3.4369712,
+        -247.48305
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3088,
+      "PhysicsPacket": 9518,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6898,
+      "SteerAngle": 0,
+      "SpeedKmh": 174.38625,
+      "ICurrentTime": 24028,
+      "NormalizedCarPosition": 0.92991126,
+      "CarCoordinates": [
+        -369.57596,
+        -3.2757196,
+        -251.46928
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3103,
+      "PhysicsPacket": 9558,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6908,
+      "SteerAngle": 0.029617367,
+      "SpeedKmh": 175.6171,
+      "ICurrentTime": 24126,
+      "NormalizedCarPosition": 0.9311195,
+      "CarCoordinates": [
+        -366.65173,
+        -3.1528678,
+        -255.03972
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3119,
+      "PhysicsPacket": 9598,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 6961,
+      "SteerAngle": 0.08811579,
+      "SpeedKmh": 176.83221,
+      "ICurrentTime": 24228,
+      "NormalizedCarPosition": 0.93240833,
+      "CarCoordinates": [
+        -363.3874,
+        -3.0278363,
+        -258.84613
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3134,
+      "PhysicsPacket": 9638,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 7001,
+      "SteerAngle": 0.14161183,
+      "SpeedKmh": 178.00197,
+      "ICurrentTime": 24326,
+      "NormalizedCarPosition": 0.9336569,
+      "CarCoordinates": [
+        -360.1015,
+        -2.9232538,
+        -262.51587
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3149,
+      "PhysicsPacket": 9678,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 7049,
+      "SteerAngle": 0,
+      "SpeedKmh": 179.12625,
+      "ICurrentTime": 24423,
+      "NormalizedCarPosition": 0.93490523,
+      "CarCoordinates": [
+        -356.7932,
+        -2.83416,
+        -266.03937
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3165,
+      "PhysicsPacket": 9718,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 7147,
+      "SteerAngle": 0.03988639,
+      "SpeedKmh": 180.23024,
+      "ICurrentTime": 24528,
+      "NormalizedCarPosition": 0.93619376,
+      "CarCoordinates": [
+        -353.22372,
+        -2.7737615,
+        -269.70227
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3180,
+      "PhysicsPacket": 9758,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 7116,
+      "SteerAngle": 0.091092885,
+      "SpeedKmh": 181.39525,
+      "ICurrentTime": 24626,
+      "NormalizedCarPosition": 0.9374421,
+      "CarCoordinates": [
+        -349.73975,
+        -2.74387,
+        -273.14163
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3195,
+      "PhysicsPacket": 9798,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 7177,
+      "SteerAngle": 0.2534084,
+      "SpeedKmh": 182.46292,
+      "ICurrentTime": 24723,
+      "NormalizedCarPosition": 0.9386905,
+      "CarCoordinates": [
+        -346.1567,
+        -2.72282,
+        -276.52094
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3210,
+      "PhysicsPacket": 9838,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 4,
+      "RPM": 7251,
+      "SteerAngle": 0.48716888,
+      "SpeedKmh": 183.27008,
+      "ICurrentTime": 24826,
+      "NormalizedCarPosition": 0.94001937,
+      "CarCoordinates": [
+        -342.3002,
+        -2.7416542,
+        -280.018
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3225,
+      "PhysicsPacket": 9878,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 1,
+      "RPM": 6851,
+      "SteerAngle": 0,
+      "SpeedKmh": 183.39767,
+      "ICurrentTime": 24926,
+      "NormalizedCarPosition": 0.9413483,
+      "CarCoordinates": [
+        -338.4372,
+        -2.7914312,
+        -283.34152
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3240,
+      "PhysicsPacket": 9918,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6037,
+      "SteerAngle": 0,
+      "SpeedKmh": 184.36302,
+      "ICurrentTime": 25026,
+      "NormalizedCarPosition": 0.9425967,
+      "CarCoordinates": [
+        -334.58487,
+        -2.8581686,
+        -286.48798
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3255,
+      "PhysicsPacket": 9958,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6108,
+      "SteerAngle": 0.037376203,
+      "SpeedKmh": 185.30319,
+      "ICurrentTime": 25123,
+      "NormalizedCarPosition": 0.9438853,
+      "CarCoordinates": [
+        -330.54102,
+        -2.950228,
+        -289.64392
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3270,
+      "PhysicsPacket": 9998,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6167,
+      "SteerAngle": 0.08539522,
+      "SpeedKmh": 186.38321,
+      "ICurrentTime": 25226,
+      "NormalizedCarPosition": 0.94525445,
+      "CarCoordinates": [
+        -326.302,
+        -3.0469766,
+        -292.80438
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3285,
+      "PhysicsPacket": 10038,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6241,
+      "SteerAngle": 0.031021927,
+      "SpeedKmh": 187.40456,
+      "ICurrentTime": 25326,
+      "NormalizedCarPosition": 0.94658345,
+      "CarCoordinates": [
+        -322.09164,
+        -3.162323,
+        -295.8361
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3300,
+      "PhysicsPacket": 10078,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6247,
+      "SteerAngle": 0,
+      "SpeedKmh": 188.56198,
+      "ICurrentTime": 25426,
+      "NormalizedCarPosition": 0.9479528,
+      "CarCoordinates": [
+        -317.70416,
+        -3.3015327,
+        -298.89563
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3315,
+      "PhysicsPacket": 10118,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6310,
+      "SteerAngle": 0.0317662,
+      "SpeedKmh": 189.71439,
+      "ICurrentTime": 25526,
+      "NormalizedCarPosition": 0.9492819,
+      "CarCoordinates": [
+        -313.36023,
+        -3.448673,
+        -301.8458
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3330,
+      "PhysicsPacket": 10158,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6313,
+      "SteerAngle": 0.07710461,
+      "SpeedKmh": 190.87973,
+      "ICurrentTime": 25626,
+      "NormalizedCarPosition": 0.9506109,
+      "CarCoordinates": [
+        -308.95917,
+        -3.6142855,
+        -304.7663
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3345,
+      "PhysicsPacket": 10198,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6354,
+      "SteerAngle": 0.003408277,
+      "SpeedKmh": 192.05879,
+      "ICurrentTime": 25728,
+      "NormalizedCarPosition": 0.95198,
+      "CarCoordinates": [
+        -304.49268,
+        -3.7689846,
+        -307.64624
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3360,
+      "PhysicsPacket": 10238,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6407,
+      "SteerAngle": 0.04737056,
+      "SpeedKmh": 193.20895,
+      "ICurrentTime": 25828,
+      "NormalizedCarPosition": 0.95334905,
+      "CarCoordinates": [
+        -299.97086,
+        -3.9256735,
+        -310.5007
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3374,
+      "PhysicsPacket": 10278,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6444,
+      "SteerAngle": 0.090694204,
+      "SpeedKmh": 194.34862,
+      "ICurrentTime": 25923,
+      "NormalizedCarPosition": 0.954678,
+      "CarCoordinates": [
+        -295.506,
+        -4.0851583,
+        -313.25186
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3389,
+      "PhysicsPacket": 10318,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6484,
+      "SteerAngle": 0,
+      "SpeedKmh": 195.49835,
+      "ICurrentTime": 26026,
+      "NormalizedCarPosition": 0.9560877,
+      "CarCoordinates": [
+        -290.8596,
+        -4.246418,
+        -316.02277
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3404,
+      "PhysicsPacket": 10358,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6525,
+      "SteerAngle": 0,
+      "SpeedKmh": 196.62946,
+      "ICurrentTime": 26126,
+      "NormalizedCarPosition": 0.9574568,
+      "CarCoordinates": [
+        -286.15335,
+        -4.4149694,
+        -318.75497
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3419,
+      "PhysicsPacket": 10398,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6551,
+      "SteerAngle": 0,
+      "SpeedKmh": 197.81372,
+      "ICurrentTime": 26228,
+      "NormalizedCarPosition": 0.95890653,
+      "CarCoordinates": [
+        -281.2684,
+        -4.5708923,
+        -321.5168
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3434,
+      "PhysicsPacket": 10438,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6589,
+      "SteerAngle": 0,
+      "SpeedKmh": 198.96881,
+      "ICurrentTime": 26326,
+      "NormalizedCarPosition": 0.9603158,
+      "CarCoordinates": [
+        -276.45428,
+        -4.6998005,
+        -324.1932
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3449,
+      "PhysicsPacket": 10478,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6629,
+      "SteerAngle": 0.018463662,
+      "SpeedKmh": 200.13159,
+      "ICurrentTime": 26426,
+      "NormalizedCarPosition": 0.9617253,
+      "CarCoordinates": [
+        -271.60242,
+        -4.812692,
+        -326.86935
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3464,
+      "PhysicsPacket": 10518,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6653,
+      "SteerAngle": 0.058061488,
+      "SpeedKmh": 201.25017,
+      "ICurrentTime": 26526,
+      "NormalizedCarPosition": 0.9631348,
+      "CarCoordinates": [
+        -266.8394,
+        -4.930073,
+        -329.48154
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3479,
+      "PhysicsPacket": 10558,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6719,
+      "SteerAngle": 0,
+      "SpeedKmh": 202.37776,
+      "ICurrentTime": 26626,
+      "NormalizedCarPosition": 0.9645846,
+      "CarCoordinates": [
+        -261.91162,
+        -5.050554,
+        -332.14813
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3494,
+      "PhysicsPacket": 10598,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6730,
+      "SteerAngle": 0.023583166,
+      "SpeedKmh": 203.48851,
+      "ICurrentTime": 26723,
+      "NormalizedCarPosition": 0.96595377,
+      "CarCoordinates": [
+        -257.0679,
+        -5.193686,
+        -334.73672
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3510,
+      "PhysicsPacket": 10638,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6765,
+      "SteerAngle": 0.06148599,
+      "SpeedKmh": 204.5824,
+      "ICurrentTime": 26828,
+      "NormalizedCarPosition": 0.967484,
+      "CarCoordinates": [
+        -251.79863,
+        -5.348923,
+        -337.49286
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3525,
+      "PhysicsPacket": 10678,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6838,
+      "SteerAngle": 0,
+      "SpeedKmh": 205.68605,
+      "ICurrentTime": 26926,
+      "NormalizedCarPosition": 0.96893376,
+      "CarCoordinates": [
+        -246.8509,
+        -5.4815507,
+        -340.01395
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3540,
+      "PhysicsPacket": 10718,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6833,
+      "SteerAngle": 0.036817197,
+      "SpeedKmh": 206.78098,
+      "ICurrentTime": 27023,
+      "NormalizedCarPosition": 0.9703836,
+      "CarCoordinates": [
+        -241.73695,
+        -5.659105,
+        -342.58368
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3555,
+      "PhysicsPacket": 10758,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6894,
+      "SteerAngle": 0,
+      "SpeedKmh": 207.82944,
+      "ICurrentTime": 27121,
+      "NormalizedCarPosition": 0.97183335,
+      "CarCoordinates": [
+        -236.7039,
+        -5.8476677,
+        -345.0616
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3571,
+      "PhysicsPacket": 10798,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6913,
+      "SteerAngle": 0,
+      "SpeedKmh": 208.88994,
+      "ICurrentTime": 27228,
+      "NormalizedCarPosition": 0.9733637,
+      "CarCoordinates": [
+        -231.23282,
+        -6.043895,
+        -347.696
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3586,
+      "PhysicsPacket": 10838,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6940,
+      "SteerAngle": 0,
+      "SpeedKmh": 210.00453,
+      "ICurrentTime": 27328,
+      "NormalizedCarPosition": 0.9748538,
+      "CarCoordinates": [
+        -225.97356,
+        -6.1855273,
+        -350.17746
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3601,
+      "PhysicsPacket": 10878,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6989,
+      "SteerAngle": 0,
+      "SpeedKmh": 211.02266,
+      "ICurrentTime": 27426,
+      "NormalizedCarPosition": 0.9763841,
+      "CarCoordinates": [
+        -220.67935,
+        -6.3366275,
+        -352.65433
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3616,
+      "PhysicsPacket": 10918,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 6986,
+      "SteerAngle": 0,
+      "SpeedKmh": 212.08408,
+      "ICurrentTime": 27523,
+      "NormalizedCarPosition": 0.9778338,
+      "CarCoordinates": [
+        -215.49178,
+        -6.501996,
+        -355.07547
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3632,
+      "PhysicsPacket": 10958,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 7084,
+      "SteerAngle": 0,
+      "SpeedKmh": 213.04236,
+      "ICurrentTime": 27628,
+      "NormalizedCarPosition": 0.9794041,
+      "CarCoordinates": [
+        -210.00912,
+        -6.6794205,
+        -357.63065
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3647,
+      "PhysicsPacket": 10998,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 7069,
+      "SteerAngle": 0,
+      "SpeedKmh": 214.07173,
+      "ICurrentTime": 27726,
+      "NormalizedCarPosition": 0.9808941,
+      "CarCoordinates": [
+        -204.76984,
+        -6.8783135,
+        -360.07022
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3662,
+      "PhysicsPacket": 11038,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 7094,
+      "SteerAngle": 0,
+      "SpeedKmh": 215.05753,
+      "ICurrentTime": 27823,
+      "NormalizedCarPosition": 0.982425,
+      "CarCoordinates": [
+        -199.36978,
+        -7.0748253,
+        -362.5804
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3678,
+      "PhysicsPacket": 11078,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 7130,
+      "SteerAngle": 0.002625,
+      "SpeedKmh": 216.01276,
+      "ICurrentTime": 27928,
+      "NormalizedCarPosition": 0.98399544,
+      "CarCoordinates": [
+        -193.80722,
+        -7.2713485,
+        -365.1618
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3693,
+      "PhysicsPacket": 11118,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 7150,
+      "SteerAngle": 0.03675,
+      "SpeedKmh": 216.91765,
+      "ICurrentTime": 28026,
+      "NormalizedCarPosition": 0.9854826,
+      "CarCoordinates": [
+        -188.49086,
+        -7.470766,
+        -367.6221
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3708,
+      "PhysicsPacket": 11158,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 7184,
+      "SteerAngle": 0,
+      "SpeedKmh": 217.74301,
+      "ICurrentTime": 28123,
+      "NormalizedCarPosition": 0.9870505,
+      "CarCoordinates": [
+        -183.00443,
+        -7.6619215,
+        -370.13046
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3723,
+      "PhysicsPacket": 11198,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 5,
+      "RPM": 7223,
+      "SteerAngle": 0,
+      "SpeedKmh": 218.52072,
+      "ICurrentTime": 28223,
+      "NormalizedCarPosition": 0.9885752,
+      "CarCoordinates": [
+        -177.6148,
+        -7.794313,
+        -372.5417
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3738,
+      "PhysicsPacket": 11238,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 6,
+      "RPM": 6625,
+      "SteerAngle": 0.021,
+      "SpeedKmh": 218.53261,
+      "ICurrentTime": 28323,
+      "NormalizedCarPosition": 0.99015284,
+      "CarCoordinates": [
+        -172.05246,
+        -7.84963,
+        -374.97687
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3754,
+      "PhysicsPacket": 11278,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 6,
+      "RPM": 6435,
+      "SteerAngle": 0,
+      "SpeedKmh": 219.25165,
+      "ICurrentTime": 28428,
+      "NormalizedCarPosition": 0.9918074,
+      "CarCoordinates": [
+        -166.18591,
+        -7.8543563,
+        -377.4955
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3769,
+      "PhysicsPacket": 11318,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 6,
+      "RPM": 6353,
+      "SteerAngle": 0,
+      "SpeedKmh": 220.04282,
+      "ICurrentTime": 28528,
+      "NormalizedCarPosition": 0.9934244,
+      "CarCoordinates": [
+        -160.4229,
+        -7.816306,
+        -379.92444
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3784,
+      "PhysicsPacket": 11358,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 6,
+      "RPM": 6341,
+      "SteerAngle": 0,
+      "SpeedKmh": 220.73247,
+      "ICurrentTime": 28628,
+      "NormalizedCarPosition": 0.99495506,
+      "CarCoordinates": [
+        -154.91531,
+        -7.798578,
+        -382.22366
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3799,
+      "PhysicsPacket": 11398,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 6,
+      "RPM": 6365,
+      "SteerAngle": 0,
+      "SpeedKmh": 221.38335,
+      "ICurrentTime": 28726,
+      "NormalizedCarPosition": 0.99652547,
+      "CarCoordinates": [
+        -149.38481,
+        -7.785284,
+        -384.51416
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3814,
+      "PhysicsPacket": 11438,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 6,
+      "RPM": 6392,
+      "SteerAngle": 0,
+      "SpeedKmh": 222.08588,
+      "ICurrentTime": 28823,
+      "NormalizedCarPosition": 0.9981713,
+      "CarCoordinates": [
+        -143.69012,
+        -7.713841,
+        -386.85532
+      ],
+      "IsValidLap": 1
+    },
+    {
+      "GraphicPacket": 3829,
+      "PhysicsPacket": 11478,
+      "Gas": 1,
+      "Brake": 0,
+      "Gear": 6,
+      "RPM": 6406,
+      "SteerAngle": -0.007875,
+      "SpeedKmh": 222.77914,
+      "ICurrentTime": 28923,
+      "NormalizedCarPosition": 0.9996587,
+      "CarCoordinates": [
+        -138.11705,
+        -7.599779,
+        -389.13623
+      ],
+      "IsValidLap": 1
+    }
+  ]
+}
