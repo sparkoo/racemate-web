@@ -7,7 +7,7 @@ interface Props {
   graphWidth: number;
 }
 
-const Track: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
+const TelemetryMap: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
   return (
     <div>
       <Plot
@@ -40,4 +40,4 @@ const Track: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
   );
 };
 
-export default Track;
+export default TelemetryMap;

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+.logo {
+  @apply bg-yellow-600 text-gray-700 font-bold italic text-3xl w-80 p-4 block hover:text-gray-900;
+}
+
+a {
+  @apply text-2xl w-60 p-4 block;
+}
+
+main {
+  @apply px-10 py-5;
+}
