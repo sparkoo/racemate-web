@@ -1,32 +1,9 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import "./app.css";
-import Plot from "react-plotly.js";
 import { format } from "date-fns";
-
-interface Lap {
-  Frames: Frame[];
-  CarModel: Int16Array;
-  Track: Int16Array;
-  PlayerName: Int16Array;
-  PlayerNick: Int16Array;
-  PlayerSurname: Int16Array;
-  LapTimeMs: number;
-  TrackGripStatus: number;
-  RainIntensity: number;
-  SessionIndex: number;
-  SessionType: number;
-}
-
-interface Frame {
-  NormalizedCarPosition: number;
-  Gas: number;
-  Brake: number;
-  SteerAngle: number;
-  Gear: number;
-  RPM: number;
-  SpeedKmh: number;
-  CarCoordinates: number[];
-}
+import { Lap } from "./types/lap";
+import Track from "./components/Track";
+import TelemetryGraphs from "./components/TelemetryGraphs";
 
 function int16ArrayToString(bytes: Int16Array) {
   let result = "";
@@ -39,6 +16,9 @@ function int16ArrayToString(bytes: Int16Array) {
 export function App() {
   const [lap, setLap] = useState<Lap | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  const divRef = useRef<HTMLDivElement>(null);
+  const [graphWidth, setWidth] = useState<number>(0);
 
   useEffect(() => {
     const loadLap = async () => {
@@ -58,15 +38,27 @@ export function App() {
         console.error("Error loading coordinates:", err);
       }
     };
-    console.log("hellow");
     loadLap();
+
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        setWidth(entry.contentRect.width);
+      }
+    });
+
+    if (divRef.current) {
+      observer.observe(divRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
   }, []); // Empty dependency array ensures this runs only once on mount
 
   if (lap != null) {
     return (
       <>
         <h1>blabol</h1>
-        <button className="btn">Hello daisyUI</button>
         <ul>
           <li>Track: {int16ArrayToString(lap.Track)}</li>
           <li>Car: {int16ArrayToString(lap.CarModel)}</li>
@@ -79,169 +71,11 @@ export function App() {
           </li>
         </ul>
         <div class="w-full grid grid-cols-2">
-          <div>
-            <Plot
-              data={[
-                {
-                  x: lap.Frames.map((c) => c.NormalizedCarPosition),
-                  y: lap.Frames.map((c) => c.Gas),
-                  // type: 'scatter',
-                  mode: "lines",
-                  name: "Throttle",
-                  marker: { color: "green" },
-                },
-                {
-                  x: lap.Frames.map((c) => c.NormalizedCarPosition),
-                  y: lap.Frames.map((c) => c.Brake),
-                  // type: 'scatter',
-                  mode: "lines",
-                  name: "Brake",
-                  marker: { color: "red" },
-                },
-              ]}
-              layout={{
-                width: 1400,
-                height: 100,
-                xaxis: { visible: false },
-                yaxis: { visible: false },
-                margin: {
-                  l: 5,
-                  r: 5,
-                  t: 5,
-                  b: 5,
-                },
-                showlegend: false,
-              }}
-              config={{ staticPlot: true }}
-            />
-            <Plot
-              data={[
-                {
-                  x: lap.Frames.map((c) => c.NormalizedCarPosition),
-                  y: lap.Frames.map((c) => c.SteerAngle),
-                  // type: 'scatter',
-                  mode: "lines",
-                  name: "Throttle",
-                  marker: { color: "orange" },
-                },
-              ]}
-              layout={{
-                width: 1400,
-                height: 100,
-                xaxis: { visible: false },
-                yaxis: { visible: false },
-                margin: {
-                  l: 5,
-                  r: 5,
-                  t: 5,
-                  b: 5,
-                },
-              }}
-              config={{ staticPlot: true }}
-            />
-            <Plot
-              data={[
-                {
-                  x: lap.Frames.map((c) => c.NormalizedCarPosition),
-                  y: lap.Frames.map((c) => c.Gear),
-                  // type: 'scatter',
-                  mode: "lines",
-                  name: "Throttle",
-                  marker: { color: "blue" },
-                },
-              ]}
-              layout={{
-                width: 1400,
-                height: 100,
-                xaxis: { visible: false },
-                yaxis: { visible: false },
-                margin: {
-                  l: 5,
-                  r: 5,
-                  t: 5,
-                  b: 5,
-                },
-              }}
-              config={{ staticPlot: true }}
-            />
-            <Plot
-              data={[
-                {
-                  x: lap.Frames.map((c) => c.NormalizedCarPosition),
-                  y: lap.Frames.map((c) => c.RPM),
-                  // type: 'scatter',
-                  mode: "lines",
-                  name: "Throttle",
-                  marker: { color: "gray" },
-                },
-              ]}
-              layout={{
-                width: 1400,
-                height: 100,
-                xaxis: { visible: false },
-                yaxis: { visible: false },
-                margin: {
-                  l: 5,
-                  r: 5,
-                  t: 5,
-                  b: 5,
-                },
-              }}
-              config={{ staticPlot: true }}
-            />
-            <Plot
-              data={[
-                {
-                  x: lap.Frames.map((c) => c.NormalizedCarPosition),
-                  y: lap.Frames.map((c) => c.SpeedKmh),
-                  // type: 'scatter',
-                  mode: "lines",
-                  name: "Throttle",
-                  marker: { color: "black" },
-                },
-              ]}
-              layout={{
-                width: 1400,
-                height: 100,
-                xaxis: { visible: false },
-                yaxis: { visible: false },
-                margin: {
-                  l: 5,
-                  r: 5,
-                  t: 5,
-                  b: 5,
-                },
-              }}
-              config={{ staticPlot: true }}
-            />
+          <div ref={divRef}>
+            <TelemetryGraphs lap={lap} graphWidth={graphWidth} />
           </div>
           <div>
-            <Plot
-              data={[
-                {
-                  x: lap.Frames.map((c) => -c.CarCoordinates[0]),
-                  y: lap.Frames.map((c) => c.CarCoordinates[2]),
-                  mode: "lines",
-                  marker: { color: "red" },
-                },
-              ]}
-              layout={{
-                width: 800,
-                height: 800,
-                xaxis: { visible: false },
-                yaxis: { visible: false },
-                margin: {
-                  l: 5,
-                  r: 5,
-                  t: 5,
-                  b: 5,
-                  pad: 0,
-                },
-                paper_bgcolor: "rgba(0,0,0,0)",
-                plot_bgcolor: "rgba(0,0,0,0)",
-              }}
-              config={{ staticPlot: true }}
-            />
+            <Track lap={lap} graphWidth={graphWidth} />
           </div>
         </div>
       </>
