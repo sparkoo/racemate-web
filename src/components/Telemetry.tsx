@@ -60,6 +60,7 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
   if (lap != null) {
     return (
       <>
+        <span>{error}</span>
         <ul>
           <li>Track: {int16ArrayToString(lap.Track)}</li>
           <li>Car: {int16ArrayToString(lap.CarModel)}</li>
