@@ -11,6 +11,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.0.5",
     "date-fns": "^4.1.0",
+    "firebase": "^11.3.1",
     "plotly.js": "^3.0.0",
     "preact": "^10.25.4",
     "preact-iso": "^2.9.0",
