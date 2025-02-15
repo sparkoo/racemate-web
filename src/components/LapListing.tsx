@@ -16,13 +16,7 @@ import {
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBQ3UysKh5lscmf2u8rGZ_AgVhPJ81ltCo",
-  authDomain: "racemate-3dc5c.firebaseapp.com",
   projectId: "racemate-3dc5c",
-  storageBucket: "racemate-3dc5c.firebasestorage.app",
-  messagingSenderId: "935374379053",
-  appId: "1:935374379053:web:87b6464781d479549600a4",
-  measurementId: "G-D6LY59DN3D",
 };
 
 // Initialize Firebase
@@ -176,20 +170,25 @@ function formatLaptime(milliseconds: number): string {
   const seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
   const millis = milliseconds % 1000;
 
-  const minutesStr = minutes.toString().padStart(2, '0');
-  const secondsStr = seconds.toString().padStart(2, '0');
-  const millisStr = millis.toString().padStart(3, '0');
+  const minutesStr = minutes.toString().padStart(2, "0");
+  const secondsStr = seconds.toString().padStart(2, "0");
+  const millisStr = millis.toString().padStart(3, "0");
 
   return `${minutesStr}:${secondsStr}.${millisStr}`;
 }
 
 function convertSessionType(type: number): string {
   switch (type) {
-    case 0: return "Practice";
-    case 1: return "Qualify";
-    case 2: return "Race";
-    case 3: return "HotLap";
-    default: return "Unknown";
+    case 0:
+      return "Practice";
+    case 1:
+      return "Qualify";
+    case 2:
+      return "Race";
+    case 3:
+      return "HotLap";
+    default:
+      return "Unknown";
   }
 }
 
