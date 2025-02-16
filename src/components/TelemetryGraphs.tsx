@@ -1,9 +1,9 @@
 import { FunctionalComponent } from "preact";
-import { Lap } from "../types/lap";
 import Plot from "react-plotly.js";
+import { racemate } from "racemate-msg";
 
 interface Props {
-  lap: Lap;
+  lap: racemate.Lap;
   graphWidth: number;
 }
 
@@ -26,16 +26,16 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
       <Plot
         data={[
           {
-            x: lap.Frames.map((c) => c.NormalizedCarPosition),
-            y: lap.Frames.map((c) => c.Gas),
+            x: lap.frames.map((c) => c.normalized_car_position),
+            y: lap.frames.map((c) => c.gas),
             // type: 'scatter',
             mode: "lines",
             name: "Throttle",
             marker: { color: "green" },
           },
           {
-            x: lap.Frames.map((c) => c.NormalizedCarPosition),
-            y: lap.Frames.map((c) => c.Brake),
+            x: lap.frames.map((c) => c.normalized_car_position),
+            y: lap.frames.map((c) => c.brake),
             // type: 'scatter',
             mode: "lines",
             name: "Brake",
@@ -48,8 +48,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
       <Plot
         data={[
           {
-            x: lap.Frames.map((c) => c.NormalizedCarPosition),
-            y: lap.Frames.map((c) => c.SteerAngle),
+            x: lap.frames.map((c) => c.normalized_car_position),
+            y: lap.frames.map((c) => c.steer_angle),
             // type: 'scatter',
             mode: "lines",
             name: "Throttle",
@@ -62,8 +62,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
       <Plot
         data={[
           {
-            x: lap.Frames.map((c) => c.NormalizedCarPosition),
-            y: lap.Frames.map((c) => c.Gear),
+            x: lap.frames.map((c) => c.normalized_car_position),
+            y: lap.frames.map((c) => c.gear),
             // type: 'scatter',
             mode: "lines",
             name: "Throttle",
@@ -76,8 +76,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
       <Plot
         data={[
           {
-            x: lap.Frames.map((c) => c.NormalizedCarPosition),
-            y: lap.Frames.map((c) => c.RPM),
+            x: lap.frames.map((c) => c.normalized_car_position),
+            y: lap.frames.map((c) => c.rpm),
             // type: 'scatter',
             mode: "lines",
             name: "Throttle",
@@ -90,8 +90,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
       <Plot
         data={[
           {
-            x: lap.Frames.map((c) => c.NormalizedCarPosition),
-            y: lap.Frames.map((c) => c.SpeedKmh),
+            x: lap.frames.map((c) => c.normalized_car_position),
+            y: lap.frames.map((c) => c.speed_kmh),
             // type: 'scatter',
             mode: "lines",
             name: "Throttle",

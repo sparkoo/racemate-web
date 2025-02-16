@@ -1,8 +1,8 @@
 import { FunctionalComponent } from "preact";
 import { useEffect, useState } from "preact/hooks";
+import { useLocation } from "preact-iso";
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
 import {
   collection,
   getFirestore,
@@ -13,20 +13,8 @@ import {
   where,
 } from "firebase/firestore";
 import { GripMap, TrackMap, Tracks } from "../types/tracks";
-import { CarMap, Cars } from "../types/cars";
-import { TargetedEvent } from "preact/compat";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  projectId: "racemate-3dc5c",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { CarMap } from "../types/cars";
+import { firebaseApp } from "../main";
 
 interface Props {}
 
@@ -48,6 +36,9 @@ interface LapData {
 }
 
 const LapListing: FunctionalComponent<Props> = ({}) => {
+  const router = useLocation();
+  const db = getFirestore(firebaseApp);
+
   const [laps, setLaps] = useState<LapData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any | null>(null);
@@ -136,7 +127,11 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
       </thead>
       <tbody>
         {laps.map((item) => (
-          <tr key={item.id}>
+          <tr
+            key={item.id}
+            class="cursor-pointer hover:bg-amber-950"
+            onClick={() => router.route(`/telemetry?id=${item.id}`)}
+          >
             <td>{new Date(item.timestamp * 1000).toLocaleString()}</td>
             <td>{item.name}</td>
             <td>{TrackMap.get(item.track)}</td>

@@ -4,6 +4,10 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import TelemetryGraphs from "./TelemetryGraphs";
 import TelemetryMap from "./TelemetryMap";
 import { Lap } from "../types/lap";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { getDownloadURL, getStorage, ref } from "firebase/storage";
+import { firebaseApp } from "../main";
+import { racemate } from "racemate-msg";
 
 interface Props {}
 
@@ -16,7 +20,10 @@ function int16ArrayToString(bytes: Int16Array) {
 }
 
 const Telemetry: FunctionalComponent<Props> = ({}) => {
-  const [lap, setLap] = useState<Lap | null>(null);
+  const db = getFirestore(firebaseApp);
+  const storage = getStorage(firebaseApp);
+
+  const [lap, setLap] = useState<racemate.Lap | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const divRef = useRef<HTMLDivElement>(null);
@@ -24,13 +31,30 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
 
   useEffect(() => {
     const loadLap = async () => {
+      // Create a storage reference
+
       try {
-        const response = await fetch("1739096360.json"); // Replace with your file path
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        const lapRef = doc(db, "laps", "FHUCJoQYIq0HsCc0Bu9w");
+        const lapSnap = await getDoc(lapRef);
+        if (lapSnap.exists()) {
+          // Document exists, access data
+          const documentData = lapSnap.data();
+          const fileRef = ref(storage, documentData["storagePath"]);
+          const downloadURL = await getDownloadURL(fileRef);
+          const response = await fetch(downloadURL);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const body = await response.bytes();
+          const lap = racemate.Lap.deserialize(body);
+          setLap(lap);
+
+          return documentData; // Return the document data
+        } else {
+          // Document doesn't exist
+          console.log("No such document!");
+          return null; // Or throw an error, depending on your needs
         }
-        const lap = await response.json();
-        setLap(lap);
       } catch (err) {
         if (err instanceof Error) {
           setError(err.message);
@@ -62,14 +86,13 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
       <>
         <span>{error}</span>
         <ul>
-          <li>Track: {int16ArrayToString(lap.Track)}</li>
-          <li>Car: {int16ArrayToString(lap.CarModel)}</li>
+          <li>Track: {lap.track}</li>
+          <li>Car: {lap.car_model}</li>
           <li>
-            Time: {format(new Date(lap.LapTimeMs), "mm:ss:SSS").toString()}
+            Time: {format(new Date(lap.lap_time_ms), "mm:ss:SSS").toString()}
           </li>
           <li>
-            Name: {int16ArrayToString(lap.PlayerName)}{" "}
-            {int16ArrayToString(lap.PlayerSurname)}
+            Name: {lap.player_name} {lap.player_surname}
           </li>
         </ul>
         <div class="w-full grid grid-cols-2">
@@ -83,7 +106,7 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
       </>
     );
   } else {
-    return <div>No Lap Data</div>
+    return <div>No Lap Data</div>;
   }
 };
 

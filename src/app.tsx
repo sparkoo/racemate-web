@@ -3,6 +3,8 @@ import { LocationProvider, Route, Router } from "preact-iso/router";
 import Telemetry from "./components/Telemetry";
 import LapListing from "./components/LapListing";
 
+
+
 const App = () => {
   return (
     <>

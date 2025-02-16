@@ -1,9 +1,9 @@
 import { FunctionalComponent } from "preact";
-import { Lap } from "../types/lap";
 import Plot from "react-plotly.js";
+import { racemate } from "racemate-msg";
 
 interface Props {
-  lap: Lap;
+  lap: racemate.Lap;
   graphWidth: number;
 }
 
@@ -13,8 +13,8 @@ const TelemetryMap: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
       <Plot
         data={[
           {
-            x: lap.Frames.map((c) => -c.CarCoordinates[0]),
-            y: lap.Frames.map((c) => c.CarCoordinates[2]),
+            x: lap.frames.map((c) => -c.car_coordinate_x),
+            y: lap.frames.map((c) => c.car_coordinate_z),
             mode: "lines",
             marker: { color: "red" },
           },
