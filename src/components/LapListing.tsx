@@ -43,12 +43,12 @@ interface LapData {
 }
 
 const LapListing: FunctionalComponent<Props> = ({}) => {
-  const [data, setData] = useState<LapData[]>([]);
+  const [laps, setLaps] = useState<LapData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchLaps = async () => {
       try {
         const productsCollection = collection(db, "laps");
         const q = query(productsCollection, orderBy("timestamp", "desc"));
@@ -63,7 +63,7 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
                   ...doc.data(),
                 } as LapData)
             );
-            setData(fetchedProducts);
+            setLaps(fetchedProducts);
             setLoading(false);
           },
           (err) => {
@@ -80,7 +80,8 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
         console.error("Error fetching products:", err);
       }
     };
-    fetchData();
+
+    fetchLaps();
   }, []);
 
   if (loading) {
@@ -92,76 +93,39 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
   }
 
   return (
-    <div>
-      <table class="min-w-full divide-y divide-gray-200 table-auto">
-        {" "}
-        {/* min-w-full makes the table take full width */}
-        <thead>
-          <tr>
-            <th
-              scope="col"
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Time
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Name
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Track
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Car
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              LapTime
-            </th>
-            <th
-              scope="col"
-              class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Session Type
-            </th>
+    <table class="table min-w-full table-zebra table-md table-pin-rows">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Name</th>
+          <th>
+            <select class="select select-ghost w-full">
+              <option selected>
+                All Tracks
+              </option>
+              <option>Nurburgring</option>
+            </select>
+          </th>
+          <th>Car</th>
+          <th>LapTime</th>
+          <th>Track grip</th>
+          <th>Session Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {laps.map((item) => (
+          <tr key={item.id}>
+            <td>{new Date(item.timestamp * 1000).toLocaleString()}</td>
+            <td>{item.name}</td>
+            <td>{item.track}</td>
+            <td>{item.car}</td>
+            <td>{formatLaptime(item.laptime)}</td>
+            <td>{item.trackGrip}</td>
+            <td>{convertSessionType(item.sessionType)}</td>
           </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={item.id}>
-              <td class="px-2 py-1 whitespace-nowrap text-sm font-medium text-gray-300">
-                {new Date(item.timestamp * 1000).toLocaleString()}
-              </td>
-              <td class="px-2 py-1 whitespace-nowrap text-sm font-medium">
-                {item.name}
-              </td>
-              <td class="px-2 py-1 whitespace-nowrap text-sm font-medium text-gray-300">
-                {item.track}
-              </td>
-              <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-300">
-                {item.car}
-              </td>
-              <td class="px-2 py-1 whitespace-nowrap text-sm text-gray-300">
-                {formatLaptime(item.laptime)}
-              </td>
-              <td class="px-2 py-1 whitespace-nowrap text-right text-sm font-medium text-gray-300">
-                {convertSessionType(item.sessionType)}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   );
 };
 
