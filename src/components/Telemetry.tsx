@@ -3,21 +3,12 @@ import { FunctionalComponent } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 import TelemetryGraphs from "./TelemetryGraphs";
 import TelemetryMap from "./TelemetryMap";
-import { Lap } from "../types/lap";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { firebaseApp } from "../main";
 import { racemate } from "racemate-msg";
 
 interface Props {}
-
-function int16ArrayToString(bytes: Int16Array) {
-  let result = "";
-  for (let i = 0; i < bytes.length && bytes[i] != 0; i++) {
-    result += String.fromCharCode(bytes[i]);
-  }
-  return result;
-}
 
 const Telemetry: FunctionalComponent<Props> = ({}) => {
   const db = getFirestore(firebaseApp);
