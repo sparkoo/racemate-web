@@ -7,12 +7,14 @@ import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { firebaseApp } from "../main";
 import { racemate } from "racemate-msg";
+import { useRoute } from "preact-iso";
 
 interface Props {}
 
 const Telemetry: FunctionalComponent<Props> = ({}) => {
   const db = getFirestore(firebaseApp);
   const storage = getStorage(firebaseApp);
+  const router = useRoute();
 
   const [lap, setLap] = useState<racemate.Lap | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -25,7 +27,7 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
       // Create a storage reference
 
       try {
-        const lapRef = doc(db, "laps", "FHUCJoQYIq0HsCc0Bu9w");
+        const lapRef = doc(db, "laps", router.query["id"]);
         const lapSnap = await getDoc(lapRef);
         if (lapSnap.exists()) {
           // Document exists, access data
