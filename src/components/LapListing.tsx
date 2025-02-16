@@ -9,6 +9,7 @@ import {
   onSnapshot,
   orderBy,
   query,
+  QueryFieldFilterConstraint,
   where,
 } from "firebase/firestore";
 import { GripMap, TrackMap, Tracks } from "../types/tracks";
@@ -56,10 +57,14 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
     const fetchLaps = async () => {
       try {
         const productsCollection = collection(db, "laps");
+        const wheres: QueryFieldFilterConstraint[] = [];
+        if (selectedTrack) {
+          wheres.push(where("track", "==", selectedTrack));
+        }
         const q = query(
           productsCollection,
-          where("track", "==", selectedTrack),
-          orderBy("timestamp", "desc")
+          ...wheres,
+          orderBy("laptime", "asc")
         );
 
         const unsubscribe = onSnapshot(
@@ -101,11 +106,6 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
     return <div>Error: {error.message}</div>;
   }
 
-  const handleTrackFilter = (event: Event): void => {
-    const target = event.target as HTMLSelectElement;
-    setSelectedTrack(target.value);
-  };
-
   return (
     <table class="table min-w-full table-zebra table-md table-pin-rows">
       <thead>
@@ -114,11 +114,13 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
           <th>Name</th>
           <th>
             <select
-              value={selectedTrack}
-              onChange={handleTrackFilter}
               class="select select-ghost w-full"
+              value={selectedTrack}
+              onChange={(e) =>
+                setSelectedTrack((e.target as HTMLSelectElement).value)
+              }
             >
-              <option value="*" selected>
+              <option value="" selected>
                 All Tracks
               </option>
               {Tracks.map((track) => (
@@ -126,16 +128,7 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
               ))}
             </select>
           </th>
-          <th>
-            <select class="select select-ghost w-full">
-              <option value="" selected>
-                All Cars
-              </option>
-              {Cars.map((car) => (
-                <option value={car.kunos_id}>{car.name}</option>
-              ))}
-            </select>
-          </th>
+          <th>Car</th>
           <th>LapTime</th>
           <th>Track grip</th>
           <th>Session Type</th>
