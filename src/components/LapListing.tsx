@@ -9,7 +9,11 @@ import {
   onSnapshot,
   orderBy,
   query,
+  where,
 } from "firebase/firestore";
+import { GripMap, TrackMap, Tracks } from "../types/tracks";
+import { CarMap, Cars } from "../types/cars";
+import { TargetedEvent } from "preact/compat";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -33,7 +37,7 @@ interface LapData {
   laptime: number;
   car: string;
   timestamp: number;
-  trackGrip: string;
+  trackGrip: number;
   weather: string;
   airTemp: string;
   roadTemp: string;
@@ -46,12 +50,17 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
   const [laps, setLaps] = useState<LapData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any | null>(null);
+  const [selectedTrack, setSelectedTrack] = useState<string>("");
 
   useEffect(() => {
     const fetchLaps = async () => {
       try {
         const productsCollection = collection(db, "laps");
-        const q = query(productsCollection, orderBy("timestamp", "desc"));
+        const q = query(
+          productsCollection,
+          where("track", "==", selectedTrack),
+          orderBy("timestamp", "desc")
+        );
 
         const unsubscribe = onSnapshot(
           q,
@@ -82,7 +91,7 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
     };
 
     fetchLaps();
-  }, []);
+  }, [selectedTrack]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -92,6 +101,11 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
     return <div>Error: {error.message}</div>;
   }
 
+  const handleTrackFilter = (event: Event): void => {
+    const target = event.target as HTMLSelectElement;
+    setSelectedTrack(target.value);
+  };
+
   return (
     <table class="table min-w-full table-zebra table-md table-pin-rows">
       <thead>
@@ -99,14 +113,29 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
           <th>Time</th>
           <th>Name</th>
           <th>
-            <select class="select select-ghost w-full">
-              <option selected>
+            <select
+              value={selectedTrack}
+              onChange={handleTrackFilter}
+              class="select select-ghost w-full"
+            >
+              <option value="*" selected>
                 All Tracks
               </option>
-              <option>Nurburgring</option>
+              {Tracks.map((track) => (
+                <option value={track.kunos_id}>{track.name}</option>
+              ))}
             </select>
           </th>
-          <th>Car</th>
+          <th>
+            <select class="select select-ghost w-full">
+              <option value="" selected>
+                All Cars
+              </option>
+              {Cars.map((car) => (
+                <option value={car.kunos_id}>{car.name}</option>
+              ))}
+            </select>
+          </th>
           <th>LapTime</th>
           <th>Track grip</th>
           <th>Session Type</th>
@@ -117,10 +146,10 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
           <tr key={item.id}>
             <td>{new Date(item.timestamp * 1000).toLocaleString()}</td>
             <td>{item.name}</td>
-            <td>{item.track}</td>
-            <td>{item.car}</td>
+            <td>{TrackMap.get(item.track)}</td>
+            <td>{CarMap.get(item.car)}</td>
             <td>{formatLaptime(item.laptime)}</td>
-            <td>{item.trackGrip}</td>
+            <td>{GripMap.get(item.trackGrip)}</td>
             <td>{convertSessionType(item.sessionType)}</td>
           </tr>
         ))}
