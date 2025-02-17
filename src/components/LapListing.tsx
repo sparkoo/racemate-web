@@ -28,10 +28,10 @@ interface LapData {
   timestamp: number;
   trackGrip: number;
   weather: string;
-  airTemp: string;
-  roadTemp: string;
+  airTemp: number;
+  roadTemp: number;
   sessionType: number;
-  rainTypes: string;
+  rainTypes: number;
   lapNumber: string;
 }
 
@@ -121,7 +121,8 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
           </th>
           <th>Car</th>
           <th>LapTime</th>
-          <th>Track grip</th>
+          <th>Track grip (Tyres)</th>
+          <th>Temp (Air/Track)</th>
           <th>Session Type</th>
         </tr>
       </thead>
@@ -137,7 +138,8 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
             <td>{TrackMap.get(item.track)}</td>
             <td>{CarMap.get(item.car)}</td>
             <td>{formatLaptime(item.laptime)}</td>
-            <td>{GripMap.get(item.trackGrip)}</td>
+            <td>{GripMap.get(item.trackGrip)} ({item.rainTypes == 1 ? "W" : "D"})</td>
+            <td>{item.airTemp.toFixed(1)}&deg;C / {item.roadTemp.toFixed(1)}&deg;C</td>
             <td>{convertSessionType(item.sessionType)}</td>
           </tr>
         ))}
