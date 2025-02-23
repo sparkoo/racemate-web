@@ -26,7 +26,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
   const handleHover = (data: any): void => {
     if (data && data.points && data.points.length > 0) {
       const hoverX: number = data.points[0].x;
-
+      const hoverY: number = data.points[0].y;
       setLayout({
         ...layout,
         shapes: [
@@ -42,6 +42,17 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
             },
           },
         ],
+        annotations: [ // Add annotation
+          {
+            x: hoverX,
+            y: hoverY,
+            text: hoverY.toString(),
+            showarrow: true,
+            arrowhead: 1,
+            ax: 20,
+            ay: -30,
+          },
+        ],
       });
     }
   };
@@ -49,6 +60,10 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
   const handleUnhover = (): void => {
     setLayout({ ...layout, shapes: [] });
   };
+
+  const handleChange = (): void => {
+    setLayout({ ...layout, shapes: []})
+  }
 
   return (
     <div>
@@ -75,6 +90,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
         config={{ staticPlot: false, displayModeBar: false }}
         onHover={handleHover}
         onUnhover={handleUnhover}
+        onRelayout={handleChange}
       />
       <Plot
         data={[
