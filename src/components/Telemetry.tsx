@@ -8,6 +8,8 @@ import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { firebaseApp } from "../main";
 import { racemate } from "racemate-msg";
 import { useRoute } from "preact-iso";
+import { CarMap } from "../types/cars";
+import { TrackMap } from "../types/tracks";
 
 interface Props {}
 
@@ -79,8 +81,8 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
       <>
         <span>{error}</span>
         <ul>
-          <li>Track: {lap.track}</li>
-          <li>Car: {lap.car_model}</li>
+          <li>Track: {TrackMap.get(lap.track)}</li>
+          <li>Car: {CarMap.get(lap.car_model)}</li>
           <li>
             Time: {format(new Date(lap.lap_time_ms), "mm:ss:SSS").toString()}
           </li>
