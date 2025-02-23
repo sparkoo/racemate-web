@@ -11,8 +11,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
   const layout: Partial<Plotly.Layout> = {
     width: graphWidth,
     height: 150,
-    xaxis: { visible: false },
-    yaxis: { visible: false },
+    xaxis: { visible: true, rangeslider: { visible: true }, fixedrange: false },
+    yaxis: { visible: false, fixedrange: true },
     margin: {
       l: 5,
       r: 5,
@@ -20,7 +20,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
       b: 5,
     },
     showlegend: false,
-  }
+  };
   return (
     <div>
       <Plot
@@ -43,7 +43,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
           },
         ]}
         layout={layout}
-        config={{ staticPlot: true }}
+        config={{ staticPlot: false, displayModeBar: false }}
       />
       <Plot
         data={[
