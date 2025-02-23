@@ -1,6 +1,7 @@
 import { FunctionalComponent } from "preact";
 import Plot from "react-plotly.js";
 import { racemate } from "racemate-msg";
+import { useState } from "preact/hooks";
 
 interface Props {
   lap: racemate.Lap;
@@ -8,7 +9,7 @@ interface Props {
 }
 
 const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
-  const layout: Partial<Plotly.Layout> = {
+  const [layout, setLayout] = useState<Partial<Plotly.Layout>>({
     width: graphWidth,
     height: 150,
     xaxis: { visible: true, rangeslider: { visible: true }, fixedrange: false },
@@ -20,7 +21,35 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
       b: 5,
     },
     showlegend: false,
+  });
+
+  const handleHover = (data: any): void => {
+    if (data && data.points && data.points.length > 0) {
+      const hoverX: number = data.points[0].x;
+
+      setLayout({
+        ...layout,
+        shapes: [
+          {
+            type: "line",
+            x0: hoverX,
+            x1: hoverX,
+            y0: 0,
+            y1: 1,
+            line: {
+              color: "red",
+              width: 1,
+            },
+          },
+        ],
+      });
+    }
   };
+
+  const handleUnhover = (): void => {
+    setLayout({ ...layout, shapes: [] });
+  };
+
   return (
     <div>
       <Plot
@@ -44,6 +73,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
         ]}
         layout={layout}
         config={{ staticPlot: false, displayModeBar: false }}
+        onHover={handleHover}
+        onUnhover={handleUnhover}
       />
       <Plot
         data={[
