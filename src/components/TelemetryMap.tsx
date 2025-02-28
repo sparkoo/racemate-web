@@ -1,6 +1,6 @@
 import { FunctionalComponent } from "preact";
-import Plot from "react-plotly.js";
 import { racemate } from "racemate-msg";
+import Curve from "./Curve";
 
 interface Props {
   lap: racemate.Lap;
@@ -9,33 +9,8 @@ interface Props {
 
 const TelemetryMap: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
   return (
-    <div>
-      <Plot
-        data={[
-          {
-            x: lap.frames.map((c) => -c.car_coordinate_x),
-            y: lap.frames.map((c) => c.car_coordinate_z),
-            mode: "lines",
-            marker: { color: "red" },
-          },
-        ]}
-        layout={{
-          width: graphWidth,
-          height: 800,
-          xaxis: { visible: false },
-          yaxis: { visible: false },
-          margin: {
-            l: 5,
-            r: 5,
-            t: 5,
-            b: 5,
-            pad: 0,
-          },
-          paper_bgcolor: "rgba(0,0,0,0)",
-          plot_bgcolor: "rgba(0,0,0,0)",
-        }}
-        config={{ staticPlot: true }}
-      />
+    <div className={"bg-[url('Donington_circuit.svg_rot.png')] bg-cover"}>
+      <Curve data={lap.frames} width={800} height={800} />
     </div>
   );
 };
