@@ -2,6 +2,8 @@ import { FunctionalComponent } from "preact";
 import Plot from "react-plotly.js";
 import { racemate } from "racemate-msg";
 import { useState } from "preact/hooks";
+import TelemetryGraph from "./Graph/TelemetryGraph";
+import {GraphLap, GraphLine} from "./Graph/GraphLine";
 
 interface Props {
   lap: racemate.Lap;
@@ -65,8 +67,12 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
     setLayout({ ...layout, shapes: []})
   }
 
+  const throttleLine: GraphLine = {yAxis: (frame) => frame.gas, color: "green"}
+  const breakLine: GraphLine = {yAxis: (frame) => frame.brake, color: "red"}
+
   return (
     <div>
+      <TelemetryGraph width={graphWidth} height={150} lapData={[{lap: lap, lines: [throttleLine, breakLine]}]} />
       <Plot
         data={[
           {
