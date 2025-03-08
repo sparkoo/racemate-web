@@ -64,6 +64,7 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
         setWidth(entry.contentRect.width);
+        console.log(graphWidth)
       }
     });
 

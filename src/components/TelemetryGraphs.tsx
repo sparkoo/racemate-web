@@ -3,7 +3,7 @@ import Plot from "react-plotly.js";
 import { racemate } from "racemate-msg";
 import { useState } from "preact/hooks";
 import TelemetryGraph from "./Graph/TelemetryGraph";
-import {GraphLap, GraphLine} from "./Graph/GraphLine";
+import { GraphLap, GraphLine } from "./Graph/GraphLine";
 
 interface Props {
   lap: racemate.Lap;
@@ -12,7 +12,7 @@ interface Props {
 
 const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
   const [layout, setLayout] = useState<Partial<Plotly.Layout>>({
-    width: graphWidth,
+    // width: graphWidth,
     height: 150,
     xaxis: { visible: true, rangeslider: { visible: true }, fixedrange: false },
     yaxis: { visible: false, fixedrange: true },
@@ -44,7 +44,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
             },
           },
         ],
-        annotations: [ // Add annotation
+        annotations: [
+          // Add annotation
           {
             x: hoverX,
             y: hoverY,
@@ -64,15 +65,27 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
   };
 
   const handleChange = (): void => {
-    setLayout({ ...layout, shapes: []})
-  }
+    setLayout({ ...layout, shapes: [] });
+  };
 
-  const throttleLine: GraphLine = {yAxis: (frame) => frame.gas, color: "green"}
-  const breakLine: GraphLine = {yAxis: (frame) => frame.brake, color: "red"}
+  const throttleLine: GraphLine = {
+    x: (frame) => frame.normalized_car_position,
+    y: (frame) => frame.gas,
+    color: "green",
+  };
+  const breakLine: GraphLine = {
+    x: (frame) => frame.normalized_car_position,
+    y: (frame) => frame.brake,
+    color: "red",
+  };
 
   return (
     <div>
-      <TelemetryGraph width={graphWidth} height={150} lapData={[{lap: lap, lines: [throttleLine, breakLine]}]} />
+      <TelemetryGraph
+        width={graphWidth}
+        height={150}
+        lapData={[{ lap: lap, lines: [throttleLine, breakLine] }]}
+      />
       <Plot
         data={[
           {
