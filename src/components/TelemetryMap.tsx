@@ -7,7 +7,7 @@ interface Props {
   graphWidth: number;
 }
 
-const TelemetryMap: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
+const TelemetryMap: FunctionalComponent<Props> = ({ lap }) => {
   return (
     <div className={"bg-[url('Donington_circuit.svg_rot.png')] bg-cover"}>
       <Curve data={lap.frames} width={800} height={800} />

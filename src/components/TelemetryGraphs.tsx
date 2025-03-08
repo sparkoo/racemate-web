@@ -3,7 +3,7 @@ import Plot from "react-plotly.js";
 import { racemate } from "racemate-msg";
 import { useState } from "preact/hooks";
 import TelemetryGraph from "./Graph/TelemetryGraph";
-import { GraphLap, GraphLine } from "./Graph/GraphLine";
+import { GraphLine } from "./Graph/GraphLine";
 
 interface Props {
   lap: racemate.Lap;
