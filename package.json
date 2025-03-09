@@ -13,16 +13,13 @@
     "d3": "^7.9.0",
     "date-fns": "^4.1.0",
     "firebase": "^11.3.1",
-    "plotly.js": "^3.0.0",
     "preact": "^10.25.4",
     "preact-iso": "^2.9.0",
-    "racemate-msg": "^4.1.0",
-    "react-plotly.js": "^2.6.0"
+    "racemate-msg": "^4.1.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.10.1",
     "@types/d3": "^7.4.3",
-    "@types/react-plotly.js": "^2.6.3",
     "daisyui": "^5.0.0-beta.7",
     "tailwindcss": "^4.0.5",
     "typescript": "~5.7.2",
