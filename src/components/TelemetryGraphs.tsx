@@ -20,6 +20,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
   return (
     <div>
       <input
+        className={"w-full"}
         type="range"
         min={0}
         max={100}
@@ -28,6 +29,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
       />
       <br />
       <input
+        className={"w-full"}
         type="range"
         min={0}
         max={100}
@@ -93,7 +95,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
       <TelemetryGraph
         xMin={minValue}
         xMax={maxValue}
-        yMin={3000}
+        yMin={0}
         yMax={8000}
         lapsData={[
           {
