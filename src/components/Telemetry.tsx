@@ -22,7 +22,6 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
   const [error, setError] = useState<string | null>(null);
 
   const divRef = useRef<HTMLDivElement>(null);
-  const [graphWidth, setWidth] = useState<number>(0);
 
   useEffect(() => {
     const loadLap = async () => {
@@ -60,21 +59,6 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
       }
     };
     loadLap();
-
-    const observer = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        setWidth(entry.contentRect.width);
-        console.log(graphWidth)
-      }
-    });
-
-    if (divRef.current) {
-      observer.observe(divRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
   }, []); // Empty dependency array ensures this runs only once on mount
 
   if (lap != null) {
@@ -93,10 +77,10 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
         </ul>
         <div class="w-full grid grid-cols-2">
           <div ref={divRef}>
-            <TelemetryGraphs lap={lap} graphWidth={graphWidth} />
+            <TelemetryGraphs lap={lap} />
           </div>
           <div>
-            <TelemetryMap lap={lap} graphWidth={graphWidth} />
+            <TelemetryMap lap={lap} />
           </div>
         </div>
       </>

@@ -5,7 +5,6 @@ import { GraphLap } from "./GraphLine";
 import * as d3 from "d3";
 
 interface Props {
-  width?: number;
   height?: number;
   xMin?: number;
   xMax?: number;
@@ -16,7 +15,7 @@ interface Props {
 }
 
 const TelemetryGraph: FunctionalComponent<Props> = ({
-  height = 150,
+  height = 200,
   lapsData: laps,
   xMin = 0,
   xMax = 1,
@@ -24,11 +23,13 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
   yMax = 1,
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const width = 700;
   const margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
   useEffect(() => {
     if (!svgRef.current) return;
+
+    //TODO: handle resize
+    const width = svgRef.current.getBoundingClientRect().width;
 
     const svg = d3.select(svgRef.current);
 
@@ -78,11 +79,7 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
     });
   }, [laps]);
 
-  return (
-    <>
-      <svg ref={svgRef} width={"100%"} height={height} />
-    </>
-  );
+  return <svg ref={svgRef} width={"100%"} height={height} />;
 };
 
 export default TelemetryGraph;

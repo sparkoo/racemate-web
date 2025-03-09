@@ -4,7 +4,6 @@ import Curve from "./Curve";
 
 interface Props {
   lap: racemate.Lap;
-  graphWidth: number;
 }
 
 const TelemetryMap: FunctionalComponent<Props> = ({ lap }) => {

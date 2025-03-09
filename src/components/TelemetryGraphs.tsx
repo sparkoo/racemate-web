@@ -4,14 +4,12 @@ import TelemetryGraph from "./Graph/TelemetryGraph";
 
 interface Props {
   lap: racemate.Lap;
-  graphWidth: number;
 }
 
-const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
+const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
   return (
     <div>
       <TelemetryGraph
-        width={graphWidth}
         lapsData={[
           {
             lap: lap,
@@ -31,7 +29,6 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
         ]}
       />
       <TelemetryGraph
-        width={graphWidth}
         yMin={-1}
         lapsData={[
           {
@@ -47,7 +44,6 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
         ]}
       />
       <TelemetryGraph
-        width={graphWidth}
         yMax={6}
         yMin={0}
         lapsData={[
@@ -64,7 +60,6 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
         ]}
       />
       <TelemetryGraph
-        width={graphWidth}
         yMin={3000}
         yMax={8000}
         lapsData={[
@@ -81,7 +76,6 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, graphWidth }) => {
         ]}
       />
       <TelemetryGraph
-        width={graphWidth}
         yMax={300}
         lapsData={[
           {
