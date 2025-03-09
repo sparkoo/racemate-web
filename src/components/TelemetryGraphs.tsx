@@ -1,15 +1,42 @@
 import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
 import TelemetryGraph from "./Graph/TelemetryGraph";
+import { useState } from "preact/hooks";
 
 interface Props {
   lap: racemate.Lap;
 }
 
 const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
+  const [minValue, setMinValue] = useState<number>(0);
+  const [maxValue, setMaxValue] = useState<number>(1);
+
+  const calcValue = (e: Event): number => {
+    const target = e.target as HTMLInputElement;
+    const value = Number(target.value);
+    return value / 100;
+  };
+
   return (
     <div>
+      <input
+        type="range"
+        min={0}
+        max={100}
+        value={minValue * 100}
+        onChange={(e) => setMinValue(calcValue(e))}
+      />
+      <br />
+      <input
+        type="range"
+        min={0}
+        max={100}
+        value={maxValue * 100}
+        onChange={(e) => setMaxValue(calcValue(e))}
+      />
       <TelemetryGraph
+        xMin={minValue}
+        xMax={maxValue}
         lapsData={[
           {
             lap: lap,
@@ -29,6 +56,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
+        xMin={minValue}
+        xMax={maxValue}
         yMin={-1}
         lapsData={[
           {
@@ -44,6 +73,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
+        xMin={minValue}
+        xMax={maxValue}
         yMax={6}
         yMin={0}
         lapsData={[
@@ -60,6 +91,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
+        xMin={minValue}
+        xMax={maxValue}
         yMin={3000}
         yMax={8000}
         lapsData={[
@@ -76,6 +109,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
+        xMin={minValue}
+        xMax={maxValue}
         yMax={300}
         lapsData={[
           {

@@ -1,8 +1,8 @@
 import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
-import { useRef, useEffect } from "react";
 import { GraphLap } from "./GraphLine";
 import * as d3 from "d3";
+import { useEffect, useRef } from "preact/hooks";
 
 interface Props {
   height?: number;
