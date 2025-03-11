@@ -2,7 +2,7 @@ import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
 import { GraphLap } from "./GraphLine";
 import * as d3 from "d3";
-import { useEffect, useRef } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 
 interface Props {
   height?: number;
@@ -23,7 +23,8 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
   yMax = 1,
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const margin = { top: 20, right: 30, bottom: 30, left: 40 };
+  const [verticalLine, setVerticalLine] =
+    useState<d3.Selection<SVGLineElement, unknown, null, undefined>>();
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -39,15 +40,9 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
     laps.forEach((lapData) => {
       lapData.lines.forEach((telemetryLine) => {
         // Set up scales
-        const xScale = d3
-          .scaleLinear()
-          .domain([xMin, xMax])
-          .range([margin.left, width - margin.right]);
+        const xScale = d3.scaleLinear().domain([xMin, xMax]).range([0, width]);
 
-        const yScale = d3
-          .scaleLinear()
-          .domain([yMin, yMax])
-          .range([height - margin.bottom, margin.top]);
+        const yScale = d3.scaleLinear().domain([yMin, yMax]).range([height, 0]);
 
         // Create the line generator
         const line = d3
@@ -63,23 +58,38 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
           .attr("stroke", telemetryLine.color)
           .attr("stroke-width", 1)
           .attr("d", line);
-
-        // Add X axis
-        svg
-          .append("g")
-          .attr("transform", `translate(0,${height - margin.bottom})`)
-          .call(d3.axisBottom(xScale));
-
-        // Add Y axis
-        svg
-          .append("g")
-          .attr("transform", `translate(${margin.left},0)`)
-          .call(d3.axisLeft(yScale));
       });
     });
+
+    setVerticalLine(
+      svg
+        .append("line")
+        .attr("stroke", "lightgray")
+        .attr("stroke-width", 1)
+        .attr("x1", 0)
+        .attr("x2", 0)
+        .attr("y1", 0)
+        .attr("y2", height)
+        .attr("stroke-dasharray", 6)
+        .attr("display", null)
+    );
   }, [laps]);
 
-  return <svg ref={svgRef} width={"100%"} height={height} />;
+  const onEv = (e: PointerEvent): void => {
+    if (!verticalLine) return;
+    verticalLine.attr("transform", `translate(${e.offsetX},0)`);
+  };
+
+  return (
+    <svg
+      ref={svgRef}
+      width={"100%"}
+      height={height}
+      onPointerEnter={onEv}
+      onPointerMove={onEv}
+      onPointerLeave={onEv}
+    />
+  );
 };
 
 export default TelemetryGraph;
