@@ -11,10 +11,16 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
   const [minValue, setMinValue] = useState<number>(0);
   const [maxValue, setMaxValue] = useState<number>(1);
 
+  const [verticalLine, setVerticalLine] = useState<number>(0);
+
   const calcValue = (e: Event): number => {
     const target = e.target as HTMLInputElement;
     const value = Number(target.value);
     return value / 100;
+  };
+
+  const setVerticalLineXCallback = (x: number) => {
+    setVerticalLine(x);
   };
 
   return (
@@ -37,6 +43,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         onChange={(e) => setMaxValue(calcValue(e))}
       />
       <TelemetryGraph
+        verticalLineX={verticalLine}
+        setVerticalLineX={setVerticalLineXCallback}
         xMin={minValue}
         xMax={maxValue}
         lapsData={[
@@ -58,6 +66,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
+        verticalLineX={verticalLine}
+        setVerticalLineX={setVerticalLineXCallback}
         xMin={minValue}
         xMax={maxValue}
         yMin={-1}
@@ -75,6 +85,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
+        verticalLineX={verticalLine}
+        setVerticalLineX={setVerticalLineXCallback}
         xMin={minValue}
         xMax={maxValue}
         yMax={6}
@@ -93,6 +105,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
+        verticalLineX={verticalLine}
+        setVerticalLineX={setVerticalLineXCallback}
         xMin={minValue}
         xMax={maxValue}
         yMin={0}
@@ -111,6 +125,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
+        verticalLineX={verticalLine}
+        setVerticalLineX={setVerticalLineXCallback}
         xMin={minValue}
         xMax={maxValue}
         yMax={300}
