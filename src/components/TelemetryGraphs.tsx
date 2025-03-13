@@ -1,6 +1,6 @@
 import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
-import TelemetryGraph from "./Graph/TelemetryGraph";
+import TelemetryGraph, { HoverData } from "./Graph/TelemetryGraph";
 import { useState } from "preact/hooks";
 
 interface Props {
@@ -11,7 +11,10 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
   const [minValue, setMinValue] = useState<number>(0);
   const [maxValue, setMaxValue] = useState<number>(1);
 
-  const [pointerPosX, setPointerPosX] = useState<number>(0);
+  const [hoverData, setHoverData] = useState<HoverData>({
+    pointerPosX: 0,
+    frameIndex: 0,
+  });
 
   const calcValue = (e: Event): number => {
     const target = e.target as HTMLInputElement;
@@ -19,8 +22,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
     return value / 100;
   };
 
-  const setPointerPosXCallback = (x: number) => {
-    setPointerPosX(x);
+  const setHoverDataCallback = (data: HoverData) => {
+    setHoverData(data);
   };
 
   return (
@@ -43,8 +46,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         onChange={(e) => setMaxValue(calcValue(e))}
       />
       <TelemetryGraph
-        pointerPosX={pointerPosX}
-        pointerPosXCallback={setPointerPosXCallback}
+        hoverData={hoverData}
+        hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
         xMax={maxValue}
         lapsData={[
@@ -66,8 +69,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
-        pointerPosX={pointerPosX}
-        pointerPosXCallback={setPointerPosXCallback}
+        hoverData={hoverData}
+        hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
         xMax={maxValue}
         yMin={-1}
@@ -85,8 +88,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
-        pointerPosX={pointerPosX}
-        pointerPosXCallback={setPointerPosXCallback}
+        hoverData={hoverData}
+        hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
         xMax={maxValue}
         yMax={6}
@@ -105,8 +108,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
-        pointerPosX={pointerPosX}
-        pointerPosXCallback={setPointerPosXCallback}
+        hoverData={hoverData}
+        hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
         xMax={maxValue}
         yMin={0}
@@ -125,8 +128,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
         ]}
       />
       <TelemetryGraph
-        pointerPosX={pointerPosX}
-        pointerPosXCallback={setPointerPosXCallback}
+        hoverData={hoverData}
+        hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
         xMax={maxValue}
         yMax={300}

@@ -13,8 +13,13 @@ interface Props {
 
   lapsData: GraphLap[];
 
+  hoverData: HoverData;
+  hoverDataCallback: (hoverData: HoverData) => void;
+}
+
+export interface HoverData {
   pointerPosX: number;
-  pointerPosXCallback: (x: number) => void;
+  frameIndex: number;
 }
 
 const TelemetryGraph: FunctionalComponent<Props> = ({
@@ -24,14 +29,16 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
   xMax = 1,
   yMin = 0,
   yMax = 1,
-  pointerPosXCallback,
-  pointerPosX,
+  hoverDataCallback,
+  hoverData,
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [verticalLine, setVerticalLine] =
     useState<d3.Selection<SVGLineElement, unknown, null, undefined>>();
   const [graphsRendered, setGraphsRendered] = useState<boolean>(false);
-  const [hoveredValue, setHoveredValue] = useState<{n: number, color: string}[]>([]);
+  const [hoveredValue, setHoveredValue] = useState<
+    { n: number; color: string }[]
+  >([]);
 
   const width = 800;
   const xScale = d3.scaleLinear().domain([xMin, xMax]).range([0, width]);
@@ -71,8 +78,8 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
           .append("line")
           .attr("stroke", "lightgray")
           .attr("stroke-width", 1)
-          .attr("x1", pointerPosX)
-          .attr("x2", pointerPosX)
+          .attr("x1", hoverData.pointerPosX)
+          .attr("x2", hoverData.pointerPosX)
           .attr("y1", 0)
           .attr("y2", height)
           .attr("stroke-dasharray", 6)
@@ -83,17 +90,19 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
     }
 
     if (verticalLine) {
-      verticalLine.attr("transform", `translate(${pointerPosX},0)`);
-      const currentHoveredValues: {n: number, color: string}[] = [];
+      verticalLine.attr("transform", `translate(${hoverData.pointerPosX},0)`);
+      const currentHoveredValues: { n: number; color: string }[] = [];
       lapsData.forEach((lapData) => {
-        const i = translateXPosToFrameIndex(pointerPosX, lapData);
         lapData.lines.forEach((line) => {
-          currentHoveredValues.push({n: line.y(lapData.lap.frames[i]), color: line.color});
+          currentHoveredValues.push({
+            n: line.y(lapData.lap.frames[hoverData.frameIndex]),
+            color: line.color,
+          });
         });
       });
       setHoveredValue(currentHoveredValues);
     }
-  }, [pointerPosX]);
+  }, [hoverData]);
 
   const translateXPosToFrameIndex = (
     xPos: number,
@@ -109,7 +118,9 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
 
   const onEv = (e: PointerEvent): void => {
     if (!verticalLine) return;
-    pointerPosXCallback(d3.pointer(e)[0]);
+    const pointerPosX = d3.pointer(e)[0];
+    const frameIndex = translateXPosToFrameIndex(pointerPosX, lapsData[0]);
+    hoverDataCallback({ pointerPosX: pointerPosX, frameIndex: frameIndex });
   };
 
   return (
