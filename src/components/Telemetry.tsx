@@ -20,6 +20,7 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
 
   const [lap, setLap] = useState<racemate.Lap | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [hoveredFrames, setHoveredFrames] = useState<number[]>([]);
 
   const divRef = useRef<HTMLDivElement>(null);
 
@@ -77,10 +78,10 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
         </ul>
         <div class="w-full grid grid-cols-2">
           <div ref={divRef}>
-            <TelemetryGraphs lap={lap} />
+            <TelemetryGraphs lap={lap} hoveredFrames={hoveredFrames} hoveredFramesCallback={(frames) => setHoveredFrames(frames)} />
           </div>
           <div>
-            <TelemetryMap lap={lap} />
+            <TelemetryMap lap={lap} hoveredFrames={hoveredFrames} />
           </div>
         </div>
       </>

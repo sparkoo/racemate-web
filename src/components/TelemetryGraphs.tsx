@@ -5,15 +5,17 @@ import { useState } from "preact/hooks";
 
 interface Props {
   lap: racemate.Lap;
+  hoveredFrames: number[];
+  hoveredFramesCallback: (hoveredFrames: number[]) => void;
 }
 
-const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
+const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, hoveredFrames, hoveredFramesCallback }) => {
   const [minValue, setMinValue] = useState<number>(0);
   const [maxValue, setMaxValue] = useState<number>(1);
 
   const [hoverData, setHoverData] = useState<HoverData>({
     pointerPosX: 0,
-    frameIndex: 0,
+    frameIndex: hoveredFrames,
   });
 
   const calcValue = (e: Event): number => {
@@ -23,6 +25,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap }) => {
   };
 
   const setHoverDataCallback = (data: HoverData) => {
+    hoveredFramesCallback(data.frameIndex)
     setHoverData(data);
   };
 

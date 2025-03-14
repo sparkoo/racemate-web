@@ -19,7 +19,7 @@ interface Props {
 
 export interface HoverData {
   pointerPosX: number;
-  frameIndex: number;
+  frameIndex: number[];
 }
 
 const TelemetryGraph: FunctionalComponent<Props> = ({
@@ -90,12 +90,15 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
     }
 
     if (verticalLine) {
-      verticalLine.attr("transform", `translate(${hoverData.pointerPosX},0)`);
+      verticalLine
+        .attr("x1", hoverData.pointerPosX)
+        .attr("x2", hoverData.pointerPosX);
+
       const currentHoveredValues: { n: number; color: string }[] = [];
       lapsData.forEach((lapData) => {
         lapData.lines.forEach((line) => {
           currentHoveredValues.push({
-            n: line.y(lapData.lap.frames[hoverData.frameIndex]),
+            n: line.y(lapData.lap.frames[hoverData.frameIndex[0]]), //TODO: handle frame by index
             color: line.color,
           });
         });
@@ -120,7 +123,7 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
     if (!verticalLine) return;
     const pointerPosX = d3.pointer(e)[0];
     const frameIndex = translateXPosToFrameIndex(pointerPosX, lapsData[0]);
-    hoverDataCallback({ pointerPosX: pointerPosX, frameIndex: frameIndex });
+    hoverDataCallback({ pointerPosX: pointerPosX, frameIndex: [frameIndex] });
   };
 
   return (
