@@ -31,7 +31,7 @@ const TelemetryMap: FunctionalComponent<Props> = ({ lap, hoveredFrames }) => {
 
   const maxExtent = Math.max(xExtent[1] - xExtent[0], yExtent[1] - yExtent[0]);
   const centerX = (xExtent[0] + xExtent[1]) / 2;
-  const centerY = (yExtent[0] + yExtent[1]) / 2;
+  // const centerY = (yExtent[0] + yExtent[1]) / 2;
 
   const domain = [centerX - maxExtent / 2, centerX + maxExtent / 2];
 
