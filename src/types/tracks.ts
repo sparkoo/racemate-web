@@ -4,14 +4,14 @@ export interface Track {
 }
 
 export const Tracks: Track[] = [
-  { kunos_id: "nurburgring_24h", name: "24H Nürburgring (Nordschleife)" },
+  { kunos_id: "nurburgring_24h", name: "Nordschleife" },
   { kunos_id: "oulton_park", name: "Oulton Park" },
-  { kunos_id: "Suzuka", name: "Suzuka Circuit" },
+  { kunos_id: "Suzuka", name: "Suzuka" },
   { kunos_id: "Hungaroring", name: "Hungaroring" },
   { kunos_id: "monza", name: "Monza" },
   { kunos_id: "Spa", name: "Spa Francorchamps" },
   { kunos_id: "donington", name: "Donington Park" },
-  { kunos_id: "red_bull_ring", name: "Spielberg - Red Bull Ring" },
+  { kunos_id: "red_bull_ring", name: "Red Bull Ring" },
   { kunos_id: "Imola", name: "Imola" },
 ];
 
