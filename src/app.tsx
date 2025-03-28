@@ -14,8 +14,8 @@ const App = () => {
           </a>
         </div>
         <nav>
-          <a class="" href="/telemetry">
-            Telemetry
+          <a class="" href="/laps">
+            Laps
           </a>
         </nav>
       </header>

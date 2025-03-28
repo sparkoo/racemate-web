@@ -98,7 +98,7 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
   }
 
   return (
-    <table class="table min-w-full table-zebra table-md table-pin-rows">
+    <table className={"table min-w-full table-zebra table-md table-pin-rows"}>
       <thead>
         <tr>
           <th>Time</th>
@@ -138,8 +138,12 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
             <td>{TrackMap.get(item.track)}</td>
             <td>{CarMap.get(item.car)}</td>
             <td>{formatLaptime(item.laptime)}</td>
-            <td>{GripMap.get(item.trackGrip)} ({item.rainTypes == 1 ? "W" : "D"})</td>
-            <td>{item.airTemp.toFixed(1)}&deg;C / {item.roadTemp.toFixed(1)}&deg;C</td>
+            <td>
+              {GripMap.get(item.trackGrip)} ({item.rainTypes == 1 ? "W" : "D"})
+            </td>
+            <td>
+              {item.airTemp.toFixed(1)}&deg;C / {item.roadTemp.toFixed(1)}&deg;C
+            </td>
             <td>{convertSessionType(item.sessionType)}</td>
           </tr>
         ))}
