@@ -7,7 +7,7 @@ import Main from "./components/Main";
 const App = () => {
   return (
     <>
-      <header class="bg-gray-950 grid grid-cols-2">
+      <header className={"bg-gray-950 sticky top-0 z-10 flex h-16"}>
         <div>
           <a href="/" class="logo">
             RaceMate
@@ -19,14 +19,16 @@ const App = () => {
           </a>
         </nav>
       </header>
-      <main>
-        <LocationProvider>
-          <Router>
-            <Route path="/telemetry" component={Telemetry} />
-            <Route path="/laps" component={LapListing} />
-            <Route default component={Main} />
-          </Router>
-        </LocationProvider>
+      <main className={"flex-grow"}>
+        <div className={"h-full"}>
+          <LocationProvider>
+            <Router>
+              <Route path="/telemetry" component={Telemetry} />
+              <Route path="/laps" component={LapListing} />
+              <Route default component={Main} />
+            </Router>
+          </LocationProvider>
+        </div>
       </main>
     </>
   );

@@ -13,6 +13,7 @@ export const Tracks: Track[] = [
   { kunos_id: "donington", name: "Donington Park" },
   { kunos_id: "red_bull_ring", name: "Red Bull Ring" },
   { kunos_id: "Imola", name: "Imola" },
+  { kunos_id: "watkins_glen", name: "Watkins Glen" },
 ];
 
 export const TrackMap: ReadonlyMap<string, string> = Tracks.reduce(

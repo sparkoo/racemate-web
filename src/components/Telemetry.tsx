@@ -29,7 +29,9 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
       // Create a storage reference
 
       try {
-        const lapRef = doc(db, "laps", router.query["id"]);
+        const lapIds = router.query["laps"].split(",");
+
+        const lapRef = doc(db, "laps", lapIds[0]);
         const lapSnap = await getDoc(lapRef);
         if (lapSnap.exists()) {
           // Document exists, access data
@@ -78,7 +80,11 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
         </ul>
         <div class="w-full grid grid-cols-2">
           <div ref={divRef}>
-            <TelemetryGraphs lap={lap} hoveredFrames={hoveredFrames} hoveredFramesCallback={(frames) => setHoveredFrames(frames)} />
+            <TelemetryGraphs
+              lap={lap}
+              hoveredFrames={hoveredFrames}
+              hoveredFramesCallback={(frames) => setHoveredFrames(frames)}
+            />
           </div>
           <div>
             <TelemetryMap lap={lap} hoveredFrames={hoveredFrames} />

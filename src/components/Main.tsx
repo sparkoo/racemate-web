@@ -3,10 +3,11 @@ import { useEffect, useState } from "preact/hooks";
 
 // Import the functions you need from the SDKs you need
 import { Tracks } from "../types/tracks";
+import LapListing from "./LapListing";
 
 interface Props {}
 
-const LapListing: FunctionalComponent<Props> = ({}) => {
+const Main: FunctionalComponent<Props> = ({}) => {
   const [selectedTrack, setSelectedTrack] = useState<string>("");
   useEffect(() => {
     console.log("selected", selectedTrack);
@@ -29,6 +30,7 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
             <option value={track.kunos_id}>{track.name}</option>
           ))}
         </select>
+        <LapListing selectedTrack={selectedTrack} />
       </div>
       <div className={"card shadow-sm col-span-2"}>
         <div className={"card-body"}>
@@ -55,4 +57,4 @@ const LapListing: FunctionalComponent<Props> = ({}) => {
   );
 };
 
-export default LapListing;
+export default Main;
