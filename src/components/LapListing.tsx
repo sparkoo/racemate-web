@@ -105,7 +105,7 @@ const LapListing: FunctionalComponent<Props> = ({ selectedTrack }) => {
         key={lap.id}
         class="cursor-pointer hover:bg-amber-950"
         // onClick={() => router.route(`/telemetry?id=${lap.id}`)}
-        onClick={(row) => {
+        onClick={() => {
           setSelectedLaps([...selectedLaps, lap]);
         }}
       >
