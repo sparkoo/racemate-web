@@ -9,7 +9,11 @@ interface Props {
   hoveredFramesCallback: (hoveredFrames: number[]) => void;
 }
 
-const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, hoveredFrames, hoveredFramesCallback }) => {
+const TelemetryGraphs: FunctionalComponent<Props> = ({
+  lap: lap,
+  hoveredFrames,
+  hoveredFramesCallback,
+}) => {
   const [minValue, setMinValue] = useState<number>(0);
   const [maxValue, setMaxValue] = useState<number>(1);
 
@@ -25,7 +29,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({ lap, hoveredFrames, hover
   };
 
   const setHoverDataCallback = (data: HoverData) => {
-    hoveredFramesCallback(data.frameIndex)
+    hoveredFramesCallback(data.frameIndex);
     setHoverData(data);
   };
 

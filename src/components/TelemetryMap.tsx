@@ -4,13 +4,14 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import * as d3 from "d3";
 
 interface Props {
-  lap: racemate.Lap; //TODO: handle multiple laps
+  laps: racemate.Lap[];
   hoveredFrames: number[];
 }
 
-const TelemetryMap: FunctionalComponent<Props> = ({ lap, hoveredFrames }) => {
-  const [carDot, setCarDot] =
-    useState<d3.Selection<SVGCircleElement, unknown, null, undefined>>(); //TODO: handle multiple cars
+const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
+  const [carDot, setCarDot] = useState<
+    d3.Selection<SVGCircleElement, unknown, null, undefined>[]
+  >([]); //TODO: handle multiple cars
   const [mapRendered, setMapRendered] = useState<boolean>(false);
 
   const svgRef = useRef<SVGSVGElement>(null);
@@ -20,11 +21,11 @@ const TelemetryMap: FunctionalComponent<Props> = ({ lap, hoveredFrames }) => {
   const height = 800;
 
   // TODO: cleanup. these are to keep the aspect ratio of the graph.
-  const xExtent = d3.extent(lap.frames, (d) => d.car_coordinate_x) as [
+  const xExtent = d3.extent(laps[0].frames, (d) => d.car_coordinate_x) as [
     number,
     number
   ];
-  const yExtent = d3.extent(lap.frames, (d) => d.car_coordinate_z) as [
+  const yExtent = d3.extent(laps[0].frames, (d) => d.car_coordinate_z) as [
     number,
     number
   ];
@@ -53,14 +54,23 @@ const TelemetryMap: FunctionalComponent<Props> = ({ lap, hoveredFrames }) => {
 
       svg
         .append("path")
-        .datum(lap.frames)
+        .datum(laps[0].frames)
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-width", 1)
         .attr("d", line)
         .attr("transform", `rotate(-50, ${width / 2}, ${height / 2})`);
+      svg
+        .append("path")
+        .datum(laps[1].frames)
+        .attr("fill", "none")
+        .attr("stroke", "red")
+        .attr("stroke-width", 1)
+        .attr("d", line)
+        .attr("transform", `rotate(-50, ${width / 2}, ${height / 2})`);
 
-      setCarDot(
+      setCarDot([
+        ...carDot,
         svg
           .append("circle")
           .attr("stroke", "lightgray")
@@ -70,15 +80,15 @@ const TelemetryMap: FunctionalComponent<Props> = ({ lap, hoveredFrames }) => {
           .attr("cy", 0)
           .attr("r", 5)
           .attr("display", null)
-          .attr("transform", `rotate(-50, ${width / 2}, ${height / 2})`)
-      );
+          .attr("transform", `rotate(-50, ${width / 2}, ${height / 2})`),
+      ]);
       setMapRendered(true);
     }
 
-    carDot
-      ?.attr("cx", xScale(lap.frames[hoveredFrames[0]].car_coordinate_x))
-      .attr("cy", yScale(-lap.frames[hoveredFrames[0]].car_coordinate_z));
-  }, [lap, width, height, hoveredFrames]);
+    carDot[0]
+      ?.attr("cx", xScale(laps[0].frames[hoveredFrames[0]].car_coordinate_x))
+      .attr("cy", yScale(-laps[0].frames[hoveredFrames[0]].car_coordinate_z));
+  }, [laps[0], width, height, hoveredFrames]);
 
   // TODO: somehow better set track image
   return (
