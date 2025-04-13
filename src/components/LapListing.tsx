@@ -12,7 +12,7 @@ import {
   QueryFieldFilterConstraint,
   where,
 } from "firebase/firestore";
-import { GripMap, TrackMap, Tracks } from "../types/tracks";
+import { GripMap } from "../types/tracks";
 import { CarMap } from "../types/cars";
 import { firebaseApp } from "../main";
 
