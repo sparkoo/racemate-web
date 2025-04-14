@@ -4,14 +4,22 @@ import { useEffect, useState } from "preact/hooks";
 // Import the functions you need from the SDKs you need
 import { Tracks } from "../types/tracks";
 import LapListing from "./LapListing";
+import { LapData } from "../types/lapdata";
+import SelectedLaps from "./SelectedLaps";
 
 interface Props {}
 
 const Main: FunctionalComponent<Props> = ({}) => {
   const [selectedTrack, setSelectedTrack] = useState<string>("");
+  const [selectedLaps, setSelectedLaps] = useState<LapData[]>([]);
+
   useEffect(() => {
     console.log("selected", selectedTrack);
   }, [selectedTrack]);
+
+  const selectedLapCallback = (lap: LapData) => {
+    setSelectedLaps([...selectedLaps, lap]);
+  };
 
   return (
     <div className={"grid grid-cols-6 gap-4"}>
@@ -30,7 +38,10 @@ const Main: FunctionalComponent<Props> = ({}) => {
             <option value={track.kunos_id}>{track.name}</option>
           ))}
         </select>
-        <LapListing selectedTrack={selectedTrack} />
+        <LapListing
+          selectedTrack={selectedTrack}
+          selectedLapCallback={selectedLapCallback}
+        />
       </div>
       <div className={"card shadow-sm col-span-2"}>
         <div className={"card-body"}>
@@ -51,6 +62,8 @@ const Main: FunctionalComponent<Props> = ({}) => {
               </tr>
             </tbody>
           </table>
+          <h2 className={"card-title text-2xl"}>Your last recorded laps</h2>
+          <SelectedLaps laps={selectedLaps} />
         </div>
       </div>
     </div>
