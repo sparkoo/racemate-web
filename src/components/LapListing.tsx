@@ -111,21 +111,25 @@ const LapListing: FunctionalComponent<Props> = ({
   };
 
   return (
-    <div className={"h-9/10 overflow-y-auto"}>
-      <table className={"table min-w-full table-zebra table-md table-pin-rows"}>
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Name</th>
-            <th>Car</th>
-            <th>LapTime</th>
-            <th>Track grip (Tyres)</th>
-            <th>Temp (Air/Track)</th>
-            <th>Session Type</th>
-          </tr>
-        </thead>
-        <tbody>{laps.map(renderRow)}</tbody>
-      </table>
+    <div className={"flex-1 overflow-hidden mt-4 relative"}>
+      <div className={"absolute inset-0 overflow-auto"}>
+        <table className={"table table-zebra table-md table-pin-rows w-full"}>
+          <thead className={"sticky top-0 bg-base-100 z-10"}>
+            <tr>
+              <th>Time</th>
+              <th>Name</th>
+              <th>Car</th>
+              <th>LapTime</th>
+              <th>Track grip (Tyres)</th>
+              <th>Temp (Air/Track)</th>
+              <th>Session Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            {laps.map(renderRow)}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

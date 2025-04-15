@@ -34,9 +34,9 @@ const Main: FunctionalComponent<Props> = ({}) => {
   };
 
   return (
-    <div className={"grid grid-cols-6 gap-4"}>
-      <div className={"card col-span-4"}>
-        <h2 className={"text-3xl"}>Find laps for track</h2>
+    <div className={"grid grid-cols-6 gap-4 h-screen max-h-screen overflow-hidden p-4"}>
+      <div className={"card col-span-4 min-h-0 flex flex-col"}>
+        <h2 className={"text-3xl mb-4"}>Find laps for track</h2>
         <select
           className={"select select-ghost select-xl"}
           onChange={(e) =>
@@ -56,7 +56,7 @@ const Main: FunctionalComponent<Props> = ({}) => {
           selectedLaps={selectedLaps}
         />
       </div>
-      <div className={"card shadow-sm col-span-2"}>
+      <div className={"card shadow-sm col-span-2 min-h-0 overflow-auto"}>
         <div className={"card-body"}>
           <h2 className={"card-title text-2xl"}>Your last recorded laps</h2>
           <table
