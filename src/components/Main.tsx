@@ -1,5 +1,6 @@
 import { FunctionalComponent } from "preact";
 import { useEffect, useState } from "preact/hooks";
+import { useLocation } from "preact-iso/router";
 
 // Import the functions you need from the SDKs you need
 import { Tracks } from "../types/tracks";
@@ -10,12 +11,33 @@ import SelectedLaps from "./SelectedLaps";
 interface Props {}
 
 const Main: FunctionalComponent<Props> = ({}) => {
+  const location = useLocation();
   const [selectedTrack, setSelectedTrack] = useState<string>("");
   const [selectedLaps, setSelectedLaps] = useState<LapData[]>([]);
 
+  // Initialize track from URL when component mounts
   useEffect(() => {
-    console.log("selected", selectedTrack);
-  }, [selectedTrack]);
+    const params = new URLSearchParams(location.url.split('?')[1] || '');
+    const trackParam = params.get('track');
+    if (trackParam && Tracks.some(t => t.kunos_id === trackParam)) {
+      setSelectedTrack(trackParam);
+    }
+  }, []); // Run only on mount
+
+  // Update URL when track changes and clear selected laps
+  const updateTrack = (track: string) => {
+    setSelectedTrack(track);
+    setSelectedLaps([]); // Clear selected laps when track changes
+    
+    const params = new URLSearchParams(location.url.split('?')[1] || '');
+    if (track) {
+      params.set('track', track);
+    } else {
+      params.delete('track');
+    }
+    const newUrl = `${location.url.split('?')[0]}${params.toString() ? '?' + params.toString() : ''}`;
+    history.replaceState(null, '', newUrl);
+  };
 
   const selectedLapCallback = (lap: LapData) => {
     // Check if lap is already selected
@@ -42,7 +64,7 @@ const Main: FunctionalComponent<Props> = ({}) => {
             <select
               className={"select select-ghost select-xl w-full"}
               onChange={(e) =>
-                setSelectedTrack((e.target as HTMLSelectElement).value)
+                updateTrack((e.target as HTMLSelectElement).value)
               }
               value={selectedTrack}
             >
