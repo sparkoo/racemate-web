@@ -34,15 +34,22 @@ const LapListing: FunctionalComponent<Props> = ({
   const [error, setError] = useState<any | null>(null);
 
   useEffect(() => {
+    console.log('LapListing: selectedTrack changed to', selectedTrack);
+    if (!selectedTrack) {
+      setLaps([]);
+      setLoading(false);
+      return;
+    }
+
     const fetchLaps = async () => {
       try {
-        const productsCollection = collection(db, "laps");
+        console.log('LapListing: Fetching laps for track', selectedTrack);
+        const lapsCollection = collection(db, "laps");
         const wheres: QueryFieldFilterConstraint[] = [];
-        if (selectedTrack) {
-          wheres.push(where("track", "==", selectedTrack));
-        }
+        wheres.push(where("track", "==", selectedTrack));
+        
         const q = query(
-          productsCollection,
+          lapsCollection,
           ...wheres,
           orderBy("laptime", "asc")
         );
@@ -50,28 +57,28 @@ const LapListing: FunctionalComponent<Props> = ({
         const unsubscribe = onSnapshot(
           q,
           (querySnapshot) => {
-            const fetchedProducts = querySnapshot.docs.map(
-              (doc) =>
-              ({
+            console.log('LapListing: Got snapshot with', querySnapshot.size, 'documents');
+            const fetchedLaps = querySnapshot.docs.map(
+              (doc) => ({
                 id: doc.id,
                 ...doc.data(),
               } as LapData)
             );
-            setLaps(fetchedProducts);
+            setLaps(fetchedLaps);
             setLoading(false);
           },
           (err) => {
+            console.error("LapListing: Error listening for updates:", err);
             setError(err.message);
             setLoading(false);
-            console.error("Error listening for updates:", err);
           }
         );
 
         return unsubscribe;
       } catch (err: any) {
+        console.error("LapListing: Error setting up query:", err);
         setError(err.message);
         setLoading(false);
-        console.error("Error fetching products:", err);
       }
     };
 
@@ -110,11 +117,13 @@ const LapListing: FunctionalComponent<Props> = ({
     );
   };
 
+  console.log('LapListing: Rendering with', laps.length, 'laps');
+  console.log('LapListing: First lap:', laps[0]);
+
   return (
-    <div className={"flex-1 overflow-hidden mt-4 relative"}>
-      <div className={"absolute inset-0 overflow-auto"}>
-        <table className={"table table-zebra table-md table-pin-rows w-full"}>
-          <thead className={"sticky top-0 bg-base-100 z-10"}>
+    <div className={"h-full overflow-auto border border-base-300 rounded-lg"}>
+      <table className={"table table-zebra table-md table-pin-rows w-full"}>
+        <thead className={"bg-base-100 sticky top-0 z-10"}>
             <tr>
               <th>Time</th>
               <th>Name</th>
@@ -129,7 +138,6 @@ const LapListing: FunctionalComponent<Props> = ({
             {laps.map(renderRow)}
           </tbody>
         </table>
-      </div>
     </div>
   );
 };

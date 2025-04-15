@@ -36,25 +36,39 @@ const Main: FunctionalComponent<Props> = ({}) => {
   return (
     <div className={"grid grid-cols-6 gap-4 h-screen max-h-screen overflow-hidden p-4"}>
       <div className={"card col-span-4 min-h-0 flex flex-col"}>
-        <h2 className={"text-3xl mb-4"}>Find laps for track</h2>
-        <select
-          className={"select select-ghost select-xl"}
-          onChange={(e) =>
-            setSelectedTrack((e.target as HTMLSelectElement).value)
-          }
-        >
-          <option disabled selected>
-            Select track ...
-          </option>
-          {Tracks.map((track) => (
-            <option value={track.kunos_id}>{track.name}</option>
-          ))}
-        </select>
-        <LapListing
-          selectedTrack={selectedTrack}
-          selectedLapCallback={selectedLapCallback}
-          selectedLaps={selectedLaps}
-        />
+        <h2 className={"text-3xl"}>Find laps for track</h2>
+        <div className={"flex flex-col gap-4 flex-1 min-h-0 mt-4"}>
+          <div>
+            <select
+              className={"select select-ghost select-xl w-full"}
+              onChange={(e) =>
+                setSelectedTrack((e.target as HTMLSelectElement).value)
+              }
+              value={selectedTrack}
+            >
+              <option value="" disabled>
+                Select track ...
+              </option>
+              {Tracks.map((track) => (
+                <option key={track.kunos_id} value={track.kunos_id}>{track.name}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className={"flex-1 min-h-0 overflow-hidden"}>
+            {!selectedTrack ? (
+              <div className={"text-center text-lg text-gray-500 mt-8"}>
+                Select a track to view laps
+              </div>
+            ) : (
+              <LapListing
+                selectedTrack={selectedTrack}
+                selectedLapCallback={selectedLapCallback}
+                selectedLaps={selectedLaps}
+              />
+            )}
+          </div>
+        </div>
       </div>
       <div className={"card shadow-sm col-span-2 min-h-0 overflow-auto"}>
         <div className={"card-body"}>
