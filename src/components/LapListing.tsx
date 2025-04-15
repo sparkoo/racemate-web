@@ -19,11 +19,13 @@ import { LapData } from "../types/lapdata";
 interface Props {
   selectedTrack: string;
   selectedLapCallback: (lap: LapData) => void;
+  selectedLaps: LapData[];
 }
 
 const LapListing: FunctionalComponent<Props> = ({
   selectedTrack,
   selectedLapCallback,
+  selectedLaps,
 }) => {
   const db = getFirestore(firebaseApp);
 
@@ -50,10 +52,10 @@ const LapListing: FunctionalComponent<Props> = ({
           (querySnapshot) => {
             const fetchedProducts = querySnapshot.docs.map(
               (doc) =>
-                ({
-                  id: doc.id,
-                  ...doc.data(),
-                } as LapData)
+              ({
+                id: doc.id,
+                ...doc.data(),
+              } as LapData)
             );
             setLaps(fetchedProducts);
             setLoading(false);
@@ -88,8 +90,7 @@ const LapListing: FunctionalComponent<Props> = ({
     return (
       <tr
         key={lap.id}
-        class="cursor-pointer hover:bg-amber-950"
-        // onClick={() => router.route(`/telemetry?id=${lap.id}`)}
+        class={`cursor-pointer ${selectedLaps.some(selected => selected.id === lap.id) ? '!bg-amber-950 hover:!bg-amber-900' : 'hover:!bg-amber-900'}`}
         onClick={() => {
           selectedLapCallback(lap);
         }}

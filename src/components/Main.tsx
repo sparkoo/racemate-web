@@ -18,6 +18,18 @@ const Main: FunctionalComponent<Props> = ({}) => {
   }, [selectedTrack]);
 
   const selectedLapCallback = (lap: LapData) => {
+    // Check if lap is already selected
+    if (selectedLaps.some(selected => selected.id === lap.id)) {
+      // If lap is already selected, remove it
+      setSelectedLaps(selectedLaps.filter(selected => selected.id !== lap.id));
+      return;
+    }
+    
+    // If trying to add a new lap
+    if (selectedLaps.length >= 2) {
+      alert('Maximum 2 laps can be selected for comparison');
+      return;
+    }
     setSelectedLaps([...selectedLaps, lap]);
   };
 
@@ -41,6 +53,7 @@ const Main: FunctionalComponent<Props> = ({}) => {
         <LapListing
           selectedTrack={selectedTrack}
           selectedLapCallback={selectedLapCallback}
+          selectedLaps={selectedLaps}
         />
       </div>
       <div className={"card shadow-sm col-span-2"}>
@@ -63,7 +76,10 @@ const Main: FunctionalComponent<Props> = ({}) => {
             </tbody>
           </table>
           <h2 className={"card-title text-2xl"}>Your last recorded laps</h2>
-          <SelectedLaps laps={selectedLaps} />
+          <SelectedLaps 
+            laps={selectedLaps} 
+            onRemoveLap={(lap) => setSelectedLaps(selectedLaps.filter(l => l.id !== lap.id))}
+          />
         </div>
       </div>
     </div>
