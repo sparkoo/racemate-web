@@ -35,60 +35,77 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
   const svgRef = useRef<SVGSVGElement>(null);
   const [verticalLine, setVerticalLine] =
     useState<d3.Selection<SVGLineElement, unknown, null, undefined>>();
-  const [graphsRendered, setGraphsRendered] = useState<boolean>(false);
+
   const [hoveredValue, setHoveredValue] = useState<
     { n: number; color: string }[]
   >([]);
 
-  const width = 800;
-  const xScale = d3.scaleLinear().domain([xMin, xMax]).range([0, width]);
-  const yScale = d3.scaleLinear().domain([yMin, yMax]).range([height, 0]);
+  const [width, setWidth] = useState<number>(800);
+
+
+  // Responsive width: use ResizeObserver on container
+  useEffect(() => {
+    if (!svgRef.current) return;
+    const container = svgRef.current.parentElement;
+    if (!container) return;
+    const observer = new window.ResizeObserver((entries) => {
+      for (let entry of entries) {
+        if (entry.contentRect) {
+          setWidth(entry.contentRect.width);
+        }
+      }
+    });
+    observer.observe(container);
+    // Set initial width
+    setWidth(container.getBoundingClientRect().width);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!svgRef.current) return;
     const svg = d3.select(svgRef.current);
 
-    if (!graphsRendered) {
-      // Clear previous content
-      svg.selectAll("*").remove();
+    // Always redraw on width/height change
+    // Clear previous content
+    svg.selectAll("*").remove();
 
-      lapsData.forEach((lapData) => {
-        lapData.lines.forEach((telemetryLine) => {
-          // Set up scales
+    // Create scales with current width/height
+    const { xScale, yScale } = getScales();
 
-          // Create the line generator
-          const line = d3
-            .line<racemate.Frame>()
-            .x((d) => xScale(telemetryLine.x(d)))
-            .y((d) => yScale(telemetryLine.y(d)));
+    lapsData.forEach((lapData) => {
+      lapData.lines.forEach((telemetryLine) => {
+        // Create the line generator
+        const line = d3
+          .line<racemate.Frame>()
+          .x((d) => xScale(telemetryLine.x(d)))
+          .y((d) => yScale(telemetryLine.y(d)));
 
-          // Draw the line
-          svg
-            .append("path")
-            .datum(lapData.lap.frames)
-            .attr("fill", "none")
-            .attr("stroke", telemetryLine.color)
-            .attr("stroke-width", 1)
-            .attr("stroke-dasharray", telemetryLine.dashed ? "6,4" : null)
-            .attr("d", line);
-        });
-      });
-
-      setVerticalLine(
+        // Draw the line
         svg
-          .append("line")
-          .attr("stroke", "lightgray")
+          .append("path")
+          .datum(lapData.lap.frames)
+          .attr("fill", "none")
+          .attr("stroke", telemetryLine.color)
           .attr("stroke-width", 1)
-          .attr("x1", hoverData.pointerPosX)
-          .attr("x2", hoverData.pointerPosX)
-          .attr("y1", 0)
-          .attr("y2", height)
-          .attr("stroke-dasharray", 6)
-          .attr("display", null)
-      );
+          .attr("stroke-dasharray", telemetryLine.dashed ? "6,4" : null)
+          .attr("d", line);
+      });
+    });
 
-      setGraphsRendered(true);
-    }
+    setVerticalLine(
+      svg
+        .append("line")
+        .attr("stroke", "lightgray")
+        .attr("stroke-width", 1)
+        .attr("x1", hoverData.pointerPosX)
+        .attr("x2", hoverData.pointerPosX)
+        .attr("y1", 0)
+        .attr("y2", height)
+        .attr("stroke-dasharray", 6)
+        .attr("display", null)
+    );
+
+
 
     if (verticalLine) {
       verticalLine
@@ -106,12 +123,20 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
       });
       setHoveredValue(currentHoveredValues);
     }
-  }, [hoverData]);
+  }, [hoverData, width, height, xMin, xMax, yMin, yMax, lapsData]);
+
+  function getScales() {
+    return {
+      xScale: d3.scaleLinear().domain([xMin, xMax]).range([0, width]),
+      yScale: d3.scaleLinear().domain([yMin, yMax]).range([height, 0]),
+    };
+  }
 
   const translateXPosToFrameIndex = (
     xPos: number,
     lapData: GraphLap
   ): number => {
+    const { xScale } = getScales();
     const scaledX = xScale.invert(xPos);
     return bisect(lapData.lap.frames, scaledX);
   };
@@ -131,8 +156,9 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
     <div className={"bg-gray-800 mt-3"}>
       <svg
         ref={svgRef}
-        width={"100%"}
+        width={width}
         height={height}
+        style={{ width: "100%", height: height }}
         onPointerEnter={(e: PointerEvent) => onEv(e)}
         onPointerMove={(e: PointerEvent) => onEv(e)}
         onPointerLeave={(e: PointerEvent) => onEv(e)}
