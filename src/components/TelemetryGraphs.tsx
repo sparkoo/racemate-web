@@ -4,13 +4,13 @@ import TelemetryGraph, { HoverData } from "./Graph/TelemetryGraph";
 import { useState } from "preact/hooks";
 
 interface Props {
-  lap: racemate.Lap;
+  laps: racemate.Lap[];
   hoveredFrames: number[];
   hoveredFramesCallback: (hoveredFrames: number[]) => void;
 }
 
 const TelemetryGraphs: FunctionalComponent<Props> = ({
-  lap: lap,
+  laps,
   hoveredFrames,
   hoveredFramesCallback,
 }) => {
@@ -57,23 +57,23 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
         xMax={maxValue}
-        lapsData={[
-          {
-            lap: lap,
-            lines: [
-              {
-                x: (frame) => frame.normalized_car_position,
-                y: (frame) => frame.gas,
-                color: "green",
-              },
-              {
-                x: (frame) => frame.normalized_car_position,
-                y: (frame) => frame.brake,
-                color: "red",
-              },
-            ],
-          },
-        ]}
+        lapsData={laps.map((lap, i) => ({
+          lap,
+          lines: [
+            {
+              x: (frame) => frame.normalized_car_position,
+              y: (frame) => frame.gas,
+              color: "green",
+              dashed: i === 1,
+            },
+            {
+              x: (frame) => frame.normalized_car_position,
+              y: (frame) => frame.brake,
+              color: "red",
+              dashed: i === 1,
+            },
+          ],
+        }))}
       />
       <TelemetryGraph
         hoverData={hoverData}
@@ -81,18 +81,17 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         xMin={minValue}
         xMax={maxValue}
         yMin={-1}
-        lapsData={[
-          {
-            lap: lap,
-            lines: [
-              {
-                x: (frame) => frame.normalized_car_position,
-                y: (frame) => frame.steer_angle,
-                color: "orange",
-              },
-            ],
-          },
-        ]}
+        lapsData={laps.map((lap, i) => ({
+          lap,
+          lines: [
+            {
+              x: (frame) => frame.normalized_car_position,
+              y: (frame) => frame.steer_angle,
+              color: "orange",
+              dashed: i === 1,
+            },
+          ],
+        }))}
       />
       <TelemetryGraph
         hoverData={hoverData}
@@ -101,18 +100,16 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         xMax={maxValue}
         yMax={6}
         yMin={0}
-        lapsData={[
-          {
-            lap: lap,
-            lines: [
-              {
-                x: (frame) => frame.normalized_car_position,
-                y: (frame) => frame.gear,
-                color: "gray",
-              },
-            ],
-          },
-        ]}
+        lapsData={laps.map((lap) => ({
+          lap,
+          lines: [
+            {
+              x: (frame) => frame.normalized_car_position,
+              y: (frame) => frame.gear,
+              color: "gray",
+            },
+          ],
+        }))}
       />
       <TelemetryGraph
         hoverData={hoverData}
@@ -121,18 +118,16 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         xMax={maxValue}
         yMin={0}
         yMax={8000}
-        lapsData={[
-          {
-            lap: lap,
-            lines: [
-              {
-                x: (frame) => frame.normalized_car_position,
-                y: (frame) => frame.rpm,
-                color: "yellow",
-              },
-            ],
-          },
-        ]}
+        lapsData={laps.map((lap) => ({
+          lap,
+          lines: [
+            {
+              x: (frame) => frame.normalized_car_position,
+              y: (frame) => frame.rpm,
+              color: "yellow",
+            },
+          ],
+        }))}
       />
       <TelemetryGraph
         hoverData={hoverData}
@@ -140,18 +135,16 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         xMin={minValue}
         xMax={maxValue}
         yMax={300}
-        lapsData={[
-          {
-            lap: lap,
-            lines: [
-              {
-                x: (frame) => frame.normalized_car_position,
-                y: (frame) => frame.speed_kmh,
-                color: "blue",
-              },
-            ],
-          },
-        ]}
+        lapsData={laps.map((lap) => ({
+          lap,
+          lines: [
+            {
+              x: (frame) => frame.normalized_car_position,
+              y: (frame) => frame.speed_kmh,
+              color: "blue",
+            },
+          ],
+        }))}
       />
     </div>
   );

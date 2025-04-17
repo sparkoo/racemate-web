@@ -69,6 +69,7 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
             .attr("fill", "none")
             .attr("stroke", telemetryLine.color)
             .attr("stroke-width", 1)
+            .attr("stroke-dasharray", telemetryLine.dashed ? "6,4" : null)
             .attr("d", line);
         });
       });

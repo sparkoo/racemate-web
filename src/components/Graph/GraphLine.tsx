@@ -6,7 +6,8 @@ export interface GraphLap {
 }
 
 export interface GraphLine {
-  x: (frame: racemate.Frame) => number
-  y: (frame: racemate.Frame) => number
-  color: string
+  x: (frame: racemate.Frame) => number;
+  y: (frame: racemate.Frame) => number;
+  color: string;
+  dashed?: boolean;
 }

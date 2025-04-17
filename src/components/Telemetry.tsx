@@ -93,7 +93,7 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
         <div class="w-full grid grid-cols-2">
           <div ref={divRef}>
             <TelemetryGraphs
-              lap={laps[0]}
+              laps={laps}
               hoveredFrames={hoveredFrames}
               hoveredFramesCallback={(frames) => setHoveredFrames(frames)}
             />
