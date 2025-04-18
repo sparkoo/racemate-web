@@ -106,13 +106,13 @@ const LapListing: FunctionalComponent<Props> = ({
         <td>{lap.name}</td>
         <td>{CarMap.get(lap.car)}</td>
         <td>{formatLaptime(lap.laptime)}</td>
-        <td>
-          {GripMap.get(lap.trackGrip)} ({lap.rainTypes == 1 ? "W" : "D"})
+        <td className="flex items-center gap-2">
+          <span title={convertSessionType(lap.sessionType).title} className="text-lg">{convertSessionType(lap.sessionType).icon}</span> 
+          <span title={`${GripMap.get(lap.trackGrip)} Track`} className="text-lg">{convertGripToIcon(lap.trackGrip)}</span>
+          <span title={lap.rainTypes == 1 ? "Wet Tyres" : "Dry Tyres"} className="text-lg">{lap.rainTypes == 1 ? "💧" : "☀️"}</span>
+          <span title="Temperature" className="text-lg">🌡️</span>
+          <span className="opacity-70">{lap.airTemp.toFixed(1)}&deg;C / {lap.roadTemp.toFixed(1)}&deg;C</span>
         </td>
-        <td>
-          {lap.airTemp.toFixed(1)}&deg;C / {lap.roadTemp.toFixed(1)}&deg;C
-        </td>
-        <td>{convertSessionType(lap.sessionType)}</td>
       </tr>
     );
   };
@@ -129,9 +129,7 @@ const LapListing: FunctionalComponent<Props> = ({
               <th>Name</th>
               <th>Car</th>
               <th>LapTime</th>
-              <th>Track grip (Tyres)</th>
-              <th>Temp (Air/Track)</th>
-              <th>Session Type</th>
+              <th>Conditions</th>
             </tr>
           </thead>
           <tbody>
@@ -154,18 +152,39 @@ function formatLaptime(milliseconds: number): string {
   return `${minutesStr}:${secondsStr}.${millisStr}`;
 }
 
-function convertSessionType(type: number): string {
+function convertSessionType(type: number): { icon: string; title: string } {
   switch (type) {
     case 0:
-      return "Practice";
+      return { icon: "🏎️", title: "Practice" };
     case 1:
-      return "Qualify";
+      return { icon: "⏱️", title: "Qualify" };
     case 2:
-      return "Race";
+      return { icon: "🏁", title: "Race" };
     case 3:
-      return "HotLap";
+      return { icon: "🔥", title: "HotLap" };
     default:
-      return "Unknown";
+      return { icon: "❓", title: "Unknown" };
+  }
+}
+
+function convertGripToIcon(gripLevel: number): string {
+  switch (gripLevel) {
+    case 0:
+      return "🟢"; // Green
+    case 1:
+      return "🟠"; // Fast
+    case 2:
+      return "🟣"; // Optimum
+    case 3:
+      return "🟡"; // Greasy
+    case 4:
+      return "💧"; // Damp
+    case 5:
+      return "💦"; // Wet
+    case 6:
+      return "🌊"; // Flooded
+    default:
+      return "❓";
   }
 }
 
