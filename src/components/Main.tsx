@@ -7,6 +7,7 @@ import { Tracks } from "../types/tracks";
 import LapListing from "./LapListing";
 import { LapData } from "../types/lapdata";
 import SelectedLaps from "./SelectedLaps";
+import LastRecordedLaps from "./LastRecordedLaps";
 
 interface Props {}
 
@@ -94,24 +95,9 @@ const Main: FunctionalComponent<Props> = ({}) => {
       </div>
       <div className={"card shadow-sm col-span-2 min-h-0 overflow-auto"}>
         <div className={"card-body"}>
-          <h2 className={"card-title text-2xl"}>Your last recorded laps</h2>
-          <table
-            className={"table min-w-full table-zebra table-md table-pin-rows"}
-          >
-            <thead>
-              <tr>
-                <th>Track</th>
-                <th>Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Nords</td>
-                <td>8:16:235</td>
-              </tr>
-            </tbody>
-          </table>
-          <h2 className={"card-title text-2xl"}>Your last recorded laps</h2>
+          <LastRecordedLaps />
+          
+          <h2 className={"card-title text-2xl mt-6"}>Selected Laps</h2>
           <SelectedLaps 
             laps={selectedLaps} 
             onRemoveLap={(lap) => setSelectedLaps(selectedLaps.filter(l => l.id !== lap.id))}
