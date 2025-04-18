@@ -11,6 +11,7 @@ import {
 import { firebaseApp } from "../main";
 import { LapData } from "../types/lapdata";
 import { Tracks } from "../types/tracks";
+import { CarMap } from "../types/cars";
 
 interface Props {}
 
@@ -29,7 +30,7 @@ const LastRecordedLaps: FunctionalComponent<Props> = () => {
         const q = query(
           lapsCollection,
           orderBy("timestamp", "desc"),
-          limit(5)
+          limit(10)
         );
 
         const unsubscribe = onSnapshot(
@@ -99,6 +100,7 @@ const LastRecordedLaps: FunctionalComponent<Props> = () => {
           <thead>
             <tr>
               <th>Track</th>
+              <th>Car</th>
               <th>Time</th>
               <th>Date</th>
             </tr>
@@ -107,6 +109,7 @@ const LastRecordedLaps: FunctionalComponent<Props> = () => {
             {laps.map((lap) => (
               <tr key={lap.id}>
                 <td>{getTrackName(lap.track)}</td>
+                <td>{CarMap.get(lap.car) || lap.car}</td>
                 <td>{formatLaptime(lap.laptime)}</td>
                 <td>{new Date(lap.timestamp * 1000).toLocaleDateString()}</td>
               </tr>
