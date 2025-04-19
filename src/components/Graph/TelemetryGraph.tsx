@@ -112,10 +112,14 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
       const currentHoveredValues: { n: number; color: string }[] = [];
       lapsData.forEach((lapData) => {
         lapData.lines.forEach((line) => {
-          currentHoveredValues.push({
-            n: line.y(lapData.lap.frames[hoverData.frameIndex[0]]), //TODO: handle frame by index
-            color: line.color,
-          });
+          const frameIndex = hoverData.frameIndex[0];
+          const frame = lapData.lap.frames && frameIndex < lapData.lap.frames.length ? lapData.lap.frames[frameIndex] : undefined;
+          if (frame) {
+            currentHoveredValues.push({
+              n: line.y(frame),
+              color: line.color,
+            });
+          }
         });
       });
       setHoveredValue(currentHoveredValues);

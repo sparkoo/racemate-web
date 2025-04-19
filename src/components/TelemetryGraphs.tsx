@@ -61,14 +61,14 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
           lap,
           lines: [
             {
-              x: (frame) => frame.normalized_car_position,
-              y: (frame) => frame.gas,
+              x: (frame) => frame?.normalized_car_position || 0,
+              y: (frame) => frame?.gas || 0,
               color: "green",
               dashed: i === 1,
             },
             {
-              x: (frame) => frame.normalized_car_position,
-              y: (frame) => frame.brake,
+              x: (frame) => frame?.normalized_car_position || 0,
+              y: (frame) => frame?.brake || 0,
               color: "red",
               dashed: i === 1,
             },
@@ -85,8 +85,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
           lap,
           lines: [
             {
-              x: (frame) => frame.normalized_car_position,
-              y: (frame) => frame.steer_angle,
+              x: (frame) => frame?.normalized_car_position || 0,
+              y: (frame) => frame?.steer_angle || 0,
               color: "orange",
               dashed: i === 1,
             },
@@ -104,8 +104,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
           lap,
           lines: [
             {
-              x: (frame) => frame.normalized_car_position,
-              y: (frame) => frame.gear,
+              x: (frame) => frame?.normalized_car_position || 0,
+              y: (frame) => frame?.gear || 0,
               color: "gray",
             },
           ],
@@ -122,8 +122,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
           lap,
           lines: [
             {
-              x: (frame) => frame.normalized_car_position,
-              y: (frame) => frame.rpm,
+              x: (frame) => frame?.normalized_car_position || 0,
+              y: (frame) => frame?.rpm || 0,
               color: "yellow",
             },
           ],
@@ -139,8 +139,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
           lap,
           lines: [
             {
-              x: (frame) => frame.normalized_car_position,
-              y: (frame) => frame.speed_kmh,
+              x: (frame) => frame?.normalized_car_position || 0,
+              y: (frame) => frame?.speed_kmh || 0,
               color: "blue",
             },
           ],
