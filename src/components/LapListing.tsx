@@ -146,18 +146,24 @@ const LapListing: FunctionalComponent<Props> = ({
 
   return (
     <div className={"h-full overflow-auto border border-base-300 rounded-lg"}>
-      <table className={"table table-zebra table-md table-pin-rows w-full"}>
-        <thead className={"bg-base-100 sticky top-0 z-10"}>
-          <tr>
-            <th>Time</th>
-            <th>Name</th>
-            <th>Car</th>
-            <th>LapTime</th>
-            <th>Conditions</th>
-          </tr>
-        </thead>
-        <tbody>{laps.map(renderRow)}</tbody>
-      </table>
+      {laps.length === 0 ? (
+        <div className={"flex h-full items-center justify-center text-lg text-gray-500"}>
+          No data available for this track
+        </div>
+      ) : (
+        <table className={"table table-zebra table-md table-pin-rows w-full"}>
+          <thead className={"bg-base-100 sticky top-0 z-10"}>
+            <tr>
+              <th>Time</th>
+              <th>Name</th>
+              <th>Car</th>
+              <th>LapTime</th>
+              <th>Conditions</th>
+            </tr>
+          </thead>
+          <tbody>{laps.map(renderRow)}</tbody>
+        </table>
+      )}
     </div>
   );
 };
