@@ -111,7 +111,7 @@ const LastRecordedLaps: FunctionalComponent<Props> = () => {
                 <td>{getTrackName(lap.track)}</td>
                 <td>{CarMap.get(lap.car) || lap.car}</td>
                 <td>{formatLaptime(lap.laptime)}</td>
-                <td>{new Date(lap.timestamp * 1000).toLocaleDateString()}</td>
+                <td>{new Date(lap.timestamp * 1000).toLocaleString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })}</td>
               </tr>
             ))}
           </tbody>
