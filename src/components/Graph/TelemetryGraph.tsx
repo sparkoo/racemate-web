@@ -36,7 +36,8 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
   const [verticalLine, setVerticalLine] =
     useState<d3.Selection<SVGLineElement, unknown, null, undefined>>();
 
-  const [hoveredValue, setHoveredValue] = useState<
+  // We still need to set the hovered values for potential future use
+  const [, setHoveredValue] = useState<
     { n: number; color: string }[]
   >([]);
 
@@ -113,7 +114,10 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
       lapsData.forEach((lapData) => {
         lapData.lines.forEach((line) => {
           const frameIndex = hoverData.frameIndex[0];
-          const frame = lapData.lap.frames && frameIndex < lapData.lap.frames.length ? lapData.lap.frames[frameIndex] : undefined;
+          const frame =
+            lapData.lap.frames && frameIndex < lapData.lap.frames.length
+              ? lapData.lap.frames[frameIndex]
+              : undefined;
           if (frame) {
             currentHoveredValues.push({
               n: line.y(frame),
@@ -154,21 +158,17 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
   };
 
   return (
-    <div className={"bg-gray-800 mt-1 flex flex-col"} style={{ height }}>
+    <div className={"bg-gray-800 mt-1"} style={{ height }}>
       <svg
         ref={svgRef}
         width={width}
-        height={height - 20} /* Leave space for the values */
+        height={height}
         style={{ width: "100%" }}
         onPointerEnter={(e: PointerEvent) => onEv(e)}
         onPointerMove={(e: PointerEvent) => onEv(e)}
         onPointerLeave={(e: PointerEvent) => onEv(e)}
       />
-      <div className="flex flex-wrap gap-2 px-2">
-        {hoveredValue.map((n) => (
-          <span style={`color: ${n.color};`}>{n.n.toFixed(3)}</span>
-        ))}
-      </div>
+      {/* Numbers are hidden as requested */}
     </div>
   );
 };
