@@ -2,6 +2,7 @@ import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
 import { useEffect, useRef, useState } from "preact/hooks";
 import * as d3 from "d3";
+import { TrackMap, TrackImageMap } from "../types/tracks";
 
 interface Props {
   laps: racemate.Lap[];
@@ -109,28 +110,50 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
       .attr("cy", yScale(-laps[0].frames[hoveredFrames[0]].car_coordinate_z)); // Restore the negative sign
   }, [laps[0], width, height, hoveredFrames]);
 
-  // Get the track name from the lap data to display the correct track image
+  // Get the track image URL using the TrackImageMap
   const getTrackImageUrl = () => {
     if (!laps || laps.length === 0) return "";
-    const trackName = laps[0].track.toLowerCase();
-    return `tracks/${trackName}.svg`;
+    const trackId = laps[0].track;
+    const imageFile = TrackImageMap.get(trackId);
+    
+    if (imageFile) {
+      return `tracks/${imageFile}`;
+    }
+    
+    // Fallback in case the track isn't in our map
+    console.log(`No track image found for track ID: ${trackId}`);
+    return "";
+  };
+  
+  // Get the track display name
+  const getTrackName = () => {
+    if (!laps || laps.length === 0) return "";
+    return TrackMap.get(laps[0].track) || laps[0].track;
   };
 
   return (
-    <div className="relative h-full w-full flex items-center justify-center">
-      {/* Track background image */}
-      <div
-        className="absolute inset-0 bg-contain bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${getTrackImageUrl()})` }}
-      />
+    <div className="relative h-full w-full flex flex-col items-center justify-center">
+      {/* Track name */}
+      <div className="absolute top-2 left-2 z-10 bg-gray-800 bg-opacity-70 px-3 py-1 rounded text-white">
+        {getTrackName()}
+      </div>
+      
+      {/* Container for track visualization */}
+      <div className="relative w-full h-full flex items-center justify-center">
+        {/* Track background image */}
+        <div
+          className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-30"
+          style={{ backgroundImage: `url(${getTrackImageUrl()})` }}
+        />
 
-      {/* SVG for the telemetry data */}
-      <svg
-        ref={svgRef}
-        width={width}
-        height={height}
-        className="w-full h-full absolute top-0 left-0"
-      />
+        {/* SVG for the telemetry data */}
+        <svg
+          ref={svgRef}
+          width={width}
+          height={height}
+          className="w-full h-full absolute top-0 left-0"
+        />
+      </div>
     </div>
   );
 };
