@@ -2,7 +2,7 @@ import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
 import { useEffect, useRef, useState } from "preact/hooks";
 import * as d3 from "d3";
-import { TrackMap, TrackImageMap } from "../types/tracks";
+import { TrackMap, TrackImageMap, TrackRotationMap } from "../types/tracks";
 
 interface Props {
   laps: racemate.Lap[];
@@ -62,6 +62,13 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
   // Get the scales
   const { xScale, yScale } = calculateScales();
 
+  // Get track rotation angle
+  const getTrackRotation = () => {
+    if (!laps || laps.length === 0) return 0;
+    const trackId = laps[0].track;
+    return TrackRotationMap.get(trackId) || 0; // Default to 0 if not specified
+  };
+
   useEffect(() => {
     if (!svgRef.current) return;
 
@@ -69,20 +76,33 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
     if (!mapRendered) {
       svg.selectAll("*").remove(); // Clear previous content
 
+      // Create a container group for all elements that need rotation
+      const container = svg.append("g")
+        .attr("class", "track-container")
+        .attr("transform", `translate(${width/2}, ${height/2})`);
+
+      // Apply track-specific rotation
+      const rotation = getTrackRotation();
+      const rotationGroup = container.append("g")
+        .attr("class", "rotation-group")
+        .attr("transform", `rotate(${rotation}) translate(${-width/2}, ${-height/2})`);
+
       const line = d3
         .line<racemate.Frame>()
         .x((d) => xScale(d.car_coordinate_x))
-        .y((d) => yScale(-d.car_coordinate_z)) // Restore the negative sign to flip the track
+        .y((d) => yScale(-d.car_coordinate_z)) // Negative sign to flip the track
         .curve(d3.curveBasis); // Choose your curve type
 
-      svg
+      // Draw the track paths
+      rotationGroup
         .append("path")
         .datum(laps[0].frames)
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-width", 1)
         .attr("d", line);
-      svg
+
+      rotationGroup
         .append("path")
         .datum(laps[1].frames)
         .attr("fill", "none")
@@ -90,24 +110,27 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
         .attr("stroke-width", 1)
         .attr("d", line);
 
-      setCarDot([
-        ...carDot,
-        svg
-          .append("circle")
-          .attr("stroke", "lightgray")
-          .attr("stroke-width", 5)
-          .attr("fill", "blue")
-          .attr("cx", 0)
-          .attr("cy", 0)
-          .attr("r", 5)
-          .attr("display", null),
-      ]);
+      // Add car position indicator
+      const carDotElement = rotationGroup
+        .append("circle")
+        .attr("stroke", "lightgray")
+        .attr("stroke-width", 5)
+        .attr("fill", "blue")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("r", 5)
+        .attr("display", null);
+
+      setCarDot([...carDot, carDotElement]);
       setMapRendered(true);
     }
 
-    carDot[0]
-      ?.attr("cx", xScale(laps[0].frames[hoveredFrames[0]].car_coordinate_x))
-      .attr("cy", yScale(-laps[0].frames[hoveredFrames[0]].car_coordinate_z)); // Restore the negative sign
+    // Update car position
+    if (carDot[0]) {
+      carDot[0]
+        .attr("cx", xScale(laps[0].frames[hoveredFrames[0]].car_coordinate_x))
+        .attr("cy", yScale(-laps[0].frames[hoveredFrames[0]].car_coordinate_z)); // Negative sign to flip
+    }
   }, [laps[0], width, height, hoveredFrames]);
 
   // Get the track image URL using the TrackImageMap

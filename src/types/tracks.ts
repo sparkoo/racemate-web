@@ -2,6 +2,7 @@ export interface Track {
   kunos_id: string;
   name: string;
   image_file?: string; // Optional image filename
+  rotation?: number; // Rotation angle in degrees to align telemetry data with track image
 }
 
 export const Tracks: Track[] = [
@@ -9,20 +10,38 @@ export const Tracks: Track[] = [
     kunos_id: "nurburgring_24h",
     name: "Nordschleife",
     image_file: "NBR24h-ok.svg",
+    rotation: -90,
   },
-  { kunos_id: "oulton_park", name: "Oulton Park", image_file: "oulton.svg" },
-  { kunos_id: "Suzuka", name: "Suzuka", image_file: "suzuka.svg" },
+  {
+    kunos_id: "oulton_park",
+    name: "Oulton Park",
+    image_file: "oulton.svg",
+    rotation: 0,
+  },
+  { kunos_id: "Suzuka", name: "Suzuka", image_file: "suzuka.svg", rotation: 0 },
   {
     kunos_id: "Hungaroring",
     name: "Hungaroring",
     image_file: "hungaroring-n.svg",
+    rotation: 0,
   },
-  { kunos_id: "monza", name: "Monza", image_file: "monza-n.svg" },
-  { kunos_id: "Spa", name: "Spa Francorchamps", image_file: "spa-n.svg" },
+  {
+    kunos_id: "monza",
+    name: "Monza",
+    image_file: "monza-n.svg",
+    rotation: -95,
+  },
+  {
+    kunos_id: "Spa",
+    name: "Spa Francorchamps",
+    image_file: "spa-n.svg",
+    rotation: -90,
+  },
   {
     kunos_id: "donington",
     name: "Donington Park",
     image_file: "donington.svg",
+    rotation: -50,
   },
   {
     kunos_id: "red_bull_ring",
@@ -82,6 +101,17 @@ export const TrackImageMap: ReadonlyMap<string, string> = Tracks.reduce(
     return map;
   },
   new Map<string, string>()
+);
+
+// Map to get the rotation angle for a track ID
+export const TrackRotationMap: ReadonlyMap<string, number> = Tracks.reduce(
+  (map, track) => {
+    if (track.rotation !== undefined) {
+      map.set(track.kunos_id, track.rotation);
+    }
+    return map;
+  },
+  new Map<string, number>()
 );
 
 export const GripMap: ReadonlyMap<number, string> = new Map<number, string>([
