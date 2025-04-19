@@ -16,28 +16,50 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
 
   const svgRef = useRef<SVGSVGElement>(null);
 
-  // TODO: handle real size with resizing
+  // Handle responsive sizing
   const width = 800;
   const height = 800;
 
-  // TODO: cleanup. these are to keep the aspect ratio of the graph.
-  const xExtent = d3.extent(laps[0].frames, (d) => d.car_coordinate_x) as [
-    number,
-    number
-  ];
-  const yExtent = d3.extent(laps[0].frames, (d) => d.car_coordinate_z) as [
-    number,
-    number
-  ];
+  // Calculate proper scales to center the track data
+  const calculateScales = () => {
+    // Get the extents of X and Z coordinates (Z is used for Y in the display)
+    const xExtent = d3.extent(laps[0].frames, (d) => d.car_coordinate_x) as [
+      number,
+      number
+    ];
+    const zExtent = d3.extent(laps[0].frames, (d) => d.car_coordinate_z) as [
+      number,
+      number
+    ];
 
-  const maxExtent = Math.max(xExtent[1] - xExtent[0], yExtent[1] - yExtent[0]);
-  const centerX = (xExtent[0] + xExtent[1]) / 2;
-  // const centerY = (yExtent[0] + yExtent[1]) / 2;
+    // Calculate the centers of the track
+    const xCenter = (xExtent[0] + xExtent[1]) / 2;
+    const zCenter = (zExtent[0] + zExtent[1]) / 2;
 
-  const domain = [centerX - maxExtent / 2, centerX + maxExtent / 2];
+    // Calculate the dimensions of the track
+    const xSize = xExtent[1] - xExtent[0];
+    const zSize = zExtent[1] - zExtent[0];
 
-  const xScale = d3.scaleLinear().domain(domain).range([0, width]);
-  const yScale = d3.scaleLinear().domain(domain).range([height, 0]);
+    // Determine the maximum dimension to maintain aspect ratio
+    const maxSize = Math.max(xSize, zSize);
+
+    // Add padding (10%)
+    const padding = maxSize * 0.1;
+    const paddedSize = maxSize + padding * 2;
+
+    // Create domains centered on the track
+    const xDomain = [xCenter - paddedSize / 2, xCenter + paddedSize / 2];
+    const zDomain = [zCenter - paddedSize / 2, zCenter + paddedSize / 2];
+
+    // Create and return the scales
+    return {
+      xScale: d3.scaleLinear().domain(xDomain).range([0, width]),
+      yScale: d3.scaleLinear().domain(zDomain).range([height, 0]),
+    };
+  };
+
+  // Get the scales
+  const { xScale, yScale } = calculateScales();
 
   useEffect(() => {
     if (!svgRef.current) return;
@@ -49,7 +71,7 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
       const line = d3
         .line<racemate.Frame>()
         .x((d) => xScale(d.car_coordinate_x))
-        .y((d) => yScale(-d.car_coordinate_z))
+        .y((d) => yScale(-d.car_coordinate_z)) // Restore the negative sign to flip the track
         .curve(d3.curveBasis); // Choose your curve type
 
       svg
@@ -58,16 +80,14 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-width", 1)
-        .attr("d", line)
-        .attr("transform", `rotate(-50, ${width / 2}, ${height / 2})`);
+        .attr("d", line);
       svg
         .append("path")
         .datum(laps[1].frames)
         .attr("fill", "none")
         .attr("stroke", "red")
         .attr("stroke-width", 1)
-        .attr("d", line)
-        .attr("transform", `rotate(-50, ${width / 2}, ${height / 2})`);
+        .attr("d", line);
 
       setCarDot([
         ...carDot,
@@ -79,27 +99,37 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
           .attr("cx", 0)
           .attr("cy", 0)
           .attr("r", 5)
-          .attr("display", null)
-          .attr("transform", `rotate(-50, ${width / 2}, ${height / 2})`),
+          .attr("display", null),
       ]);
       setMapRendered(true);
     }
 
     carDot[0]
       ?.attr("cx", xScale(laps[0].frames[hoveredFrames[0]].car_coordinate_x))
-      .attr("cy", yScale(-laps[0].frames[hoveredFrames[0]].car_coordinate_z));
+      .attr("cy", yScale(-laps[0].frames[hoveredFrames[0]].car_coordinate_z)); // Restore the negative sign
   }, [laps[0], width, height, hoveredFrames]);
 
-  // TODO: somehow better set track image
+  // Get the track name from the lap data to display the correct track image
+  const getTrackImageUrl = () => {
+    if (!laps || laps.length === 0) return "";
+    const trackName = laps[0].track.toLowerCase();
+    return `tracks/${trackName}.svg`;
+  };
+
   return (
-    <div>
+    <div className="relative h-full w-full flex items-center justify-center">
+      {/* Track background image */}
+      <div
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${getTrackImageUrl()})` }}
+      />
+
+      {/* SVG for the telemetry data */}
       <svg
         ref={svgRef}
         width={width}
         height={height}
-        className={
-          "bg-[url('tracks/donington.svg')] w-full bg-cover bg-center bg-no-repeat"
-        }
+        className="w-full h-full absolute top-0 left-0"
       />
     </div>
   );
