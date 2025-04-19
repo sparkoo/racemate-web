@@ -5,7 +5,7 @@ import * as d3 from "d3";
 import { useEffect, useRef, useState } from "preact/hooks";
 
 interface Props {
-  height?: number;
+  height: number; // Make height required
   xMin?: number;
   xMax?: number;
   yMin?: number;
@@ -23,7 +23,7 @@ export interface HoverData {
 }
 
 const TelemetryGraph: FunctionalComponent<Props> = ({
-  height = 200,
+  height,
   lapsData,
   xMin = 0,
   xMax = 1,
@@ -154,19 +154,21 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
   };
 
   return (
-    <div className={"bg-gray-800 mt-3"}>
+    <div className={"bg-gray-800 mt-1 flex flex-col"} style={{ height }}>
       <svg
         ref={svgRef}
         width={width}
-        height={height}
-        style={{ width: "100%", height: height }}
+        height={height - 20} /* Leave space for the values */
+        style={{ width: "100%" }}
         onPointerEnter={(e: PointerEvent) => onEv(e)}
         onPointerMove={(e: PointerEvent) => onEv(e)}
         onPointerLeave={(e: PointerEvent) => onEv(e)}
       />
-      {hoveredValue.map((n) => (
-        <p style={`color: ${n.color};`}>{n.n.toFixed(3)}</p>
-      ))}
+      <div className="flex flex-wrap gap-2 px-2">
+        {hoveredValue.map((n) => (
+          <span style={`color: ${n.color};`}>{n.n.toFixed(3)}</span>
+        ))}
+      </div>
     </div>
   );
 };

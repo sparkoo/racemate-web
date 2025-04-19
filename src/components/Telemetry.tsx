@@ -90,8 +90,8 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
             Name: {laps[0].player_name} {laps[0].player_surname}
           </li>
         </ul>
-        <div class="w-full h-[80vh] grid grid-cols-2 gap-4">
-          <div class="flex flex-col h-full" ref={divRef}>
+        <div class="w-full h-[calc(100vh-180px)] grid grid-cols-2 gap-4">
+          <div class="flex flex-col h-full overflow-hidden" ref={divRef}>
             <TelemetryGraphs
               laps={laps}
               hoveredFrames={hoveredFrames}

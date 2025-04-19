@@ -1,26 +1,72 @@
 import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
 import TelemetryGraph, { HoverData } from "./Graph/TelemetryGraph";
-import { useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 
 interface Props {
   laps: racemate.Lap[];
   hoveredFrames: number[];
   hoveredFramesCallback: (hoveredFrames: number[]) => void;
+  containerHeight?: number; // Optional prop to override container height
 }
 
 const TelemetryGraphs: FunctionalComponent<Props> = ({
   laps,
   hoveredFrames,
   hoveredFramesCallback,
+  containerHeight,
 }) => {
   const [minValue, setMinValue] = useState<number>(0);
   const [maxValue, setMaxValue] = useState<number>(1);
+  const [availableHeight, setAvailableHeight] = useState<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const [hoverData, setHoverData] = useState<HoverData>({
     pointerPosX: 0,
     frameIndex: hoveredFrames,
   });
+  
+  // Number of graphs we're displaying
+  const graphCount = 5;
+  // Space for sliders and padding
+  const controlsHeight = 70;
+  
+  // Calculate the height for each graph
+  const calculateGraphHeight = () => {
+    if (containerHeight) {
+      return Math.floor((containerHeight - controlsHeight) / graphCount);
+    }
+    
+    if (containerRef.current) {
+      return Math.floor((availableHeight - controlsHeight) / graphCount);
+    }
+    
+    return 100; // Fallback height
+  };
+  
+  // Update available height when container size changes
+  useEffect(() => {
+    if (!containerRef.current) return;
+    
+    const updateHeight = () => {
+      if (containerRef.current) {
+        setAvailableHeight(containerRef.current.clientHeight);
+      }
+    };
+    
+    // Set initial height
+    updateHeight();
+    
+    // Set up resize observer
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(containerRef.current);
+    
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
 
   const calcValue = (e: Event): number => {
     const target = e.target as HTMLInputElement;
@@ -34,25 +80,27 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
   };
 
   return (
-    <div>
-      <input
-        className={"w-full"}
-        type="range"
-        min={0}
-        max={100}
-        value={minValue * 100}
-        onChange={(e) => setMinValue(calcValue(e))}
-      />
-      <br />
-      <input
-        className={"w-full"}
-        type="range"
-        min={0}
-        max={100}
-        value={maxValue * 100}
-        onChange={(e) => setMaxValue(calcValue(e))}
-      />
+    <div ref={containerRef} className="h-full flex flex-col">
+      <div className="mb-2">
+        <input
+          className={"w-full"}
+          type="range"
+          min={0}
+          max={100}
+          value={minValue * 100}
+          onChange={(e) => setMinValue(calcValue(e))}
+        />
+        <input
+          className={"w-full mt-1"}
+          type="range"
+          min={0}
+          max={100}
+          value={maxValue * 100}
+          onChange={(e) => setMaxValue(calcValue(e))}
+        />
+      </div>
       <TelemetryGraph
+        height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
@@ -76,6 +124,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         }))}
       />
       <TelemetryGraph
+        height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
@@ -94,6 +143,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         }))}
       />
       <TelemetryGraph
+        height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
@@ -112,6 +162,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         }))}
       />
       <TelemetryGraph
+        height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
@@ -130,6 +181,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         }))}
       />
       <TelemetryGraph
+        height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={setHoverDataCallback}
         xMin={minValue}
