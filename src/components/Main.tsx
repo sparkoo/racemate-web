@@ -106,14 +106,14 @@ const Main: FunctionalComponent<Props> = ({}) => {
       <div className={"card shadow-sm col-span-2 min-h-0 overflow-auto"}>
         <div className={"card-body"}>
           <LastRecordedLaps />
-
-          <h2 className={"card-title text-2xl mt-6"}>Selected Laps</h2>
-          <SelectedLaps
-            laps={selectedLaps}
-            onRemoveLap={(lap) =>
-              setSelectedLaps(selectedLaps.filter((l) => l.id !== lap.id))
-            }
-          />
+          {selectedLaps.length > 0 && (
+            <SelectedLaps
+              laps={selectedLaps}
+              onRemoveLap={(lap) =>
+                setSelectedLaps(selectedLaps.filter((l) => l.id !== lap.id))
+              }
+            />
+          )}
         </div>
       </div>
     </div>

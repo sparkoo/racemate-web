@@ -18,6 +18,7 @@ const SelectedLaps: FunctionalComponent<Props> = ({ laps, onRemoveLap }) => {
 
   return (
     <>
+      <h2 className={"card-title text-2xl mt-6"}>Selected Laps</h2>
       <button className={"btn btn-lg btn-primary"} onClick={goAnalyze}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
