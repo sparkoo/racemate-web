@@ -18,9 +18,9 @@ const Main: FunctionalComponent<Props> = ({}) => {
 
   // Initialize track from URL when component mounts
   useEffect(() => {
-    const params = new URLSearchParams(location.url.split('?')[1] || '');
-    const trackParam = params.get('track');
-    if (trackParam && Tracks.some(t => t.kunos_id === trackParam)) {
+    const params = new URLSearchParams(location.url.split("?")[1] || "");
+    const trackParam = params.get("track");
+    if (trackParam && Tracks.some((t) => t.kunos_id === trackParam)) {
       setSelectedTrack(trackParam);
     }
   }, []); // Run only on mount
@@ -29,35 +29,43 @@ const Main: FunctionalComponent<Props> = ({}) => {
   const updateTrack = (track: string) => {
     setSelectedTrack(track);
     setSelectedLaps([]); // Clear selected laps when track changes
-    
-    const params = new URLSearchParams(location.url.split('?')[1] || '');
+
+    const params = new URLSearchParams(location.url.split("?")[1] || "");
     if (track) {
-      params.set('track', track);
+      params.set("track", track);
     } else {
-      params.delete('track');
+      params.delete("track");
     }
-    const newUrl = `${location.url.split('?')[0]}${params.toString() ? '?' + params.toString() : ''}`;
-    history.replaceState(null, '', newUrl);
+    const newUrl = `${location.url.split("?")[0]}${
+      params.toString() ? "?" + params.toString() : ""
+    }`;
+    history.replaceState(null, "", newUrl);
   };
 
   const selectedLapCallback = (lap: LapData) => {
     // Check if lap is already selected
-    if (selectedLaps.some(selected => selected.id === lap.id)) {
+    if (selectedLaps.some((selected) => selected.id === lap.id)) {
       // If lap is already selected, remove it
-      setSelectedLaps(selectedLaps.filter(selected => selected.id !== lap.id));
+      setSelectedLaps(
+        selectedLaps.filter((selected) => selected.id !== lap.id)
+      );
       return;
     }
-    
+
     // If trying to add a new lap
     if (selectedLaps.length >= 2) {
-      alert('Maximum 2 laps can be selected for comparison');
+      alert("Maximum 2 laps can be selected for comparison");
       return;
     }
     setSelectedLaps([...selectedLaps, lap]);
   };
 
   return (
-    <div className={"grid grid-cols-6 gap-4 h-screen max-h-screen overflow-hidden p-4"}>
+    <div
+      className={
+        "grid grid-cols-6 gap-4 h-screen max-h-screen overflow-hidden p-4"
+      }
+    >
       <div className={"card col-span-4 min-h-0 flex flex-col"}>
         <h2 className={"text-3xl"}>Find laps for track</h2>
         <div className={"flex flex-col gap-4 flex-1 min-h-0 mt-4"}>
@@ -73,7 +81,9 @@ const Main: FunctionalComponent<Props> = ({}) => {
                 Select track ...
               </option>
               {Tracks.map((track) => (
-                <option key={track.kunos_id} value={track.kunos_id}>{track.name}</option>
+                <option key={track.kunos_id} value={track.kunos_id}>
+                  {track.name}
+                </option>
               ))}
             </select>
           </div>
@@ -96,11 +106,13 @@ const Main: FunctionalComponent<Props> = ({}) => {
       <div className={"card shadow-sm col-span-2 min-h-0 overflow-auto"}>
         <div className={"card-body"}>
           <LastRecordedLaps />
-          
+
           <h2 className={"card-title text-2xl mt-6"}>Selected Laps</h2>
-          <SelectedLaps 
-            laps={selectedLaps} 
-            onRemoveLap={(lap) => setSelectedLaps(selectedLaps.filter(l => l.id !== lap.id))}
+          <SelectedLaps
+            laps={selectedLaps}
+            onRemoveLap={(lap) =>
+              setSelectedLaps(selectedLaps.filter((l) => l.id !== lap.id))
+            }
           />
         </div>
       </div>

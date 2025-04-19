@@ -42,7 +42,6 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
 
   const [width, setWidth] = useState<number>(800);
 
-
   // Responsive width: use ResizeObserver on container
   useEffect(() => {
     if (!svgRef.current) return;
@@ -104,8 +103,6 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
         .attr("stroke-dasharray", 6)
         .attr("display", null)
     );
-
-
 
     if (verticalLine) {
       verticalLine

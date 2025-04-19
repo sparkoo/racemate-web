@@ -34,7 +34,7 @@ const LapListing: FunctionalComponent<Props> = ({
   const [error, setError] = useState<any | null>(null);
 
   useEffect(() => {
-    console.log('LapListing: selectedTrack changed to', selectedTrack);
+    console.log("LapListing: selectedTrack changed to", selectedTrack);
     if (!selectedTrack) {
       setLaps([]);
       setLoading(false);
@@ -43,26 +43,27 @@ const LapListing: FunctionalComponent<Props> = ({
 
     const fetchLaps = async () => {
       try {
-        console.log('LapListing: Fetching laps for track', selectedTrack);
+        console.log("LapListing: Fetching laps for track", selectedTrack);
         const lapsCollection = collection(db, "laps");
         const wheres: QueryFieldFilterConstraint[] = [];
         wheres.push(where("track", "==", selectedTrack));
-        
-        const q = query(
-          lapsCollection,
-          ...wheres,
-          orderBy("laptime", "asc")
-        );
+
+        const q = query(lapsCollection, ...wheres, orderBy("laptime", "asc"));
 
         const unsubscribe = onSnapshot(
           q,
           (querySnapshot) => {
-            console.log('LapListing: Got snapshot with', querySnapshot.size, 'documents');
+            console.log(
+              "LapListing: Got snapshot with",
+              querySnapshot.size,
+              "documents"
+            );
             const fetchedLaps = querySnapshot.docs.map(
-              (doc) => ({
-                id: doc.id,
-                ...doc.data(),
-              } as LapData)
+              (doc) =>
+                ({
+                  id: doc.id,
+                  ...doc.data(),
+                } as LapData)
             );
             setLaps(fetchedLaps);
             setLoading(false);
@@ -97,7 +98,11 @@ const LapListing: FunctionalComponent<Props> = ({
     return (
       <tr
         key={lap.id}
-        class={`cursor-pointer ${selectedLaps.some(selected => selected.id === lap.id) ? '!bg-amber-950 hover:!bg-amber-900' : 'hover:!bg-amber-900'}`}
+        class={`cursor-pointer ${
+          selectedLaps.some((selected) => selected.id === lap.id)
+            ? "!bg-amber-950 hover:!bg-amber-900"
+            : "hover:!bg-amber-900"
+        }`}
         onClick={() => {
           selectedLapCallback(lap);
         }}
@@ -107,35 +112,52 @@ const LapListing: FunctionalComponent<Props> = ({
         <td>{CarMap.get(lap.car)}</td>
         <td>{formatLaptime(lap.laptime)}</td>
         <td className="flex items-center gap-2">
-          <span title={convertSessionType(lap.sessionType).title} className="text-lg">{convertSessionType(lap.sessionType).icon}</span> 
-          <span title={`${GripMap.get(lap.trackGrip)} Track Grip`} className="text-lg">{convertGripToIcon(lap.trackGrip)}</span>
-          <span title={lap.rainTypes == 1 ? "Wet Tyres" : "Dry Tyres"} className="text-lg">{lap.rainTypes == 1 ? "💧" : "☀️"}</span>
-          <span title="Temperature" className="text-lg">🌡️</span>
-          <span className="opacity-70">{lap.airTemp.toFixed(1)}&deg;C / {lap.roadTemp.toFixed(1)}&deg;C</span>
+          <span
+            title={convertSessionType(lap.sessionType).title}
+            className="text-lg"
+          >
+            {convertSessionType(lap.sessionType).icon}
+          </span>
+          <span
+            title={`${GripMap.get(lap.trackGrip)} Track Grip`}
+            className="text-lg"
+          >
+            {convertGripToIcon(lap.trackGrip)}
+          </span>
+          <span
+            title={lap.rainTypes == 1 ? "Wet Tyres" : "Dry Tyres"}
+            className="text-lg"
+          >
+            {lap.rainTypes == 1 ? "💧" : "☀️"}
+          </span>
+          <span title="Temperature" className="text-lg">
+            🌡️
+          </span>
+          <span className="opacity-70">
+            {lap.airTemp.toFixed(1)}&deg;C / {lap.roadTemp.toFixed(1)}&deg;C
+          </span>
         </td>
       </tr>
     );
   };
 
-  console.log('LapListing: Rendering with', laps.length, 'laps');
-  console.log('LapListing: First lap:', laps[0]);
+  console.log("LapListing: Rendering with", laps.length, "laps");
+  console.log("LapListing: First lap:", laps[0]);
 
   return (
     <div className={"h-full overflow-auto border border-base-300 rounded-lg"}>
       <table className={"table table-zebra table-md table-pin-rows w-full"}>
         <thead className={"bg-base-100 sticky top-0 z-10"}>
-            <tr>
-              <th>Time</th>
-              <th>Name</th>
-              <th>Car</th>
-              <th>LapTime</th>
-              <th>Conditions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {laps.map(renderRow)}
-          </tbody>
-        </table>
+          <tr>
+            <th>Time</th>
+            <th>Name</th>
+            <th>Car</th>
+            <th>LapTime</th>
+            <th>Conditions</th>
+          </tr>
+        </thead>
+        <tbody>{laps.map(renderRow)}</tbody>
+      </table>
     </div>
   );
 };

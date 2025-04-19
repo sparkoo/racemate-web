@@ -5,7 +5,7 @@ import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 
 const firebaseConfig: FirebaseOptions = {
   projectId: "racemate-3dc5c",
-  storageBucket: "racemate-3dc5c.firebasestorage.app"
+  storageBucket: "racemate-3dc5c.firebasestorage.app",
 };
 
 export const firebaseApp: FirebaseApp = initializeApp(firebaseConfig);

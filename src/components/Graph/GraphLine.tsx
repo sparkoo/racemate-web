@@ -1,8 +1,8 @@
 import { racemate } from "racemate-msg";
 
 export interface GraphLap {
-  lap: racemate.Lap
-  lines: GraphLine[]
+  lap: racemate.Lap;
+  lines: GraphLine[];
 }
 
 export interface GraphLine {

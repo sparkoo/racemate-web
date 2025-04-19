@@ -5,14 +5,14 @@ export interface Car {
 
 export const Cars: Car[] = [
   { kunos_id: "amr_v8_vantage_gt3", name: "Aston Martin V8 Vantage GT3 2019" },
-  { kunos_id: "amr_v12_vantage_gt3", name: "Aston Martin Vantage V12 GT3 2013" },
-  { kunos_id: "amr_v8_vantage_gt4", name: "Aston Martin Vantage AMR GT4 2018"},
+  {
+    kunos_id: "amr_v12_vantage_gt3",
+    name: "Aston Martin Vantage V12 GT3 2013",
+  },
+  { kunos_id: "amr_v8_vantage_gt4", name: "Aston Martin Vantage AMR GT4 2018" },
 ];
 
-export const CarMap: ReadonlyMap<string, string> = Cars.reduce(
-  (map, car) => {
-    map.set(car.kunos_id, car.name);
-    return map;
-  },
-  new Map<string, string>()
-);
+export const CarMap: ReadonlyMap<string, string> = Cars.reduce((map, car) => {
+  map.set(car.kunos_id, car.name);
+  return map;
+}, new Map<string, string>());
