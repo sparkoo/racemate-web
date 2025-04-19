@@ -108,7 +108,7 @@ const LapListing: FunctionalComponent<Props> = ({
         <td>{formatLaptime(lap.laptime)}</td>
         <td className="flex items-center gap-2">
           <span title={convertSessionType(lap.sessionType).title} className="text-lg">{convertSessionType(lap.sessionType).icon}</span> 
-          <span title={`${GripMap.get(lap.trackGrip)} Track`} className="text-lg">{convertGripToIcon(lap.trackGrip)}</span>
+          <span title={`${GripMap.get(lap.trackGrip)} Track Grip`} className="text-lg">{convertGripToIcon(lap.trackGrip)}</span>
           <span title={lap.rainTypes == 1 ? "Wet Tyres" : "Dry Tyres"} className="text-lg">{lap.rainTypes == 1 ? "💧" : "☀️"}</span>
           <span title="Temperature" className="text-lg">🌡️</span>
           <span className="opacity-70">{lap.airTemp.toFixed(1)}&deg;C / {lap.roadTemp.toFixed(1)}&deg;C</span>
@@ -170,19 +170,19 @@ function convertSessionType(type: number): { icon: string; title: string } {
 function convertGripToIcon(gripLevel: number): string {
   switch (gripLevel) {
     case 0:
-      return "🟢"; // Green
+      return "🟢"; // Green (green circle) - starting point
     case 1:
-      return "🟠"; // Fast
+      return ">"; // Fast (greater than symbol) - better than green
     case 2:
-      return "🟣"; // Optimum
+      return "⋙"; // Optimum (triple greater than) - best grip
     case 3:
-      return "🟡"; // Greasy
+      return "🔵"; // Greasy (blue circle) - starting to lose grip
     case 4:
-      return "💧"; // Damp
+      return "💧"; // Damp (droplet) - getting wet
     case 5:
-      return "💦"; // Wet
+      return "💦"; // Wet (splashing sweat) - very wet
     case 6:
-      return "🌊"; // Flooded
+      return "🌊"; // Flooded (wave) - extremely wet
     default:
       return "❓";
   }
