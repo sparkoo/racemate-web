@@ -12,7 +12,7 @@ import {
   where,
 } from "firebase/firestore";
 import { GripMap } from "../types/tracks";
-import { CarMap } from "../types/cars";
+import { CarMap, CarClasses, CarClassMap } from "../types/cars";
 import { firebaseApp } from "../main";
 import { LapData } from "../types/lapdata";
 
@@ -32,6 +32,7 @@ const LapListing: FunctionalComponent<Props> = ({
   const [laps, setLaps] = useState<LapData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any | null>(null);
+  const [selectedCarClass, setSelectedCarClass] = useState<string>("GT3"); // Default to GT3
 
   useEffect(() => {
     console.log("LapListing: selectedTrack changed to", selectedTrack);
@@ -47,6 +48,18 @@ const LapListing: FunctionalComponent<Props> = ({
         const lapsCollection = collection(db, "laps");
         const wheres: QueryFieldFilterConstraint[] = [];
         wheres.push(where("track", "==", selectedTrack));
+        
+        // Filter by car class if one is selected
+        if (selectedCarClass) {
+          // Get all car IDs that belong to the selected class
+          const carIdsInClass = Array.from(CarClassMap.entries())
+            .filter(([_, carClass]) => carClass === selectedCarClass)
+            .map(([carId, _]) => carId);
+          
+          if (carIdsInClass.length > 0) {
+            wheres.push(where("car", "in", carIdsInClass));
+          }
+        }
 
         const q = query(lapsCollection, ...wheres, orderBy("laptime", "asc"));
 
@@ -84,7 +97,7 @@ const LapListing: FunctionalComponent<Props> = ({
     };
 
     fetchLaps();
-  }, [selectedTrack]);
+  }, [selectedTrack, selectedCarClass]); // Re-run when track or car class changes
 
   if (loading) {
     return <div>Loading...</div>;
@@ -144,11 +157,38 @@ const LapListing: FunctionalComponent<Props> = ({
   console.log("LapListing: Rendering with", laps.length, "laps");
   console.log("LapListing: First lap:", laps[0]);
 
+  // Handle car class change
+  const handleCarClassChange = (e: Event) => {
+    const target = e.target as HTMLSelectElement;
+    setSelectedCarClass(target.value);
+  };
+
   return (
     <div className={"h-full overflow-auto border border-base-300 rounded-lg"}>
+      {/* Car Class Filter */}
+      <div className="p-3 bg-base-200 border-b border-base-300">
+        <div className="form-control w-full max-w-xs">
+          <label className="label">
+            <span className="label-text">Car Class</span>
+          </label>
+          <select 
+            className="select select-bordered w-full" 
+            value={selectedCarClass}
+            onChange={handleCarClassChange}
+          >
+            <option value="">All Classes</option>
+            {CarClasses.map(carClass => (
+              <option key={carClass} value={carClass}>
+                {carClass}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       {laps.length === 0 ? (
         <div className={"flex h-full items-center justify-center text-lg text-gray-500"}>
-          No data available for this track
+          No data available for the selected filters
         </div>
       ) : (
         <table className={"table table-zebra table-md table-pin-rows w-full"}>
