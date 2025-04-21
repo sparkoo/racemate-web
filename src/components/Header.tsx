@@ -40,7 +40,10 @@ const Header: FunctionalComponent<Props> = () => {
                 className="w-8 h-8 rounded-full"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = "/default-avatar.png";
+                  // Only set to default if it's not already the default to prevent infinite loop
+                  if (target.src.indexOf('default-avatar.png') === -1) {
+                    target.src = "/default-avatar.png";
+                  }
                 }}
               />
               <span>{currentUser.displayName || currentUser.email}</span>
