@@ -1,10 +1,16 @@
 import { FunctionalComponent } from "preact";
+import { useState } from "preact/hooks";
 import { useAuth } from "../contexts/AuthContext";
 
 interface Props {}
 
 const Profile: FunctionalComponent<Props> = () => {
-  const { currentUser } = useAuth();
+  const { currentUser, updateUserProfile } = useAuth();
+  const [nickname, setNickname] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   if (!currentUser) {
     return (
@@ -48,6 +54,82 @@ const Profile: FunctionalComponent<Props> = () => {
             <h1 className="text-2xl font-bold text-white">
               {currentUser.displayName || "User"}
             </h1>
+            <button 
+              onClick={() => {
+                setNickname(currentUser.displayName || "");
+                setIsEditing(true);
+                setError("");
+                setSuccess("");
+              }}
+              className="mt-2 text-sm text-amber-400 hover:text-amber-300"
+            >
+              Edit Nickname
+            </button>
+            
+            {isEditing && (
+              <div className="mt-4 w-full max-w-xs">
+                <div className="bg-base-300 p-4 rounded-lg shadow">
+                  <form onSubmit={async (e) => {
+                    e.preventDefault();
+                    if (!nickname.trim()) {
+                      setError("Nickname cannot be empty");
+                      return;
+                    }
+                    
+                    setIsLoading(true);
+                    setError("");
+                    try {
+                      await updateUserProfile(nickname.trim());
+                      setSuccess("Nickname updated successfully!");
+                      setIsEditing(false);
+                    } catch (err) {
+                      setError("Failed to update nickname");
+                    } finally {
+                      setIsLoading(false);
+                    }
+                  }}>
+                    <div className="mb-4">
+                      <label className="block text-gray-400 text-sm font-bold mb-2" htmlFor="nickname">
+                        Nickname
+                      </label>
+                      <input 
+                        id="nickname"
+                        type="text" 
+                        value={nickname} 
+                        onChange={(e) => {
+                          const target = e.target as HTMLInputElement;
+                          setNickname(target.value);
+                        }}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                        placeholder="Enter your nickname"
+                        disabled={isLoading}
+                      />
+                    </div>
+                    
+                    {error && <p className="text-red-500 text-xs mb-4">{error}</p>}
+                    {success && <p className="text-green-500 text-xs mb-4">{success}</p>}
+                    
+                    <div className="flex items-center justify-between">
+                      <button
+                        type="submit"
+                        className={`bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        disabled={isLoading}
+                      >
+                        {isLoading ? 'Saving...' : 'Save'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setIsEditing(false)}
+                        className="text-gray-400 hover:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        disabled={isLoading}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="flex-1">

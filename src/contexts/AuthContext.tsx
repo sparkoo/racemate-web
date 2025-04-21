@@ -7,6 +7,7 @@ import {
   User,
   GoogleAuthProvider,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
 import { firebaseApp } from "../main";
 
@@ -15,6 +16,7 @@ interface AuthContextType {
   loading: boolean;
   signInWithGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
+  updateUserProfile: (nickname: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -55,11 +57,29 @@ export const AuthProvider = ({ children }: { children: any }) => {
     return firebaseSignOut(auth);
   };
 
+  // Update user profile (nickname)
+  const updateUserProfile = async (nickname: string) => {
+    if (!currentUser) return;
+    
+    try {
+      await updateProfile(currentUser, {
+        displayName: nickname
+      });
+      
+      // Force refresh the user object to get the updated profile
+      setCurrentUser({ ...currentUser });
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      throw error;
+    }
+  };
+
   const value = {
     currentUser,
     loading,
     signInWithGoogle,
     signOut,
+    updateUserProfile,
   };
 
   return (
