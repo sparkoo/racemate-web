@@ -26,42 +26,42 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
     pointerPosX: 0,
     frameIndex: hoveredFrames,
   });
-  
+
   // Number of graphs we're displaying
   const graphCount = 5;
   // Space for sliders and padding
   const controlsHeight = 70;
-  
+
   // Calculate the height for each graph
   const calculateGraphHeight = () => {
     if (containerHeight) {
       return Math.floor((containerHeight - controlsHeight) / graphCount);
     }
-    
+
     if (containerRef.current) {
       return Math.floor((availableHeight - controlsHeight) / graphCount);
     }
-    
+
     return 100; // Fallback height
   };
-  
+
   // Update available height when container size changes
   useEffect(() => {
     if (!containerRef.current) return;
-    
+
     const updateHeight = () => {
       if (containerRef.current) {
         setAvailableHeight(containerRef.current.clientHeight);
       }
     };
-    
+
     // Set initial height
     updateHeight();
-    
+
     // Set up resize observer
     const observer = new ResizeObserver(updateHeight);
     observer.observe(containerRef.current);
-    
+
     return () => {
       if (containerRef.current) {
         observer.unobserve(containerRef.current);
@@ -73,7 +73,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
     setMinValue(min);
     setMaxValue(max);
   };
-  
+
   const handleRangeReset = () => {
     setMinValue(0);
     setMaxValue(1);
