@@ -3,6 +3,7 @@ import { racemate } from "racemate-msg";
 import { useEffect, useRef, useState } from "preact/hooks";
 import * as d3 from "d3";
 import { TrackMap, TrackImageMap, TrackRotationMap } from "../types/tracks";
+import { RefreshCw } from "preact-feather";
 
 interface Props {
   laps: racemate.Lap[];
@@ -16,6 +17,7 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
   const [mapRendered, setMapRendered] = useState<boolean>(false);
 
   const svgRef = useRef<SVGSVGElement>(null);
+  const zoomRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null);
 
   // Handle responsive sizing with dynamic values
   const [width, setWidth] = useState<number>(800);
@@ -23,6 +25,9 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
   
   // Reference to the container div to measure available space
   const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Track container group reference for zoom operations
+  const containerGroupRef = useRef<d3.Selection<SVGGElement, unknown, null, undefined> | null>(null);
 
   // Helper function to find the closest frame by normalized position
   const findClosestFrameByPosition = (
@@ -123,6 +128,18 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
     };
   }, []);
 
+  // Function to reset zoom to default state
+  const resetZoom = () => {
+    if (!svgRef.current || !zoomRef.current || !containerGroupRef.current) return;
+    
+    const svg = d3.select(svgRef.current);
+    // Type assertion to make TypeScript happy
+    svg.transition().duration(750).call(
+      zoomRef.current.transform as any,
+      d3.zoomIdentity
+    );
+  };
+
   useEffect(() => {
     if (!svgRef.current) return;
 
@@ -136,6 +153,9 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
         .append("g")
         .attr("class", "track-container")
         .attr("transform", `translate(${width / 2}, ${height / 2})`);
+      
+      // Store the container reference for zoom operations
+      containerGroupRef.current = container;
 
       // Calculate the scaling factor to fill the available space
       // while maintaining the aspect ratio
@@ -167,6 +187,20 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
           .attr("preserveAspectRatio", "xMidYMid meet")
           .attr("opacity", 0.3);
       }
+      
+      // Initialize zoom behavior
+      const zoom = d3.zoom<SVGSVGElement, unknown>()
+        .scaleExtent([0.5, 10]) // Min and max zoom scale
+        .on("zoom", (event) => {
+          container.attr("transform", event.transform);
+        });
+      
+      // Store zoom behavior in ref for reset function
+      zoomRef.current = zoom;
+      
+      // Apply zoom behavior to SVG
+      svg.call(zoom as any)
+        .on("dblclick.zoom", null); // Disable double-click zoom to avoid conflicts
 
       const line = d3
         .line<racemate.Frame>()
@@ -278,11 +312,25 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
       <div className="absolute top-2 left-2 z-10 bg-gray-800 bg-opacity-70 px-3 py-1 rounded text-white">
         {getTrackName()}
       </div>
+      
+      {/* Reset zoom button */}
+      <button 
+        onClick={resetZoom}
+        className="absolute top-2 right-2 z-10 bg-gray-800 bg-opacity-70 p-2 rounded text-white hover:bg-gray-700 transition-colors"
+        title="Reset zoom"
+      >
+        <RefreshCw size={16} />
+      </button>
+      
+      {/* Zoom instructions */}
+      <div className="absolute bottom-2 right-2 z-10 bg-gray-800 bg-opacity-70 px-3 py-1 rounded text-white text-xs">
+        Use mouse wheel to zoom, drag to pan
+      </div>
 
       {/* Container for track visualization */}
       <div 
         ref={containerRef}
-        className="relative w-full h-full flex items-center justify-center overflow-hidden"
+        className="relative w-full h-full flex items-center justify-center overflow-hidden cursor-move"
       >
         {/* SVG for the telemetry data */}
         <svg
