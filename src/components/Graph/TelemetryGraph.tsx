@@ -74,6 +74,13 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
 
     lapsData.forEach((lapData) => {
       lapData.lines.forEach((telemetryLine) => {
+        // Filter frames by xMin/xMax (normalized_car_position)
+        const filteredFrames = (lapData.lap.frames || []).filter(
+          (frame) => {
+            const pos = telemetryLine.x(frame);
+            return pos >= xMin && pos <= xMax;
+          }
+        );
         // Create the line generator
         const line = d3
           .line<racemate.Frame>()
@@ -83,7 +90,7 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
         // Draw the line
         svg
           .append("path")
-          .datum(lapData.lap.frames)
+          .datum(filteredFrames)
           .attr("fill", "none")
           .attr("stroke", telemetryLine.color)
           .attr("stroke-width", 1)

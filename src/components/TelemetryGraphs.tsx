@@ -2,6 +2,7 @@ import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
 import TelemetryGraph, { HoverData } from "./Graph/TelemetryGraph";
 import { useEffect, useRef, useState } from "preact/hooks";
+import DualRangeSlider from "./UI/DualRangeSlider";
 
 interface Props {
   laps: racemate.Lap[];
@@ -68,10 +69,14 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
     };
   }, []);
 
-  const calcValue = (e: Event): number => {
-    const target = e.target as HTMLInputElement;
-    const value = Number(target.value);
-    return value / 100;
+  const handleRangeChange = (min: number, max: number) => {
+    setMinValue(min);
+    setMaxValue(max);
+  };
+  
+  const handleRangeReset = () => {
+    setMinValue(0);
+    setMaxValue(1);
   };
 
   const setHoverDataCallback = (data: HoverData) => {
@@ -81,24 +86,12 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
 
   return (
     <div ref={containerRef} className="h-full flex flex-col">
-      <div className="mb-2">
-        <input
-          className={"w-full"}
-          type="range"
-          min={0}
-          max={100}
-          value={minValue * 100}
-          onChange={(e) => setMinValue(calcValue(e))}
-        />
-        <input
-          className={"w-full mt-1"}
-          type="range"
-          min={0}
-          max={100}
-          value={maxValue * 100}
-          onChange={(e) => setMaxValue(calcValue(e))}
-        />
-      </div>
+      <DualRangeSlider
+        minValue={minValue}
+        maxValue={maxValue}
+        onChange={handleRangeChange}
+        onReset={handleRangeReset}
+      />
       <TelemetryGraph
         height={calculateGraphHeight()}
         hoverData={hoverData}
