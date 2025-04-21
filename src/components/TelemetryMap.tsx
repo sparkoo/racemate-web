@@ -17,9 +17,12 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
 
   const svgRef = useRef<SVGSVGElement>(null);
 
-  // Handle responsive sizing
-  const width = 800;
-  const height = 800;
+  // Handle responsive sizing with dynamic values
+  const [width, setWidth] = useState<number>(800);
+  const [height, setHeight] = useState<number>(800);
+  
+  // Reference to the container div to measure available space
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Helper function to find the closest frame by normalized position
   const findClosestFrameByPosition = (
@@ -72,9 +75,10 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
     const zDomain = [zCenter - paddedSize / 2, zCenter + paddedSize / 2];
 
     // Create and return the scales
+    // Using fixed 800x800 coordinate space that will be scaled by the SVG transform
     return {
-      xScale: d3.scaleLinear().domain(xDomain).range([0, width]),
-      yScale: d3.scaleLinear().domain(zDomain).range([height, 0]),
+      xScale: d3.scaleLinear().domain(xDomain).range([0, 800]),
+      yScale: d3.scaleLinear().domain(zDomain).range([800, 0]),
     };
   };
 
@@ -88,6 +92,37 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
     return TrackRotationMap.get(trackId) || 0; // Default to 0 if not specified
   };
 
+  // Effect to handle responsive sizing
+  useEffect(() => {
+    if (!containerRef.current) return;
+    
+    const updateDimensions = () => {
+      const container = containerRef.current;
+      if (!container) return;
+      
+      const containerRect = container.getBoundingClientRect();
+      
+      // Use the maximum dimension available to stretch the graph
+      // while still maintaining the aspect ratio in the viewBox
+      setWidth(containerRect.width);
+      setHeight(containerRect.height);
+    };
+    
+    // Initial update
+    updateDimensions();
+    
+    // Set up resize observer
+    const resizeObserver = new ResizeObserver(updateDimensions);
+    resizeObserver.observe(containerRef.current);
+    
+    return () => {
+      if (containerRef.current) {
+        resizeObserver.unobserve(containerRef.current);
+      }
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   useEffect(() => {
     if (!svgRef.current) return;
 
@@ -96,20 +131,42 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
       svg.selectAll("*").remove(); // Clear previous content
 
       // Create a container group for all elements that need rotation
+      // Center it in the available space
       const container = svg
         .append("g")
         .attr("class", "track-container")
         .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-      // Apply track-specific rotation
+      // Calculate the scaling factor to fill the available space
+      // while maintaining the aspect ratio
+      const minDimension = Math.min(width, height);
+      const scaleFactor = minDimension / 800; // 800 is the original size
+
+      // Apply track-specific rotation and scaling
       const rotation = getTrackRotation();
       const rotationGroup = container
         .append("g")
         .attr("class", "rotation-group")
         .attr(
           "transform",
-          `rotate(${rotation}) translate(${-width / 2}, ${-height / 2})`
+          `rotate(${rotation}) scale(${scaleFactor}) translate(${-400}, ${-400})`
         );
+        
+      // Add track background image to the container (not in the rotation group)
+      // This way the image won't rotate with the track data
+      const trackImageUrl = getTrackImageUrl();
+      if (trackImageUrl) {
+        // Add the background image before the rotation group
+        // so it appears behind the telemetry data
+        container.insert("image", ".rotation-group")
+          .attr("href", trackImageUrl)
+          .attr("width", minDimension)
+          .attr("height", minDimension)
+          .attr("x", -minDimension / 2)
+          .attr("y", -minDimension / 2)
+          .attr("preserveAspectRatio", "xMidYMid meet")
+          .attr("opacity", 0.3);
+      }
 
       const line = d3
         .line<racemate.Frame>()
@@ -223,19 +280,18 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
       </div>
 
       {/* Container for track visualization */}
-      <div className="relative w-full h-full flex items-center justify-center">
-        {/* Track background image */}
-        <div
-          className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-30"
-          style={{ backgroundImage: `url(${getTrackImageUrl()})` }}
-        />
-
+      <div 
+        ref={containerRef}
+        className="relative w-full h-full flex items-center justify-center overflow-hidden"
+      >
         {/* SVG for the telemetry data */}
         <svg
           ref={svgRef}
           width={width}
           height={height}
-          className="w-full h-full absolute top-0 left-0"
+          viewBox={`0 0 ${width} ${height}`}
+          preserveAspectRatio="xMidYMid meet"
+          className="w-full h-full"
         />
       </div>
     </div>
