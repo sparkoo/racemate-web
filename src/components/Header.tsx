@@ -34,24 +34,39 @@ const Header: FunctionalComponent<Props> = () => {
               onClick={toggleDropdown}
               className="flex items-center space-x-2 text-white hover:text-amber-400"
             >
-              <img
-                src={currentUser.photoURL || "/default-avatar.png"}
-                alt="User avatar"
-                className="w-8 h-8 rounded-full"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  // Only set to default if it's not already the default to prevent infinite loop
-                  if (target.src.indexOf('default-avatar.png') === -1) {
-                    target.src = "/default-avatar.png";
-                  }
-                }}
-              />
+              {currentUser.photoURL ? (
+                <img
+                  src={currentUser.photoURL}
+                  alt="User avatar"
+                  className="w-8 h-8 rounded-full"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (target.src.indexOf('default-avatar.png') === -1) {
+                      target.src = "/default-avatar.png";
+                    }
+                  }}
+                />
+              ) : (
+                <img
+                  src="/default-avatar.png"
+                  alt="Default avatar"
+                  className="w-8 h-8 rounded-full"
+                />
+              )}
               <span>{currentUser.displayName || currentUser.email}</span>
             </button>
 
             {showDropdown && (
               <div className="absolute right-0 mt-2 w-48 bg-base-200 rounded-md shadow-lg z-50">
                 <div className="py-1">
+                  <a
+                    href="/profile"
+                    onClick={() => setShowDropdown(false)}
+                    className="block w-full text-left px-4 py-2 text-gray-300 hover:bg-base-300"
+                  >
+                    My Profile
+                  </a>
                   <button
                     onClick={() => {
                       signOut();

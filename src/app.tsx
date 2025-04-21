@@ -4,6 +4,7 @@ import Telemetry from "./components/Telemetry";
 import LapListing from "./components/LapListing";
 import Main from "./components/Main";
 import Header from "./components/Header";
+import Profile from "./components/Profile";
 import { AuthProvider } from "./contexts/AuthContext";
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
             <Router>
               <Route path="/telemetry" component={Telemetry} />
               <Route path="/laps" component={LapListing} />
+              <Route path="/profile" component={Profile} />
               <Route default component={Main} />
             </Router>
           </LocationProvider>
