@@ -145,13 +145,14 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         xMax={maxValue}
         yMax={6}
         yMin={0}
-        lapsData={laps.map((lap) => ({
+        lapsData={laps.map((lap, i) => ({
           lap,
           lines: [
             {
               x: (frame) => frame?.normalized_car_position || 0,
               y: (frame) => frame?.gear || 0,
               color: "gray",
+              dashed: i === 1,
             },
           ],
         }))}
@@ -164,13 +165,14 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         xMax={maxValue}
         yMin={0}
         yMax={8000}
-        lapsData={laps.map((lap) => ({
+        lapsData={laps.map((lap, i) => ({
           lap,
           lines: [
             {
               x: (frame) => frame?.normalized_car_position || 0,
               y: (frame) => frame?.rpm || 0,
               color: "yellow",
+              dashed: i === 1,
             },
           ],
         }))}
@@ -182,13 +184,14 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         xMin={minValue}
         xMax={maxValue}
         yMax={300}
-        lapsData={laps.map((lap) => ({
+        lapsData={laps.map((lap, i) => ({
           lap,
           lines: [
             {
               x: (frame) => frame?.normalized_car_position || 0,
               y: (frame) => frame?.speed_kmh || 0,
               color: "blue",
+              dashed: i === 1,
             },
           ],
         }))}
