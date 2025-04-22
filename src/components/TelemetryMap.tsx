@@ -2,7 +2,7 @@ import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
 import { useEffect, useRef, useState } from "preact/hooks";
 import * as d3 from "d3";
-import { TrackMap, TrackImageMap, TrackRotationMap } from "../types/tracks";
+import { TrackImageMap, TrackRotationMap } from "../types/tracks";
 import { RefreshCw } from "preact-feather";
 
 interface Props {
