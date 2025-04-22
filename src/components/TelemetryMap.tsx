@@ -22,12 +22,17 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
   // Handle responsive sizing with dynamic values
   const [width, setWidth] = useState<number>(800);
   const [height, setHeight] = useState<number>(800);
-  
+
   // Reference to the container div to measure available space
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Track container group reference for zoom operations
-  const containerGroupRef = useRef<d3.Selection<SVGGElement, unknown, null, undefined> | null>(null);
+  const containerGroupRef = useRef<d3.Selection<
+    SVGGElement,
+    unknown,
+    null,
+    undefined
+  > | null>(null);
 
   // Helper function to find the closest frame by normalized position
   const findClosestFrameByPosition = (
@@ -100,26 +105,26 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
   // Effect to handle responsive sizing
   useEffect(() => {
     if (!containerRef.current) return;
-    
+
     const updateDimensions = () => {
       const container = containerRef.current;
       if (!container) return;
-      
+
       const containerRect = container.getBoundingClientRect();
-      
+
       // Use the maximum dimension available to stretch the graph
       // while still maintaining the aspect ratio in the viewBox
       setWidth(containerRect.width);
       setHeight(containerRect.height);
     };
-    
+
     // Initial update
     updateDimensions();
-    
+
     // Set up resize observer
     const resizeObserver = new ResizeObserver(updateDimensions);
     resizeObserver.observe(containerRef.current);
-    
+
     return () => {
       if (containerRef.current) {
         resizeObserver.unobserve(containerRef.current);
@@ -130,14 +135,15 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
 
   // Function to reset zoom to default state
   const resetZoom = () => {
-    if (!svgRef.current || !zoomRef.current || !containerGroupRef.current) return;
-    
+    if (!svgRef.current || !zoomRef.current || !containerGroupRef.current)
+      return;
+
     const svg = d3.select(svgRef.current);
     // Type assertion to make TypeScript happy
-    svg.transition().duration(750).call(
-      zoomRef.current.transform as any,
-      d3.zoomIdentity
-    );
+    svg
+      .transition()
+      .duration(750)
+      .call(zoomRef.current.transform as any, d3.zoomIdentity);
   };
 
   useEffect(() => {
@@ -153,7 +159,7 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
         .append("g")
         .attr("class", "track-container")
         .attr("transform", `translate(${width / 2}, ${height / 2})`);
-      
+
       // Store the container reference for zoom operations
       containerGroupRef.current = container;
 
@@ -171,14 +177,15 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
           "transform",
           `rotate(${rotation}) scale(${scaleFactor}) translate(${-400}, ${-400})`
         );
-        
+
       // Add track background image to the container (not in the rotation group)
       // This way the image won't rotate with the track data
       const trackImageUrl = getTrackImageUrl();
       if (trackImageUrl) {
         // Add the background image before the rotation group
         // so it appears behind the telemetry data
-        container.insert("image", ".rotation-group")
+        container
+          .insert("image", ".rotation-group")
           .attr("href", trackImageUrl)
           .attr("width", minDimension)
           .attr("height", minDimension)
@@ -187,20 +194,20 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
           .attr("preserveAspectRatio", "xMidYMid meet")
           .attr("opacity", 0.3);
       }
-      
+
       // Initialize zoom behavior
-      const zoom = d3.zoom<SVGSVGElement, unknown>()
+      const zoom = d3
+        .zoom<SVGSVGElement, unknown>()
         .scaleExtent([0.5, 10]) // Min and max zoom scale
         .on("zoom", (event) => {
           container.attr("transform", event.transform);
         });
-      
+
       // Store zoom behavior in ref for reset function
       zoomRef.current = zoom;
-      
+
       // Apply zoom behavior to SVG
-      svg.call(zoom as any)
-        .on("dblclick.zoom", null); // Disable double-click zoom to avoid conflicts
+      svg.call(zoom as any).on("dblclick.zoom", null); // Disable double-click zoom to avoid conflicts
 
       const line = d3
         .line<racemate.Frame>()
@@ -300,35 +307,28 @@ const TelemetryMap: FunctionalComponent<Props> = ({ laps, hoveredFrames }) => {
     return "";
   };
 
-  // Get the track display name
-  const getTrackName = () => {
-    if (!laps || laps.length === 0) return "";
-    return TrackMap.get(laps[0].track) || laps[0].track;
-  };
+  // Track name is now displayed in the parent Telemetry component
 
   return (
     <div className="relative h-full w-full flex flex-col items-center justify-center">
-      {/* Track name */}
-      <div className="absolute top-2 left-2 z-10 bg-gray-800 bg-opacity-70 px-3 py-1 rounded text-white">
-        {getTrackName()}
-      </div>
-      
+      {/* Track name removed - now displayed in parent component */}
+
       {/* Reset zoom button */}
-      <button 
+      <button
         onClick={resetZoom}
         className="absolute top-2 right-2 z-10 bg-gray-800 bg-opacity-70 p-2 rounded text-white hover:bg-gray-700 transition-colors"
         title="Reset zoom"
       >
         <RefreshCw size={16} />
       </button>
-      
+
       {/* Zoom instructions */}
       <div className="absolute bottom-2 right-2 z-10 bg-gray-800 bg-opacity-70 px-3 py-1 rounded text-white text-xs">
         Use mouse wheel to zoom, drag to pan
       </div>
 
       {/* Container for track visualization */}
-      <div 
+      <div
         ref={containerRef}
         className="relative w-full h-full flex items-center justify-center overflow-hidden cursor-move"
       >

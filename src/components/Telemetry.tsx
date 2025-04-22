@@ -79,17 +79,43 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
     return (
       <>
         <span>{error}</span>
-        <ul>
-          <li>Track: {TrackMap.get(laps[0].track)}</li>
-          <li>Car: {CarMap.get(laps[0].car_model)}</li>
-          <li>
-            Time:{" "}
-            {format(new Date(laps[0].lap_time_ms), "mm:ss:SSS").toString()}
-          </li>
-          <li>
-            Name: {laps[0].player_name} {laps[0].player_surname}
-          </li>
-        </ul>
+        <div className="mb-4">
+          <div className="mb-2">
+            <strong>Track:</strong> {TrackMap.get(laps[0].track)}
+          </div>
+          
+          <div className="flex gap-8">
+            <div className="border-l-4 border-steelblue pl-3">
+              <h3 className="font-semibold text-lg">Lap 1</h3>
+              <ul>
+                <li>Car: {CarMap.get(laps[0].car_model)}</li>
+                <li>
+                  Time:{" "}
+                  {format(new Date(laps[0].lap_time_ms), "mm:ss:SSS").toString()}
+                </li>
+                <li>
+                  Name: {laps[0].player_name} {laps[0].player_surname}
+                </li>
+              </ul>
+            </div>
+            
+            {laps.length > 1 && (
+              <div className="border-l-4 border-red-500 pl-3">
+                <h3 className="font-semibold text-lg">Lap 2</h3>
+                <ul>
+                  <li>Car: {CarMap.get(laps[1].car_model)}</li>
+                  <li>
+                    Time:{" "}
+                    {format(new Date(laps[1].lap_time_ms), "mm:ss:SSS").toString()}
+                  </li>
+                  <li>
+                    Name: {laps[1].player_name} {laps[1].player_surname}
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
         <div class="w-full h-[calc(100vh-180px)] grid grid-cols-2 gap-4">
           <div class="flex flex-col h-full overflow-hidden" ref={divRef}>
             <TelemetryGraphs
