@@ -12,14 +12,18 @@ const App = () => {
     <AuthProvider>
       <div className={"h-screen flex flex-col overflow-hidden"}>
         <Header />
-        <main className={"flex-1 min-h-0"}>
+        <main className={"flex-1 min-h-0 overflow-hidden"}>
           <LocationProvider>
-            <Router>
-              <Route path="/telemetry" component={Telemetry} />
-              <Route path="/laps" component={LapListing} />
-              <Route path="/profile" component={Profile} />
-              <Route default component={Main} />
-            </Router>
+            <div className="h-full overflow-hidden">
+              <Router>
+                {[
+                  <Route path="/telemetry" component={Telemetry} />,
+                  <Route path="/laps" component={LapListing} />,
+                  <Route path="/profile" component={Profile} />,
+                  <Route default component={Main} />
+                ]}
+              </Router>
+            </div>
           </LocationProvider>
         </main>
       </div>

@@ -116,7 +116,7 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
             )}
           </div>
         </div>
-        <div class="w-full h-[calc(100vh-180px)] grid grid-cols-2 gap-4">
+        <div class="w-full h-[calc(100vh-220px)] grid grid-cols-2 gap-4">
           <div class="flex flex-col h-full overflow-hidden" ref={divRef}>
             <TelemetryGraphs
               laps={laps}

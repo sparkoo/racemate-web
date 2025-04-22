@@ -30,16 +30,18 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
   // Number of graphs we're displaying
   const graphCount = 5;
   // Space for sliders and padding
-  const controlsHeight = 70;
+  const controlsHeight = 50;
 
   // Calculate the height for each graph
   const calculateGraphHeight = () => {
     if (containerHeight) {
-      return Math.floor((containerHeight - controlsHeight) / graphCount);
+      // Subtract an extra buffer to ensure all graphs fit
+      return Math.floor((containerHeight - controlsHeight - 20) / graphCount);
     }
 
     if (containerRef.current) {
-      return Math.floor((availableHeight - controlsHeight) / graphCount);
+      // Subtract an extra buffer to ensure all graphs fit
+      return Math.floor((availableHeight - controlsHeight - 20) / graphCount);
     }
 
     return 100; // Fallback height
@@ -85,7 +87,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
   };
 
   return (
-    <div ref={containerRef} className="h-full flex flex-col">
+    <div ref={containerRef} className="h-full flex flex-col pb-4">
       <DualRangeSlider
         minValue={minValue}
         maxValue={maxValue}

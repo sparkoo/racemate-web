@@ -63,7 +63,7 @@ const Main: FunctionalComponent<Props> = ({}) => {
   return (
     <div
       className={
-        "grid grid-cols-6 gap-4 overflow-hidden p-4 h-full"
+        "grid grid-cols-6 gap-4 p-4"
       }
     >
       <div className={"card col-span-4 min-h-0 flex flex-col"}>
