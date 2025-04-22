@@ -27,11 +27,7 @@ const LastRecordedLaps: FunctionalComponent<Props> = () => {
         const lapsCollection = collection(db, "laps");
 
         // Query for the most recent laps, limited to 5
-        const q = query(
-          lapsCollection,
-          orderBy("timestamp", "desc"),
-          limit(10)
-        );
+        const q = query(lapsCollection, orderBy("timestamp", "desc"), limit(5));
 
         const unsubscribe = onSnapshot(
           q,
