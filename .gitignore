@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 
 .secret/
+
+# Environment variables
+.env
+.env.*
+!.env.example

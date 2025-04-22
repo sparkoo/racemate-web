@@ -5,12 +5,12 @@ import { FirebaseApp, FirebaseOptions, initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig: FirebaseOptions = {
-  apiKey: "AIzaSyBeOEWJ6Bj3Cxt4OdIZGTZwyELhyyuONU4",
-  authDomain: "racemate-3dc5c.firebaseapp.com",
-  projectId: "racemate-3dc5c",
-  storageBucket: "racemate-3dc5c.firebasestorage.app",
-  messagingSenderId: "935374379053",
-  appId: "1:935374379053:web:87b6464781d479549600a4",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 export const firebaseApp: FirebaseApp = initializeApp(firebaseConfig);
