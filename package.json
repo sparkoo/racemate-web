@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.6",
     "d3": "^7.9.0",
     "date-fns": "^4.1.0",
-    "firebase": "^11.6.0",
-    "preact": "^10.26.5",
+    "firebase": "^11.7.2",
+    "preact": "^10.26.6",
     "preact-feather": "^4.2.1",
     "preact-iso": "^2.9.1",
     "racemate-msg": "^4.3.0"
@@ -21,9 +21,9 @@
   "devDependencies": {
     "@preact/preset-vite": "^2.10.1",
     "@types/d3": "^7.4.3",
-    "daisyui": "^5.0.27",
+    "daisyui": "^5.0.35",
     "tailwindcss": "^4.1.6",
     "typescript": "~5.8.3",
-    "vite": "^6.3.2"
+    "vite": "^6.3.5"
   }
 }
