@@ -3,6 +3,7 @@ import { FunctionalComponent } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
 import TelemetryGraphs from "./TelemetryGraphs";
 import TelemetryMap from "./TelemetryMap";
+import TimelineControl from "./Graph/TimelineControl";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { firebaseApp } from "../main";
@@ -10,6 +11,7 @@ import { racemate } from "racemate-msg";
 import { useRoute } from "preact-iso";
 import { CarMap } from "../types/cars";
 import { TrackMap } from "../types/tracks";
+import { HoverData } from "./Graph/TelemetryGraph";
 
 interface Props {}
 
@@ -20,7 +22,7 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
 
   const [laps, setLaps] = useState<racemate.Lap[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [hoveredFrames, setHoveredFrames] = useState<number[]>([]);
+  const [hoverData, setHoverData] = useState<HoverData>({ pointerPosX: 0, frameIndex: [] });
 
   const divRef = useRef<HTMLDivElement>(null);
 
@@ -118,15 +120,18 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
         </div>
         <div class="w-full h-[calc(100vh-220px)] grid grid-cols-2 gap-4">
           <div class="flex flex-col h-full overflow-hidden" ref={divRef}>
+            <TimelineControl
+              laps={laps}
+              onHoverChange={(data) => setHoverData(data)}
+            />
             <TelemetryGraphs
               laps={laps}
-              hoveredFrames={hoveredFrames}
-              hoveredFramesCallback={(frames) => setHoveredFrames(frames)}
+              hoverData={hoverData}
             />
           </div>
           <div class="flex items-center justify-center h-full">
             <div class="aspect-square w-full max-w-full h-full">
-              <TelemetryMap laps={laps} hoveredFrames={hoveredFrames} />
+              <TelemetryMap laps={laps} hoveredFrames={hoverData.frameIndex} />
             </div>
           </div>
         </div>

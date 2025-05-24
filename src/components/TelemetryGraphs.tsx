@@ -6,15 +6,13 @@ import DualRangeSlider from "./UI/DualRangeSlider";
 
 interface Props {
   laps: racemate.Lap[];
-  hoveredFrames: number[];
-  hoveredFramesCallback: (hoveredFrames: number[]) => void;
+  hoverData: HoverData;
   containerHeight?: number; // Optional prop to override container height
 }
 
 const TelemetryGraphs: FunctionalComponent<Props> = ({
   laps,
-  hoveredFrames,
-  hoveredFramesCallback,
+  hoverData,
   containerHeight,
 }) => {
   const [minValue, setMinValue] = useState<number>(0);
@@ -22,10 +20,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
   const [availableHeight, setAvailableHeight] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const [hoverData, setHoverData] = useState<HoverData>({
-    pointerPosX: 0,
-    frameIndex: hoveredFrames,
-  });
+  // Hover data is now controlled by parent component
 
   // Number of graphs we're displaying
   const graphCount = 5;
@@ -81,10 +76,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
     setMaxValue(1);
   };
 
-  const setHoverDataCallback = (data: HoverData) => {
-    hoveredFramesCallback(data.frameIndex);
-    setHoverData(data);
-  };
+  // No longer need to handle hover data callbacks
 
   return (
     <div ref={containerRef} className="h-full flex flex-col pb-4">
@@ -97,7 +89,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
       <TelemetryGraph
         height={calculateGraphHeight()}
         hoverData={hoverData}
-        hoverDataCallback={setHoverDataCallback}
+        hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
         xMin={minValue}
         xMax={maxValue}
         lapsData={laps.map((lap, i) => ({
@@ -121,7 +113,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
       <TelemetryGraph
         height={calculateGraphHeight()}
         hoverData={hoverData}
-        hoverDataCallback={setHoverDataCallback}
+        hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
         xMin={minValue}
         xMax={maxValue}
         yMin={-1}
@@ -140,7 +132,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
       <TelemetryGraph
         height={calculateGraphHeight()}
         hoverData={hoverData}
-        hoverDataCallback={setHoverDataCallback}
+        hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
         xMin={minValue}
         xMax={maxValue}
         yMax={6}
@@ -160,7 +152,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
       <TelemetryGraph
         height={calculateGraphHeight()}
         hoverData={hoverData}
-        hoverDataCallback={setHoverDataCallback}
+        hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
         xMin={minValue}
         xMax={maxValue}
         yMin={0}
@@ -180,7 +172,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
       <TelemetryGraph
         height={calculateGraphHeight()}
         hoverData={hoverData}
-        hoverDataCallback={setHoverDataCallback}
+        hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
         xMin={minValue}
         xMax={maxValue}
         yMax={300}
