@@ -23,6 +23,7 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
   const [laps, setLaps] = useState<racemate.Lap[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [hoverData, setHoverData] = useState<HoverData>({ pointerPosX: 0, frameIndex: [] });
+  const [zoomRange, setZoomRange] = useState<[number, number]>([0, 1]);
 
   const divRef = useRef<HTMLDivElement>(null);
 
@@ -123,10 +124,13 @@ const Telemetry: FunctionalComponent<Props> = ({}) => {
             <TimelineControl
               laps={laps}
               onHoverChange={(data) => setHoverData(data)}
+              onZoomChange={(min, max) => setZoomRange([min, max])}
             />
             <TelemetryGraphs
               laps={laps}
               hoverData={hoverData}
+              xMin={zoomRange[0]}
+              xMax={zoomRange[1]}
             />
           </div>
           <div class="flex items-center justify-center h-full">

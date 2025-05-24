@@ -2,21 +2,23 @@ import { FunctionalComponent } from "preact";
 import { racemate } from "racemate-msg";
 import TelemetryGraph, { HoverData } from "./Graph/TelemetryGraph";
 import { useEffect, useRef, useState } from "preact/hooks";
-import DualRangeSlider from "./UI/DualRangeSlider";
 
 interface Props {
   laps: racemate.Lap[];
   hoverData: HoverData;
   containerHeight?: number; // Optional prop to override container height
+  xMin?: number;
+  xMax?: number;
 }
 
 const TelemetryGraphs: FunctionalComponent<Props> = ({
   laps,
   hoverData,
   containerHeight,
+  xMin = 0,
+  xMax = 1,
 }) => {
-  const [minValue, setMinValue] = useState<number>(0);
-  const [maxValue, setMaxValue] = useState<number>(1);
+  // Use the xMin and xMax props for zoom range
   const [availableHeight, setAvailableHeight] = useState<number>(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -66,32 +68,18 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
     };
   }, []);
 
-  const handleRangeChange = (min: number, max: number) => {
-    setMinValue(min);
-    setMaxValue(max);
-  };
-
-  const handleRangeReset = () => {
-    setMinValue(0);
-    setMaxValue(1);
-  };
+  // Zoom is now handled by TimelineControl
 
   // No longer need to handle hover data callbacks
 
   return (
-    <div ref={containerRef} className="h-full flex flex-col pb-4">
-      <DualRangeSlider
-        minValue={minValue}
-        maxValue={maxValue}
-        onChange={handleRangeChange}
-        onReset={handleRangeReset}
-      />
+    <div ref={containerRef} className="h-full flex flex-col">
       <TelemetryGraph
         height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
-        xMin={minValue}
-        xMax={maxValue}
+        xMin={xMin}
+        xMax={xMax}
         lapsData={laps.map((lap, i) => ({
           lap,
           lines: [
@@ -114,8 +102,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
-        xMin={minValue}
-        xMax={maxValue}
+        xMin={xMin}
+        xMax={xMax}
         yMin={-1}
         lapsData={laps.map((lap, i) => ({
           lap,
@@ -133,8 +121,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
-        xMin={minValue}
-        xMax={maxValue}
+        xMin={xMin}
+        xMax={xMax}
         yMax={6}
         yMin={0}
         lapsData={laps.map((lap, i) => ({
@@ -153,8 +141,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
-        xMin={minValue}
-        xMax={maxValue}
+        xMin={xMin}
+        xMax={xMax}
         yMin={0}
         yMax={8000}
         lapsData={laps.map((lap, i) => ({
@@ -173,8 +161,8 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
         height={calculateGraphHeight()}
         hoverData={hoverData}
         hoverDataCallback={() => {}} // Dummy callback as we're not handling hover events here
-        xMin={minValue}
-        xMax={maxValue}
+        xMin={xMin}
+        xMax={xMax}
         yMax={300}
         lapsData={laps.map((lap, i) => ({
           lap,
