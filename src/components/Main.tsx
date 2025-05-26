@@ -88,7 +88,7 @@ const Main: FunctionalComponent<Props> = ({}) => {
             </select>
           </div>
 
-          <div className={"flex-1 min-h-0 overflow-hidden"}>
+          <div className={"flex-1 min-h-0 overflow-visible"}>
             {!selectedTrack ? (
               <div className={"text-center text-lg text-gray-500 mt-8"}>
                 Select a track to view laps

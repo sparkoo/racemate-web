@@ -163,8 +163,35 @@ const LapListing: FunctionalComponent<Props> = ({
     setSelectedCarClass(target.value);
   };
 
+  // Create a style element for custom scrolling styles
+  useEffect(() => {
+    // Add a custom style to ensure scrolling works
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+      .lap-table-container {
+        height: calc(100vh - 200px);
+        overflow-y: scroll;
+        display: block;
+      }
+      .lap-table {
+        width: 100%;
+      }
+      .lap-table thead {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+    `;
+    document.head.appendChild(styleElement);
+    
+    return () => {
+      // Clean up the style when component unmounts
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
   return (
-    <div className={"h-full overflow-auto border border-base-300 rounded-lg"}>
+    <div className="border border-base-300 rounded-lg">
       {/* Car Class Filter */}
       <div className="p-3 bg-base-200 border-b border-base-300">
         <div className="form-control w-full max-w-xs">
@@ -187,22 +214,26 @@ const LapListing: FunctionalComponent<Props> = ({
       </div>
 
       {laps.length === 0 ? (
-        <div className={"flex h-full items-center justify-center text-lg text-gray-500"}>
+        <div className="p-8 text-center text-lg text-gray-500">
           No data available for the selected filters
         </div>
       ) : (
-        <table className={"table table-zebra table-md table-pin-rows w-full"}>
-          <thead className={"bg-base-100 sticky top-0 z-10"}>
-            <tr>
-              <th>Time</th>
-              <th>Name</th>
-              <th>Car</th>
-              <th>LapTime</th>
-              <th>Conditions</th>
-            </tr>
-          </thead>
-          <tbody>{laps.map(renderRow)}</tbody>
-        </table>
+        <div className="lap-table-container">
+          <table className="table table-zebra table-md lap-table">
+            <thead className="bg-base-100">
+              <tr>
+                <th>Time</th>
+                <th>Name</th>
+                <th>Car</th>
+                <th>LapTime</th>
+                <th>Conditions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {laps.map(renderRow)}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
