@@ -65,7 +65,7 @@ export const Tracks: Track[] = [
     image_file: "austria-n.svg",
   },
   {
-    kunos_id: "silverstone",
+    kunos_id: "Silverstone",
     name: "Silverstone",
     image_file: "silverstone-n.svg",
   },
