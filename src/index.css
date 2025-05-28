@@ -6,3 +6,80 @@
 body {
   @apply w-full;
 }
+
+/* Compact UI Overrides */
+/* Reduce table spacing */
+.table {
+  @apply text-sm;
+}
+
+.table th,
+.table td {
+  @apply py-1 px-2;
+}
+
+.table-md th,
+.table-md td {
+  @apply py-1 px-2;
+}
+
+.table-zebra tbody tr:nth-child(even) {
+  @apply bg-base-200/25;
+}
+
+/* Reduce card spacing */
+.card {
+  @apply overflow-hidden;
+}
+
+.card-body {
+  @apply p-3 gap-2;
+}
+
+/* Reduce form control spacing */
+.form-control {
+  @apply gap-1;
+}
+
+.label {
+  @apply py-1 px-2;
+}
+
+.select,
+.input {
+  @apply h-8 min-h-8 px-2;
+}
+
+.select-xl {
+  @apply h-10 min-h-10;
+}
+
+/* Reduce general spacing */
+.p-4 {
+  @apply p-2;
+}
+
+.gap-4 {
+  @apply gap-2;
+}
+
+.mt-4 {
+  @apply mt-2;
+}
+
+.mt-8 {
+  @apply mt-4;
+}
+
+/* Adjust text sizes */
+.text-3xl {
+  @apply text-2xl;
+}
+
+.text-2xl {
+  @apply text-xl;
+}
+
+.text-lg {
+  @apply text-base;
+}
