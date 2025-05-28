@@ -25,7 +25,7 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
   // Hover data is now controlled by parent component
 
   // Number of graphs we're displaying
-  const graphCount = 5;
+  const graphCount = 6; // Increased to include delta graph
   // Space for sliders and padding
   const controlsHeight = 50;
 
@@ -72,8 +72,104 @@ const TelemetryGraphs: FunctionalComponent<Props> = ({
 
   // No longer need to handle hover data callbacks
 
+  // Calculate delta between two laps
+  const calculateDeltaData = () => {
+    if (laps.length < 2) return [];
+
+    const lap1 = laps[0];
+    const lap2 = laps[1];
+
+    // Create a map of position to time for each lap
+    const lap1PositionToTime = new Map<number, number>();
+    const lap2PositionToTime = new Map<number, number>();
+
+    lap1.frames?.forEach((frame) => {
+      if (frame.normalized_car_position !== undefined) {
+        // Round position to 3 decimal places for better matching
+        const position =
+          Math.round(frame.normalized_car_position * 1000) / 1000;
+        lap1PositionToTime.set(position, frame.current_time || 0);
+      }
+    });
+
+    lap2.frames?.forEach((frame) => {
+      if (frame.normalized_car_position !== undefined) {
+        // Round position to 3 decimal places for better matching
+        const position =
+          Math.round(frame.normalized_car_position * 1000) / 1000;
+        lap2PositionToTime.set(position, frame.current_time || 0);
+      }
+    });
+
+    // Create delta frames with position and time difference
+    const deltaFrames: racemate.Frame[] = [];
+
+    // Use positions from lap1 as reference
+    lap1.frames?.forEach((frame) => {
+      if (frame.normalized_car_position !== undefined) {
+        const position =
+          Math.round(frame.normalized_car_position * 1000) / 1000;
+        const lap1Time = lap1PositionToTime.get(position);
+        const lap2Time = lap2PositionToTime.get(position);
+
+        if (lap1Time !== undefined && lap2Time !== undefined) {
+          // Calculate delta (lap1 - lap2), positive means lap1 is slower
+          const timeDelta = lap1Time - lap2Time;
+
+          // Create a new frame with the position and delta
+          const deltaFrame = new racemate.Frame({
+            normalized_car_position: position,
+            // Store delta in speed_kmh field (repurposing for delta)
+            speed_kmh: timeDelta / 1000,
+          });
+
+          deltaFrames.push(deltaFrame);
+        }
+      }
+    });
+
+    // Sort frames by position
+    deltaFrames.sort(
+      (a, b) =>
+        (a.normalized_car_position || 0) - (b.normalized_car_position || 0)
+    );
+
+    return deltaFrames;
+  };
+
+  // Get delta frames
+  const deltaFrames = calculateDeltaData();
+
+  // Create a virtual lap for delta data
+  const deltaLap = new racemate.Lap({
+    frames: deltaFrames,
+  });
+
   return (
     <div ref={containerRef} className="h-full flex flex-col">
+      {/* Delta Graph - New graph showing time difference between laps */}
+      <TelemetryGraph
+        height={calculateGraphHeight()}
+        hoverData={hoverData}
+        hoverDataCallback={() => {}}
+        xMin={xMin}
+        xMax={xMax}
+        yMin={-1} // Allow for negative values (when lap1 is faster)
+        yMax={1} // Adjust based on expected delta range
+        lapsData={[
+          {
+            lap: deltaLap,
+            lines: [
+              {
+                x: (frame) => frame?.normalized_car_position || 0,
+                y: (frame) => frame?.speed_kmh || 0, // Using speed_kmh field to store delta
+                color: "purple", // Purple for delta
+                dashed: false,
+              },
+            ],
+          },
+        ]}
+      />
       <TelemetryGraph
         height={calculateGraphHeight()}
         hoverData={hoverData}

@@ -36,8 +36,8 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
   const [verticalLine, setVerticalLine] =
     useState<d3.Selection<SVGLineElement, unknown, null, undefined>>();
 
-  // We still need to set the hovered values for potential future use
-  const [, setHoveredValue] = useState<
+  // Store hovered values for display
+  const [hoveredValues, setHoveredValues] = useState<
     { n: number; color: string }[]
   >([]);
 
@@ -133,7 +133,26 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
           }
         });
       });
-      setHoveredValue(currentHoveredValues);
+      setHoveredValues(currentHoveredValues);
+      
+      // Add value labels at hover position
+      currentHoveredValues.forEach((value, index) => {
+        // Format the value - round to 2 decimal places for most values
+        // For delta graph (purple), show with + or - sign and 3 decimal places
+        const formattedValue = value.color === "purple" 
+          ? (value.n > 0 ? "+" : "") + value.n.toFixed(3) 
+          : value.n.toFixed(2);
+          
+        // Add text element for each value
+        svg
+          .append("text")
+          .attr("x", hoverData.pointerPosX + 5) // Position slightly to the right of the vertical line
+          .attr("y", 15 + (index * 20)) // Position values vertically with spacing
+          .attr("fill", value.color)
+          .attr("font-size", "12px")
+          .attr("font-weight", "bold")
+          .text(formattedValue);
+      });
     }
   }, [hoverData, width, height, xMin, xMax, yMin, yMax, lapsData]);
 
@@ -165,7 +184,7 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
   };
 
   return (
-    <div className={"bg-gray-800 mt-1"} style={{ height }}>
+    <div className={"bg-gray-800 mt-1 relative"} style={{ height }}>
       <svg
         ref={svgRef}
         width={width}
@@ -175,7 +194,16 @@ const TelemetryGraph: FunctionalComponent<Props> = ({
         onPointerMove={(e: PointerEvent) => onEv(e)}
         onPointerLeave={(e: PointerEvent) => onEv(e)}
       />
-      {/* Numbers are hidden as requested */}
+      {/* Display current values in top-right corner */}
+      <div className="absolute top-2 right-2 text-right">
+        {hoveredValues.map((value, index) => (
+          <div key={index} style={{ color: value.color, fontWeight: "bold" }}>
+            {value.color === "purple" 
+              ? `${value.n > 0 ? "+" : ""}${value.n.toFixed(3)}s` 
+              : value.n.toFixed(2)}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
