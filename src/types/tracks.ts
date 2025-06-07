@@ -80,7 +80,7 @@ export const Tracks: Track[] = [
   { kunos_id: "valencia", name: "Valencia", image_file: "valencia.svg" },
   { kunos_id: "watkins_glen", name: "Watkins Glen", image_file: "watkins.svg" },
   { kunos_id: "zandvoort", name: "Zandvoort", image_file: "zandvoort.svg" },
-  { kunos_id: "zolder", name: "Zolder", image_file: "zolder-n.svg" },
+  { kunos_id: "Zolder", name: "Zolder", image_file: "zolder-n.svg" },
 ];
 
 export const TrackMap: ReadonlyMap<string, string> = Tracks.reduce(
