@@ -15,7 +15,7 @@
     "firebase": "^11.9.1",
     "preact": "^10.26.9",
     "preact-feather": "^4.2.1",
-    "preact-iso": "^2.9.1",
+    "preact-iso": "^2.9.2",
     "racemate-msg": "^4.5.0"
   },
   "devDependencies": {
