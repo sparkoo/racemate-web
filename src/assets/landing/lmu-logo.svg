@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .lmu-text { font-family: 'Arial Black', sans-serif; font-weight: 900; }
+    .lmu-subtitle { font-family: Arial, sans-serif; font-weight: 400; }
+  </style>
+  <rect width="200" height="80" rx="10" fill="#003366"/>
+  <g fill="#ffffff">
+    <text x="50" y="35" class="lmu-text" font-size="24">LMU</text>
+    <text x="35" y="55" class="lmu-subtitle" font-size="12">LE MANS ULTIMATE</text>
+    <path d="M20,20 L35,20 L35,30 L25,40 L15,30 L15,20 Z" fill="#ffcc00"/>
+    <path d="M20,25 L30,25 L30,30 L25,35 L20,30 Z" fill="#003366"/>
+  </g>
+</svg>
