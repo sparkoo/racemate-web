@@ -5,6 +5,7 @@ import LapListing from "./components/LapListing";
 import Main from "./components/Main";
 import Header from "./components/Header";
 import Profile from "./components/Profile";
+import LandingPage from "./components/LandingPage";
 import { AuthProvider } from "./contexts/AuthContext";
 
 const App = () => {
@@ -20,7 +21,8 @@ const App = () => {
                   <Route path="/telemetry" component={Telemetry} />,
                   <Route path="/laps" component={LapListing} />,
                   <Route path="/profile" component={Profile} />,
-                  <Route default component={Main} />
+                  <Route path="/dashboard" component={Main} />,
+                  <Route default component={LandingPage} />
                 ]}
               </Router>
             </div>
