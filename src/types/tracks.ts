@@ -6,7 +6,7 @@ export interface Track {
 }
 
 export const Tracks: Track[] = [
-  { kunos_id: "barcelona", name: "Barcelona", image_file: "barcelona-n.svg" },
+  { kunos_id: "Barcelona", name: "Barcelona", image_file: "barcelona-n.svg" },
   { kunos_id: "mount_panorama", name: "Bathurst", image_file: "bathurst.svg" },
   {
     kunos_id: "brands_hatch",
