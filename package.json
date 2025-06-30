@@ -19,7 +19,7 @@
     "racemate-msg": "^4.5.0"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.10.1",
+    "@preact/preset-vite": "^2.10.2",
     "@types/d3": "^7.4.3",
     "daisyui": "^5.0.43",
     "tailwindcss": "^4.1.10",
