@@ -12,7 +12,7 @@
     "@tailwindcss/vite": "^4.1.11",
     "d3": "^7.9.0",
     "date-fns": "^4.1.0",
-    "firebase": "^11.9.1",
+    "firebase": "^11.10.0",
     "preact": "^10.26.9",
     "preact-feather": "^4.2.1",
     "preact-iso": "^2.9.2",
