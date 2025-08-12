@@ -24,6 +24,6 @@
     "daisyui": "^5.0.50",
     "tailwindcss": "^4.1.10",
     "typescript": "~5.9.2",
-    "vite": "^7.0.6"
+    "vite": "^7.1.1"
   }
 }
