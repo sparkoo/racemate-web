@@ -24,6 +24,11 @@ export const Cars: Car[] = [
   },
   { kunos_id: "bmw_m4_gt3", name: "BMW M4 GT3 2022", class: "GT3" },
   {
+    kunos_id: "ferrari_296_gt3",
+    name: "Ferrari 296 GT3 2023",
+    class: "GT3",
+  },
+  {
     kunos_id: "ferrari_488_gt3_evo",
     name: "Ferrari 488 GT3 Evo 2020",
     class: "GT3",
