@@ -45,6 +45,11 @@ export const Cars: Car[] = [
     class: "GT3",
   },
   {
+    kunos_id: "nissan_gt_r_gt3_2018",
+    name: "Nissan GTR Nismo GT3 2018",
+    class: "GT3",
+  },
+  {
     kunos_id: "porsche_991ii_gt3_r",
     name: "Porsche 911 II GT3 R 2019",
     class: "GT3",
