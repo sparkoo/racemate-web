@@ -28,7 +28,7 @@ export const Tracks: Track[] = [
   },
   { kunos_id: "Imola", name: "Imola", image_file: "imola.svg" },
   { kunos_id: "indianapolis", name: "Indianapolis", image_file: "indi.svg" },
-  { kunos_id: "kyalami", name: "Kyalami", image_file: "kyalami.svg" },
+  { kunos_id: "Kyalami", name: "Kyalami", image_file: "kyalami.svg" },
   { kunos_id: "laguna_seca", name: "Laguna Seca", image_file: "laguna.svg" },
   { kunos_id: "misano", name: "Misano", image_file: "misano-n.svg" },
   {
