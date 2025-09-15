@@ -21,7 +21,7 @@
   "devDependencies": {
     "@preact/preset-vite": "^2.10.2",
     "@types/d3": "^7.4.3",
-    "daisyui": "^5.1.9",
+    "daisyui": "^5.1.12",
     "tailwindcss": "^4.1.13",
     "typescript": "~5.9.2",
     "vite": "^7.1.5"
