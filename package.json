@@ -23,7 +23,7 @@
     "@types/d3": "^7.4.3",
     "daisyui": "^5.1.25",
     "tailwindcss": "^4.1.13",
-    "typescript": "~5.9.2",
+    "typescript": "~5.9.3",
     "vite": "^7.1.7"
   }
 }
