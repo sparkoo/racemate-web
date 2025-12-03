@@ -13,7 +13,7 @@
     "d3": "^7.9.0",
     "date-fns": "^4.1.0",
     "firebase": "^12.6.0",
-    "preact": "^10.27.2",
+    "preact": "^10.28.0",
     "preact-feather": "^4.2.1",
     "preact-iso": "^2.11.0",
     "racemate-msg": "^4.5.0"
