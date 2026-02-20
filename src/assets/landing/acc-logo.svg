@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .acc-text { font-family: 'Arial Black', sans-serif; font-weight: 900; }
+    .acc-subtitle { font-family: Arial, sans-serif; font-weight: 400; }
+  </style>
+  <rect width="200" height="80" rx="10" fill="#1a1a1a"/>
+  <g fill="#ffffff">
+    <text x="50" y="35" class="acc-text" font-size="24">ACC</text>
+    <text x="20" y="55" class="acc-subtitle" font-size="12">ASSETTO CORSA COMPETIZIONE</text>
+    <path d="M20,20 L40,20 L45,30 L35,40 L15,40 Z" fill="#e30613"/>
+    <circle cx="30" cy="30" r="5" fill="#ffffff"/>
+  </g>
+</svg>
